@@ -42,7 +42,9 @@
         #slider > img {margin-left: 250px;}
         .tm-mt-0 {float: left; font-size: 50px;}
         #menubar {width: 1000px; margin: 0 auto;}
-        footer {width:1000px; height:50px; margin:0 auto;}
+        
+        
+        footer {width:100%; height:50px; margin:0 auto; background-color: #eeeeee;}
         #gtco-footer,
 .gtco-section {
   padding: 6em 0;

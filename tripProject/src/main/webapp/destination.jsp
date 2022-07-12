@@ -66,7 +66,7 @@
 </head>
 <body>
 <div id="slider">
-        
+         <!-- 여기에 내용 넣으세요 -->
         
         
     </div>

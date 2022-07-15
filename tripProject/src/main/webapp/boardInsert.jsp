@@ -74,7 +74,7 @@
 		lang : 'ko-KR',
 		toolbar: [
 			// 글꼴 설정
-			['fontname', ['fontname']],
+			/* ['fontname', ['fontname']], */
 			// 글자 크기 설정
 			['fontsize', ['fontsize']],
 			// 굵기, 기울임꼴, 밑줄,취소 선, 서식지우기
@@ -93,7 +93,7 @@
 			['view', ['codeview','fullscreen', 'help']]
 			],
 			// 추가한 글꼴
-			fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋음체','바탕체'],
+			/* fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋음체','바탕체'], */
 			// 추가한 폰트사이즈
 			fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72']
 			});

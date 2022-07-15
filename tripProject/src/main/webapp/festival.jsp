@@ -1,5 +1,5 @@
 
-
+<jsp:include page="header.jsp"/>
 
 	<<!-- top키 -->
 	<body>
@@ -79,7 +79,7 @@
 
 	</div>
 	
-
+<jsp:include page="footer.jsp"/>
 
 	</body>
 </html>

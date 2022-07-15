@@ -1,9 +1,11 @@
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
 <jsp:include page="header.jsp"/>
 
-	<<!-- top키 -->
+	<<!-- topí¤ -->
 	<body>
-	<a style="display:scroll;position:fixed;bottom:20px;z-index: 999;right:60px;font-size: 40px;" href="#" title=”top">
+	<a style="display:scroll;position:fixed;bottom:20px;z-index: 999;right:60px;font-size: 40px;" href="#" title=âtop">
 	<i class="fa-solid fa-circle-arrow-up"></i></a>
 	
 	<!-- header card -->
@@ -14,7 +16,7 @@
 	<br><br>
 	<div id ="slider">
 	
-	 <!-- 여기에 내용 넣으세요 -->
+	 <!-- 여기에 입력 -->
 	
 	 <div>
 <table class="table">
@@ -60,7 +62,6 @@
   </ul>
 </nav>
 </div>
-
 
 
  <div id = "map" style="width: 800px; height: 300px;"></div>

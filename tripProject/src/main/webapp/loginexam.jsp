@@ -4,10 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>여행가기 좋은날</title>
-   <link rel="stylesheet" href="fontawesome/css/all.min.css"> <!-- https://fontawesome.com/ -->
+    <title>로그인 연습</title>
+    <link rel="stylesheet" href="fontawesome/css/all.min.css"> <!-- https://fontawesome.com/ -->
     <link rel="stylesheet" href="css/magnific-popup.css"> 
      <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -29,20 +27,14 @@
       
    * {font-family: 'yg-jalnan', cursive }
 
-        .gd-container {
-  max-width: 1100px;
-  position: relative;
-  margin: 0 auto;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
  ul > li > a {color: #212121;}
- #slider {width: 1000px; height: 700px; margin: 0 auto;}
  
-    </style>
-  
-    
+.bg:hover {
+  opacity:0.7;
+ }
+ #slider {width: 1000px; height: 600px; margin: 0 auto;}
+</style>
+</head>
 	<nav class="navbar">
         <div class="navbar_logo">
             <i class="fa-solid fa-map-location-dot"></i>
@@ -58,16 +50,81 @@
  
         
     </nav>
- 
-</head>
 <body>
-<div id="slider">
-         <!-- 여기에 내용 넣으세요 -->
-        
-        
+<!-- header card -->
+	
+	<div class="card">
+   
+	</div>
+	<br><br>
+<div id = "slider">
+<!-- Section: Design Block -->
+<section class="text-center">
+  <!-- Background image -->
+  <div class="p-5 bg-image" style="
+        background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');
+        height: 200px;
+        "></div>
+  <!-- Background image -->
+
+  <div class="card mx-4 mx-md-5 shadow-5-strong" style="
+        margin-top: -100px;
+        background: hsla(0, 0%, 100%, 0.8);
+        backdrop-filter: blur(30px);
+        ">
+    <div class="card-body py-5 px-md-5">
+
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-8">
+          <h2 class="fw-bold mb-5">Sign up now</h2>
+          <form>
+           
+            <!-- id input -->
+            <div class="form-outline mb-4">
+              <input type="id" id="form3Example3" class="form-control" />
+              <label class="form-label" for="form3Example3">아이디</label>
+            </div>
+
+            <!-- Password input -->
+           <div class="form-outline mb-4">
+              <input type="pwd" id="form3Example3" class="form-control" />
+              <label class="form-label" for="form3Example3">비밀번호</label>
+            </div>
+             <!-- 아이디,비밀번호 찾기 -->
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                   <a href="#!" class="text-body">아이디 찾기</a>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <a href="#!" class="text-body">비밀번호 찾기</a>
+                </div>
+              </div>
+            </div>
+         
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4">
+              Sign up
+            </button>
+
+            
+          </form>
+        </div>
+      </div>
     </div>
-    
-	<footer>
+  </div>
+</section>
+<!-- Section: Design Block -->
+
+
+
+
+</div>
+
+<footer>
 	
 <div class="card text-center">
  
@@ -87,4 +144,5 @@
 	
 	</footer>
 </body>
+
 </html>

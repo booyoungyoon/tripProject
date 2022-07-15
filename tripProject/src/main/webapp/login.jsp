@@ -174,8 +174,14 @@ h2 {
 
 </head>
 <body>
-	<jsp:include page="header.jsp"></jsp:include>
 
+	<jsp:include page="header.jsp"></jsp:include>
+<div class="card">
+   
+	</div>
+	<br><br>
+	<a style="display:scroll;position:fixed;bottom:20px;z-index: 999;right:60px;font-size: 40px;" href="#" title=”top">
+   <i class="fa-solid fa-circle-arrow-up"></i></a>
 
 	<form method="post" action="home.jsp">
 		<div class="Wallpapers">

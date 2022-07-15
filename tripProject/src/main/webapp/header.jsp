@@ -31,7 +31,7 @@
 
 
  ul > li > a {color: #212121;}
- #slider {width: 1000px; height: 550px; margin: 0 auto;}
+ #slider {width: 1000px; height: 1000px; margin: 0 auto;}
     </style>
      
     

@@ -45,7 +45,7 @@
            <li><a href="destination.jsp">여행지 추천</a></li>  
            <li><a href="course.jsp">코스 추천</a></li>  
            <li><a href="festival.jsp">축제</a></li>  
-            <li><a href="#">로그인</a></li> 
+            <li><a href="login.jsp">로그인</a></li> 
             </ul>
  
         

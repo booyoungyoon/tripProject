@@ -12,7 +12,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/home.do", method = RequestMethod.GET)
 	public String home() {
-		return "redirect:/home.jsp";
+		return "forward:/home.jsp";
 	}
 	
 }

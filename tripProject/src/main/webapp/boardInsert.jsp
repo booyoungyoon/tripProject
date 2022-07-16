@@ -19,8 +19,8 @@
      <script src="https://kit.fontawesome.com/c34800a0df.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <style>
-           @font-face {
+ <style>
+    @font-face {
     font-family: 'yg-jalnan';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
     font-weight: normal;
@@ -41,23 +41,7 @@
  #slider {width: 1000px; height: 700px; margin: 0 auto;}
 
 
-    </style>
-  
-	<nav class="navbar">
-        <div class="navbar_logo">
-            <i class="fa-solid fa-map-location-dot"></i>
-            <a href="home.jsp">여행가기 좋은날</a>
-        </div>
-        <ul class="navbar_menu">
-           <li><a href="mypage.jsp"><i class="fa-solid fa-magnifying-glass"></i></a></li>  
-           <li><a href="destination.jsp">여행지 추천</a></li>  
-           <li><a href="course.jsp">코스 추천</a></li>  
-           <li><a href="festival.jsp">축제</a></li>  
-            <li><a href="login.jsp">로그인</a></li> 
-            </ul>
-        
-    </nav>
-
+</style>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
@@ -99,45 +83,29 @@
  
 </head>
 <body>
-<div id="slider">
-         <!-- 여기에 내용 넣으세요 -->
-         <h3>여행지 추천 글 쓰기</h3><br>
+<jsp:include page="header.jsp"></jsp:include>
 
-      <form method="post" action="destination.jsp">
-      <table border=1 width="100%">
-      	<tr>
-      		<td align="center">제목</td>
-      		<td><input type="text" name="subject" style="width:100%"></td>
-      	</tr>
-      	<tr>
-      		<td colspan="2">
-      			<textarea id="summernote" name="memo"></textarea>
-      		</td>
-      	</tr>
-      </table>
-      <input type="submit" value="등록">
-</form>
-      
-    </div>
-    
-	<footer>
-	
-<div class="card text-center">
- 
-  <div class="card-body">  
-    <p class="card-text"><h4> GoodDayTrip Team</h4></p>
-    <br>
-    <p class="card-text"><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
-    <p class="card-text"><i class="fas fa-envelope me-3"></i>gooddaytip@example.com</p>
-    <p class="card-text"><i class="fas fa-phone me-3"></i> + 82 234 567 88</p>
-    <p class="card-text"><i class="fas fa-print me-3"></i> + 82 234 567 89</p>
-    <br>
-    <p class="card-text"> Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights served. </p>
-    <br>
-    
-  </div>
+<div id="slider">
+		<!-- 여기에 내용 넣으세요 -->
+		<h3>여행지 추천 글 쓰기</h3>
+		<br>
+
+		<form method="post" action="destination.jsp">
+			<table border=1 width="100%">
+				<tr>
+					<td align="center">제목</td>
+					<td><input type="text" name="subject" style="width: 100%"></td>
+				</tr>
+				<tr>
+					<td colspan="2"><textarea id="summernote" name="memo"></textarea>
+					</td>
+				</tr>
+			</table>
+			<input type="submit" value="등록">
+		</form>
+
 </div>
-	
-	</footer>
+
+<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

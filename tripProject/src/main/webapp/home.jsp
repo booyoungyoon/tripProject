@@ -18,7 +18,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
-           @font-face {
+    @font-face {
     font-family: 'yg-jalnan';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
     font-weight: normal;
@@ -42,38 +42,21 @@
     
 </style>
   </head>
-       <nav class="navbar">
-        <div class="navbar_logo">
-            <i class="fa-solid fa-map-location-dot"></i>
-            <a href="home.jsp">여행가기 좋은날</a>
-        </div>
-        <ul class="navbar_menu">
-           <li><a href="mypage.jsp"><i class="fa-solid fa-magnifying-glass"></i></a></li>  
-           <li><a href="destination.jsp">여행지 추천</a></li>  
-           <li><a href="course.jsp">코스 추천</a></li>  
-           <li><a href="festival.jsp">축제</a></li>  
-            <li><a href="login.jsp">로그인</a></li> 
-            </ul>
- 
-        
-    </nav>
+<body>
+<jsp:include page="header.jsp"></jsp:include>
 <div class="card">
    
-	</div>
+</div>
 	<br><br>
-<body>
    <a style="display:scroll;position:fixed;bottom:20px;z-index: 999;right:60px;font-size: 40px;" href="#" title=”top">
    <i class="fa-solid fa-circle-arrow-up"></i></a>
    <!-- header card -->
    
    <!-- header card -->
    
-   <div class="card">
+<div class="card">
    
-   </div>
-   
-
-<body>
+</div>
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -217,25 +200,6 @@
       </div>
    
    <br><br><br>
-
-<footer>
-   
-<div class="card text-center">
- 
-  <div class="card-body">  
-    <p class="card-text"><h4> GoodDayTrip Team</h4></p>
-    <br>
-    <p class="card-text"><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
-    <p class="card-text"><i class="fas fa-envelope me-3"></i>gooddaytip@example.com</p>
-    <p class="card-text"><i class="fas fa-phone me-3"></i> + 82 234 567 88</p>
-    <p class="card-text"><i class="fas fa-print me-3"></i> + 82 234 567 89</p>
-    <br>
-    <p class="card-text"> Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights served. </p>
-    <br>
-    
-  </div>
-</div>
-   
-   </footer>
-   
+<jsp:include page="footer.jsp"></jsp:include>
+</body>
    

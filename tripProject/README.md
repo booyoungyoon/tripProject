@@ -1,72 +1,69 @@
 **********DB
-- oracle user 생성, 권한 부여
-create user trip IDENTIFIED by 1234;
-grant connect, dba to trip;
+create user trip identified by 1234;
+grant connect, resource, dba to trip;
+commit;
 
---회원목록
-create table user(
-  user_num number,
-  userid varchar2(30) not null primary key,
-  nickname varchar2(20) not null primary key,
-  pass varchar2(40) not null,
-  username varchar2(20) not null,
-  birth char(8), -- 생년월일 (YYYYMMDD)
-  email varchar2(30) UNIQUE,
-  gender varchar2(8), -- 성별 남성(male), 여성(female)
-  phone char(13) not null,
-  userJoindate date default sysdate, -- 가입일자
-  admin number(1) default 1 -- 관리자 0,    일반 회원 1
+CREATE TABLE users (
+   usernum number NOT NULL primary key,
+   userid varchar2(30) NOT NULL,
+   username varchar2(20) NOT NULL,
+   userpass varchar2(40) NOT NULL,
+   phone char(13) NOT NULL,
+   birth char(8) NOT NULL,
+   gender varchar2(8) NOT NULL,
+   joindate date default sysdate,
+   email varchar2(50) NOT NULL,
+   admin number(1) NOT NULL,
+   qestion varchar2(50) NULL,
+   answer varchar2(30) NULL
 );
 
--- 보드테이블(게시글)
-create table board(
-    board_num number not null primary key,
-    board_title varchar2(100) not null,
-    board_content varchar2(2000) not null,
-    board_image varchar2(500), -- 게시글 사진
-    board_writedate date default sysdate, -- 글 작성 일자
-    board_hits number, -- 조회수
-    userid varchar2(30) UNIQUE,
-    CONSTRAINT fk_userid key(userid) REFERENCES user(userid), --외래키 설정
-    nickname varchar2(20) UNIQUE,
-    CONSTRAINT fk_nickname key(nickname) REFERENCES user(nickname)  --외래키 설정
+CREATE TABLE course (
+   course_num number NOT NULL primary key,
+   course_title varchar2(50) NOT NULL,
+   course_content varchar2(2000) NOT NULL,
+   course_image varchar2(4000) NULL,
+   course_like number NOT NULL,
+   course_city varchar2(10) not null,
+   --fk 추가
+   usernum number not null,
+   CONSTRAINT fk_usernum foreign key(usernum) references users(usernum)
 );
 
--- 댓글 테이블
-create table comment(
-   nickname varchar2(20) not null,
-   comment_date date default sysdate, -- 댓글 단 시간
-   reply varchar2(1000) not null,
-   board_num number UNIQUE,  -- 글 번호
-   CONSTRAINT fk_board_num  key(board_num) REFERENCES user(board_num)  --외래키 설정
-   userid varchar2(30) UNIQUE,
-   CONSTRAINT fk_userid key(userid) REFERENCES user(userid), --외래키 설정
-   nickname varchar2(20) UNIQUE,
-   CONSTRAINT fk_nickname key(nickname) REFERENCES user(nickname)  --외래키 설정
+CREATE TABLE board (
+   board_num number NOT NULL primary key,
+   board_title varchar2(50) NOT NULL,
+   board_date date default sysdate,
+   hits number NOT NULL,
+   board_image varchar2(4000) NULL,
+   board_city varchar2(10) not null,
+   --fk 추가
+   usernum number not null,
+   CONSTRAINT fk_user_to_board foreign key(usernum) references users(usernum)
 );
 
---코스
-create table course(
-    course_num number not null,
-    course_title varchar2(50) not null,
-    course_content varchar2(500) not null,
-    course_image varchar2(500),
-    likes number not null,
-    userid varchar2(30) UNIQUE,
-    CONSTRAINT fk_userid key(userid) REFERENCES user(userid) --외래키 설정
+CREATE TABLE festival (
+   festival_num number NOT NULL primary key,
+   festival_title varchar2(50) NOT NULL,
+   festival_content varchar2(2000) NOT NULL,
+   festival_image varchar2(4000) NULL,
+   festival_schedule varchar2(30) NULL,
+   festival_city varchar2(10) not null,
+   --fk 추가
+   usernum number not null,
+   CONSTRAINT fk_user_to_festival foreign key(usernum) references users(usernum)
 );
-    
 
---축제
-create table festival(
-    festival_num number,
-    festival_content varchar2(500) not null,
-    festival_title varchar2(50) not null,
-    festival_image varchar2(500),
-    festival_schedule varchar2(30),
-    userid varchar2(30) UNIQUE,
-    CONSTRAINT fk_userid key(userid) REFERENCES user(userid) --외래키 설정
-    
+CREATE TABLE board_comment (
+   comment_num number NOT NULL primary key,
+   comment_date date default sysdate,
+   reply varchar2(1000) NOT NULL,
+   --fk 추가
+   usernum number not null,
+   CONSTRAINT fk_user_to_comment foreign key(usernum) references users(usernum),
+   --fk 추가
+   board_num number not null,
+   CONSTRAINT fk_board_to_comment foreign key(board_num) references board(board_num)
 );
 
 -- 회원목록 시퀀스
@@ -84,3 +81,5 @@ START with 1 INCREMENT by 1 MINVALUE 1;
 -- 축제 시퀀스
 create sequence festival_seq
 START with 1 INCREMENT by 1 MINVALUE 1;
+
+commit;

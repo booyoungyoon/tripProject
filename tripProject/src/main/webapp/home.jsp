@@ -5,12 +5,6 @@
 <html>
 <head>
 <title>여행가기 좋은날</title>
-    
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/magnific-popup.css">
-<link rel="stylesheet" href="css/templatemo-ocean-vibes.css">
 <link rel="stylesheet" href="fontawesome/css/all.min.css"> <!-- https://fontawesome.com/ -->
 <link rel="stylesheet" href="css/magnific-popup.css"> 
 <link rel="stylesheet" href="css/nav.css">
@@ -23,7 +17,7 @@
 <script src="https://kit.fontawesome.com/c34800a0df.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <style>
+<style>
     @font-face {
     font-family: 'yg-jalnan';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
@@ -45,18 +39,25 @@
 .item, img{
     height: 500px; !important;
     width:  100% !important;
-}
     
 </style>
-</head>
 <body>
-
 <jsp:include page="header.jsp"></jsp:include>
-
 <div class="card">
    
 </div>
 <br><br>
+   <a style="display:scroll;position:fixed;bottom:20px;z-index: 999;right:60px;font-size: 40px;" href="#" title=”top">
+   <i class="fa-solid fa-circle-arrow-up"></i></a>
+   <!-- header card -->
+   
+   <!-- header card -->
+   
+   <div class="card">
+   
+   </div>
+   
+
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -199,8 +200,9 @@
       </div>
    
    <br><br><br>
-	<jsp:include page="footer.jsp"></jsp:include>
+
+<jsp:include page="footer.jsp"></jsp:include>
+
 </body>
-</html>
-   
+</html>   
    

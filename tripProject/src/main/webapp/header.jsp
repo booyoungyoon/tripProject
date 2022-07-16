@@ -41,7 +41,7 @@ html, body {
    height: 100%;
 }
 
-.container {
+.head_container {
    position: absolute;
    margin: auto;
    top: 0;
@@ -52,7 +52,7 @@ html, body {
    height: 100px;
 }
 
-.container .search {
+.head_container .search {
    position: absolute;
    margin: auto;
    top: 0;
@@ -67,11 +67,11 @@ html, body {
    z-index: 4;
 }
 
-.container .search:hover {
+.head_container .search:hover {
    cursor: pointer;
 }
 
-.container .search::before {
+.head_container .search::before {
    content: "";
    position: absolute;
    margin: auto;
@@ -86,7 +86,7 @@ html, body {
    transition: all 0.5s;
 }
 
-.container .search::after {
+.head_container .search::after {
    content: "";
    position: absolute;
    margin: auto;
@@ -101,7 +101,7 @@ html, body {
    transition: all 0.5s;
 }
 
-.container input {
+.head_container input {
    position: absolute;
    margin: auto;
    top: 0;
@@ -125,29 +125,29 @@ html, body {
    letter-spacing: 0.1em;
 }
 
-.container input:hover {
+.head_container input:hover {
    cursor: pointer;
 }
 
-.container input:focus {
+.head_container input:focus {
    width: 200px;
    opacity: 1;
    cursor: text;
 }
 
-.container input:focus ~ .search {
+.head_container input:focus ~ .search {
    right: -150px;
    background: #151515;
    z-index: 6;
 }
 
-.container input:focus ~ .search::before {
+.head_container input:focus ~ .search::before {
    top: 0;
    left: 0;
    width: 25px;
 }
 
-.container input:focus ~ .search::after {
+.head_container input:focus ~ .search::after {
    top: 0;
    left: 0;
    width: 25px;
@@ -158,7 +158,7 @@ html, body {
    transform: rotate(-45deg);
 }
 
-.container input::placeholder {
+.head_container input::placeholder {
    color: white;
    opacity: 0.5;
    font-weight: bolder;
@@ -174,7 +174,7 @@ html, body {
          <i class="fa-solid fa-map-location-dot"></i> <a href="home.jsp">여행가기
             좋은날</a>
       </div>
-      <div class="container">
+      <div class="head_container">
          <form action="home.jsp">
             <input type="text" name="search" placeholder="Search...">
                <div class="search">

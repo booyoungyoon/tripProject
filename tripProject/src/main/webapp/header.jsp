@@ -45,8 +45,8 @@ html, body {
    position: absolute;
    margin: auto;
    top: 0;
-   left: 0;
-   right: 100px;
+   left: 120px;
+   right: 0;
    bottom: 0;
    width: 200px;
    height: 100px;
@@ -61,7 +61,7 @@ html, body {
    left: 0;
    width: 40px;
    height: 40px;
-   background: aqua;
+   background: #468499;
    border-radius: 50%;
    transition: all 0.5s;
    z-index: 4;
@@ -112,12 +112,12 @@ html, body {
    height: 50px;
    outline: none;
    border: none;
-   background: aqua;
+   background: #c6e2ff;
    color: white;
-   text-shadow: 0 0 10px aqua;
+   text-shadow: 0 0 10px #212121;
    padding: 0 80px 0 20px;
    border-radius: 30px;
-   box-shadow: 0 0 25px 0 aqua, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
+   box-shadow: 0 0 25px 0 #c6e2ff, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
    transition: all 0.5s;
    opacity: 0;
    z-index: 5;
@@ -137,7 +137,7 @@ html, body {
 
 .head_container input:focus ~ .search {
    right: -150px;
-   background: #151515;
+   background: #c0c0c0;
    z-index: 6;
 }
 

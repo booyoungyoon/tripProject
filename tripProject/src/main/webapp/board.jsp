@@ -45,7 +45,10 @@
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
-
+<div class="card">
+   
+	</div>
+	<br><br>
 <div id="slider">
          <!-- 여기에 내용 넣으세요 -->
         

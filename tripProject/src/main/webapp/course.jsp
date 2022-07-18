@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>여행가기 좋은날</title>
+    <title>코스추천</title>
   <link rel="stylesheet" href="fontawesome/css/all.min.css"> <!-- https://fontawesome.com/ -->
     <link rel="stylesheet" href="css/magnific-popup.css"> 
      <link rel="stylesheet" href="css/nav.css">

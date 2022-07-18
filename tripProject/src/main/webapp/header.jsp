@@ -61,7 +61,7 @@ html, body {
    left: 0;
    width: 40px;
    height: 40px;
-   background: #468499;
+   background: #98a6c3;
    border-radius: 50%;
    transition: all 0.5s;
    z-index: 4;
@@ -112,11 +112,10 @@ html, body {
    height: 50px;
    outline: none;
    border: none;
-   background: #c6e2ff;
-   color: white;
+   color: black;
    padding: 0 80px 0 20px;
    border-radius: 30px;
-   box-shadow: 0 0 25px 0 #c6e2ff, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
+   box-shadow: 0 0 25px 0 #98b2cd, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
    transition: all 0.5s;
    opacity: 0;
    z-index: 5;
@@ -136,7 +135,7 @@ html, body {
 
 .head_container input:focus ~ .search {
    right: -150px;
-   background: #c0c0c0;
+   background: #98a6c3;
    z-index: 6;
 }
 

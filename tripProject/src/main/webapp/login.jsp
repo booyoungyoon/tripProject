@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>좋은날</title>
+<title>로그인</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap"
@@ -161,7 +161,7 @@ h2 {
 	border: 0;
 	outline: none;
 	border-radius: 40px;
-	background: aqua;
+	background: #2ce8de;
 	color: white;
 	font-size: 1.2em;
 }

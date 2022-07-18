@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>여행가기 좋은날</title>
+    <title>축제</title>
   <link rel="stylesheet" href="fontawesome/css/all.min.css"> <!-- https://fontawesome.com/ -->
     <link rel="stylesheet" href="css/magnific-popup.css"> 
      <link rel="stylesheet" href="css/nav.css">
@@ -57,6 +57,15 @@
 	
 <div id="slider">
          <!-- 여기에 내용 넣으세요 -->
+        
+              <div class="panel-heading">
+                           <h2>축제리스트</h2>
+                          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                          <button type="button" class="btn btn-light"><a href="#">등록</a></button>
+			</div>
+                        </div>
+       
+         
         <table class="table table-hover">
   <thead>
     <tr>
@@ -86,12 +95,22 @@
       <td>2022</td>
     </tr>
   </tbody>
+<%--   <c:forEach items="${list }" var="board">
+                                    <tr class="odd gradeX">
+                                        <td><c:out value="${board.bno }"/></td>
+                                        <td><c:out value="${board.title }"/></td>
+                                        <td><c:out value="${board.writer }"/></td>
+                                        <td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.regdate }"/></td>
+                                        <td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.updatedate }"/></td>
+                                    </tr>
+                                </c:forEach> --%>
+  
 </table>
 
 
 
 <nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
+  <ul class="pagination justify-content-center" style="margin:20px 0">
     <li class="page-item disabled">
       <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
     </li>
@@ -117,7 +136,31 @@
 
 		var map = new kakao.maps.Map(container, options);
 	</script>
+	
+<!-- <script>
+${document}.ready(function()){
+	var result='<c:out value="${result}"/>';
+	console.log("result"+result);
+	
+	checkModal(result);
+	
+	function checkModal(result){
+		if(result ==="){
+			return;
+		}
+		if(parselnt(result)>0){
+			$(".modal-body").html("게시글"+parselnt(result)+"번이 등록되었습니다.");
+			}
+		$("#myModal").modal("show");
+		
+	}
+	$("#regBtn").on("click",function()){
+		self.location="/feditor/register";
+	});
+	
+});
 
+</script> -->
 
 	</div>
         

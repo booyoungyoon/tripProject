@@ -5,7 +5,7 @@
 <head>
 <head>
 <meta charset="UTF-8">
-<title>여행가기 좋은날 - 회원가입</title>
+<title>회원가입</title>
 <style type="text/css">
 * {
 	font-family: 'yg-jalnan', cursive
@@ -141,7 +141,7 @@ margin: 20px 0px 50px 0px;
 	width: 460px;
 	line-height: 55px;
 	height: 60px;
-	background-color: blue;
+	background-color: #2ce8de;
 	border: none;
 	color: #fff;
 	font-size: 18px;

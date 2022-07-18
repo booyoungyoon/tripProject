@@ -114,7 +114,6 @@ html, body {
    border: none;
    background: #c6e2ff;
    color: white;
-   text-shadow: 0 0 10px #212121;
    padding: 0 80px 0 20px;
    border-radius: 30px;
    box-shadow: 0 0 25px 0 #c6e2ff, 0 20px 25px 0 rgba(0, 0, 0, 0.2);

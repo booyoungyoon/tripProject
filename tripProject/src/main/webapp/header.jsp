@@ -45,8 +45,8 @@ html, body {
    position: absolute;
    margin: auto;
    top: 0;
-   left: 120px;
-   right: 0;
+   left: 0;
+   right: 50px;
    bottom: 0;
    width: 200px;
    height: 100px;

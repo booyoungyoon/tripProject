@@ -51,7 +51,7 @@
 	<br><br>
 <div id="slider">
          <!-- 여기에 내용 넣으세요 -->
-        
+<button type="button" onclick="location.href='destinationInsert.jsp' ">글쓰기</button>
         
 </div>
 

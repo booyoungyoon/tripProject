@@ -40,6 +40,114 @@
  ul > li > a {color: #212121;}
  #slider {width: 1000px; height: 1000px; margin: 0 auto;}
  
+ 
+:root {
+  --black: #1a1a1a;
+  --white: #fff;
+  --gray: #ccc;
+  --darkgreen: #18846C;
+  --lightbrown: antiquewhite;
+  --minRangeValue: 280px;
+}
+
+* {
+  margin: 0;
+  padding: 0;  
+  outline: none;
+  border: none;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+}
+
+img {
+  display: block;
+  width: 290px;
+  height: 193px;
+}
+
+ol,
+ul {
+  list-style: none;
+  margin:0;
+  padding:0;
+}
+
+a {
+  color: inherit;
+}
+
+body {
+  margin: 50px 0;
+  color: var(--black);
+  font: 1rem/1.3 sans-serif;
+}
+
+.gallery {
+  padding: 0 2rem;
+}
+
+.container {
+  max-width: 1030px;
+  margin: 0 auto;
+}
+
+.d-none {
+  display: none;
+}
+.image-list {
+  margin: 3rem 0;
+}
+
+.image-list li {
+  color: var(--darkblack);
+}
+
+.grid-view {
+  display: grid;
+  grid-gap: 80px;
+  grid-template-columns: repeat(auto-fit, minmax(var(--minRangeValue), 1fr));
+}
+
+li div p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 290px;
+  height: 20px;
+  color: black;
+  font-size: 13pt;
+}
+#child{
+color:grey;
+font-size: 11pt;
+}
+.box_rightType{width:950px; height:50px; border:1px solid #e6e6e6; background-color:#f7f7f7; line-height: 50px;border-radius: 2em;}
+
+.box_rightType ul li {
+    margin: 0 20px 10px 10px;
+    padding: 0 0 0 0;
+    border : 0;
+    float: left;
+    font-size: 13pt;
+}
+.box_rightType ul li button{outline: 0;}
+
+#writebtn {
+  background-color: #e7e7e7;
+  border: none;
+  padding: 13px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  float: right;
+  outline: 0;
+}
 </style>
   
 </head>
@@ -51,9 +159,104 @@
 	<br><br>
 <div id="slider">
          <!-- 여기에 내용 넣으세요 -->
-<button type="button" onclick="location.href='destinationInsert.jsp' ">글쓰기</button>
-        
+         
+         <div class="box_rightType">
+         <ul>
+         	<li style="margin-left: 25px"><button>서울시</button></li>
+         	<li><button>경기도</button></li>
+         	<li><button>강원도</button></li>
+         	<li><button>충청북도</button></li>
+         	<li><button>충청남도</button></li>
+         	<li><button>경상북도</button></li>
+         	<li><button>경상남도</button></li>
+         	<li><button>전라북도</button></li>
+         	<li><button>전라남도</button></li>
+         	<li><button>제주도</button></li>
+         </ul>
+         </div>
+         <br>
+         
+         
+         <ol class="image-list grid-view">
+			<li>
+				<div>
+					<div class="list_thumType">
+						<a href="#">
+						<img src="img/yeosu.jpg" alt="">
+						</a>
+					</div>
+					<div>
+						<a href="#">
+							<p id=first>같은 곳은 이제 NO! 자연과 예술이 함께하는 색다른 여수 여행</p>
+							<p id="child">전라남도 여수시</p>
+						</a>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div>
+						<a href="#">
+						<img src="img/Boosan.JPG" alt="">
+						</a>
+					</div>
+					<div>
+						<a href="#">
+							<p id=first>크고 넓고 따뜻한 남쪽 바다 - 부산광역시 다대포해수욕장·해변공원</p>
+							<p id="child">부산 사하구</p>
+						</a>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div>
+						<a href="#">
+						<img src="img/sinchon.jpg" alt="">
+						</a>
+					</div>
+					<div>
+						<a href="#">
+							<p id=first>2022 신촌물총축제</p>
+							<p id="child">서울 서대문구</p>
+						</a>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div>
+						<a href="#">
+						<img src="img/Samcheok.jpg" alt="">
+						</a>
+					</div>
+					<div>
+						<a href="#">
+							<p id=first>아이와 가기 좋은 강원도 삼척 여름휴가 여행 코스</p>
+							<p id="child">강원 삼척시</p>
+						</a>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div>
+					<div>
+						<a href="#">
+						<img src="img/Udo.JPG" alt="">
+						</a>
+					</div>
+					<div>
+						<a href="#" target="_blank">
+							<p id=first>‘신비의 섬’ 우도의 신상 여행지! 자연•문화•미식의 완전체, 훈데르트바서파크</p>
+							<p id="child">제주 제주시</p>
+						</a>
+					</div>
+				</div>
+			</li>
+		</ol>
+<button id="writebtn" type="button" onclick="location.href='destinationInsert.jsp' ">글등록</button>
 </div>
+
 
 <jsp:include page="footer.jsp"></jsp:include>    
 </body>

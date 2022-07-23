@@ -35,7 +35,7 @@
 .carousel-inner{
    // height: 300px;
 }
-
+p {color : #212121;}
 .item, img{
     height: 500px; !important;
     width:  100% !important;

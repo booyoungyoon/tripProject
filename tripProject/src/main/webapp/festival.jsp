@@ -47,7 +47,7 @@
    margin-bottom: 1rem;
 }
 
-
+p {color : #212121;}
 </style>
   <script>
   var xhr = new XMLHttpRequest();
@@ -90,71 +90,112 @@
 	
 <div id="slider">
  <!-- 여기에 내용 넣으세요 -->
-
+ <div class="card">
+  <div class="card-body">
+     <button type="button" class="btn btn-light">서울시</button>
+<button type="button" class="btn btn-light">경기도</button>
+<button type="button" class="btn btn-light">강원도</button>
+<button type="button" class="btn btn-light">충청북도</button>
+<button type="button" class="btn btn-light">충청남도</button>
+<button type="button" class="btn btn-light">경상남도</button>
+<button type="button" class="btn btn-light">경상북도</button>
+<button type="button" class="btn btn-light">전라북도</button>
+<button type="button" class="btn btn-light">전라남도</button>
+<button type="button" class="btn btn-light">제주도</button>
+  </div>
+</div>
+<br><br>
 
 	<div class="container mb-3 mt-3">
 
-  <button class="btn btn-primary btn-grid" type="button" onclick="location.href='feditor.jsp' ">글등록</button>
-</div>
-<div class="container grid-container">
-  <div class="row">
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card">
-        <img class="card-img-top" src="https://picsum.photos/362/180" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">태백 해바라기축제</h5>
-          <p class="card-text">제 18회 태백해바라기 축제를 개최한다. 자연스럽고 평화로운 구와우 마을에서 백만송이 해바라기꽃을 피워 놓고 당신을 기다리겠다.</p>
-        </div>
+ 
+ <div class="row g-1">
+            <div class="col-4">
+               <a href="#" class="fh5co-card-item image-popup">
+                  <figure>
+                     <div class="overlay"><i class="ti-plus"></i></div>
+                     <img src="${festivalimg}" alt="Image" class="img-responsive">
+                  </figure>
+                  <div class="fh5co-text">
+                     <h2>충청도</h2>
+                     <p>역사와 자연이 조화로운 서산 여행</p>
+                     <p><span class="btn btn-primary"> 보러가기</span></p>
+                  </div>
+               </a>
+            </div>
+            <div class="col-4">
+               <a href="#" class="fh5co-card-item image-popup">
+                  <figure>
+                     <div class="overlay"><i class="ti-plus"></i></div>
+                     <img src="${festivalimg}" alt="Image" class="img-responsive">
+                  </figure>
+                  <div class="fh5co-text">
+                     <h2>강원도 </h2>
+                     <p>영월로 떠나는 어느 여름날의 강원도 힐링여행</p>
+                     <p><span class="btn btn-primary">보러가기</span></p>
+                  </div>
+               </a>
+            </div>
+            <div class="col-4">
+               <a href="#" class="fh5co-card-item image-popup">
+                  <figure>
+                     <div class="overlay"><i class="ti-plus"></i></div>
+                     <img src="${festivalimg}"" alt="Image" class="img-responsive">
+                  </figure>
+                  <div class="fh5co-text">
+                     <h2>경상도</h2>
+                     <p>반려견과의 특별한 하루를, 의성펫월드</p>
+                     <p><span class="btn btn-primary">보러가기</span></p>
+                  </div>
+               </a>
+            </div>
+
+
+            <div class="col-4">
+               <a href="#" class="fh5co-card-item image-popup">
+                  <figure>
+                     <div class="overlay"><i class="ti-plus"></i></div>
+                     <img src="${festivalimg}" alt="Image" class="img-responsive">
+                  </figure>
+                  <div class="fh5co-text">
+                     <h2>경기도</h2>
+                     <p>하루만에 즐기는 수원 당일치기 여행코스</p>
+                     <p><span class="btn btn-primary">보러가기</span></p>
+                  </div>
+               </a>
+            </div>
+
+            <div class="col-4">
+               <a href="#" class="fh5co-card-item image-popup">
+                  <figure>
+                     <div class="overlay"><i class="ti-plus"></i></div>
+                     <img src="${festivalimg}" alt="Image" class="img-responsive">
+                  </figure>
+                  <div class="fh5co-text">
+                     <h2>전라도</h2>
+                     <p>잠들지 않는 낭만의 도시, 여수를 만끽하다 </p>
+                     <p><span class="btn btn-primary">보러가기</span></p>
+                  </div>
+               </a>
+            </div>
+
+            <div class="col-sm-4">
+               <a href="#" class="fh5co-card-item image-popup">
+                  <figure>
+                     <div class="overlay"><i class="ti-plus"></i></div>
+                     <img src="${festivalimg}" alt="Image" class="img-responsive">
+                  </figure>
+                  <div class="fh5co-text">
+                     <h2>제주도</h2>
+                     <p>섬 안에 섬을 여행하는 방법, 가파도 여행 코스</p>
+                     <p><span class="btn btn-primary">보러가기</span></p>
+                  </div>
+               </a>
+            </div>
+            <br>
+ <button class="btn btn-light btn-grid" type="button" onclick="location.href='feditor.jsp' ">글등록</button>
+         </div>
       </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card">
-        <img class="card-img-top" src="https://picsum.photos/362/180" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">아침고요수목원 무궁화전시회</h5>
-          <p class="card-text">전시회 기간 중에는 45여종의 품종 전시분을 선보이고 60여종의 식재분을 합쳐 약 100여종의 무궁화 품종이 전시된다. </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card">
-        <img class="card-img-top" src="https://picsum.photos/362/180" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">2012여수세계박람회 10주년 기념행사</h5>
-          <p class="card-text">2012년 뜨거웠던 여수의 여름을 다시 만나다. 시민과 관광객이 함께 참여할 수 있는 다양한 프로그램이 구성되어 있다.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card">
-        <img class="card-img-top" src="https://picsum.photos/362/180" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">동강국제사진제</h5>
-          <p class="card-text">올해로 20회를 맞이하는 동강국제사진제는 국내외 사진작가와 강원도 영월군 지역민, 사진 애호가들이 함께 만들어 가는 대한민국 대표 사진 축제다.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card">
-        <img class="card-img-top" src="https://picsum.photos/362/180" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">괴산대학찰옥수수축제</h5>
-          <p class="card-text">괴산대학찰옥수수축제는 대학찰의 고향인 충북 괴산군에서 열리는 지역대표축제이다.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card">
-        <img class="card-img-top" src="https://picsum.photos/362/180" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">2022년 나의 책, 나의 인문기행 남해지역 탐방</h5>
-          <p class="card-text">남해 일대(독일마을, 지족마을, 금산보리암, 남해 유배문학관, 이순신순국공원 등)를 방문하는 현장 탐방 프로그램이다.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-</div>
 		<nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
     <li class="page-item disabled">
@@ -169,7 +210,7 @@
   </ul>
 </nav>
 	
-			
+			 
 
  
 

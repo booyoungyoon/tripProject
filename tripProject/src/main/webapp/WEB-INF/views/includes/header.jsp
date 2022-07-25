@@ -50,8 +50,8 @@ html, body {
    position: absolute;
    margin: auto;
    top: 0;
-   left: 0;
-   right: 50px;
+   left: 1500px;
+   right: 0px;
    bottom: 0;
    width: 200px;
    height: 100px;

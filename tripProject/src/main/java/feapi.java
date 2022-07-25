@@ -14,24 +14,24 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 public class feapi {
-	//url Á¢¼ÓÇØ¼­ xml Á¤º¸ °¡Á®¿ÂÈÄ parser·Î ¿øÇÏ´Â Á¤º¸ ÃßÃâÇÏ´Â ÀÛ¾÷
+	//url ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ xml ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ parserï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Û¾ï¿½
 	
 	public static void main(String[] args){
 	DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 	try {
 		DocumentBuilder builder = factory.newDocumentBuilder();
-		// À¥¼­¹ö¸¦ Á¦°øÇÏ´Â url Á¤º¸¸¦ ¿¬°áÇØ¼­ µ¥ÀÌÅÍ °¡Á®¿À±â
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ url ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		StringBuffer pharm_url = new StringBuffer();
 		pharm_url.append("http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival");
 		pharm_url.append("?serviceKey=sWi23NfHCswD2JLkVzlAjWdx84T9hH%2B4%2BgYdeHg5rakMR397CZtjr1hoq8Mo56LMzSCjxrlMzLEkI0Bi%2FwFQ0Q%3D%3D&MobileOS=ETC&MobileApp=AppTest&arrange=A&listYN=Y&eventStartDate=20220701");
 
-		//À¥¼­¹ö¿¡ Àú‚‹¤·ÇÏ±â
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 		URL url = new URL(pharm_url.toString());
 		
 		
-		//Á¢¼ÓÇØ¼­ µ¥ÀÌÅÍ ÀÐ¾î¿À±â
+		//ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¾ï¿½ï¿½ï¿½ï¿½
 	BufferedInputStream xmldata = new BufferedInputStream(url.openStream());
-		Document document = builder.parse(xmldata);//inputstream °´Ã¼ÀÇ ÇüÅÂ·Î ÆÄ½ÌÇÒ Á¤º¸¸¦ ³Ñ°ÜÁØ´Ù
+		Document document = builder.parse(xmldata);//inputstream ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½Â·ï¿½ ï¿½Ä½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½Ø´ï¿½
 		
 		Element root = document.getDocumentElement();
 		System.out.println(root.getTagName());

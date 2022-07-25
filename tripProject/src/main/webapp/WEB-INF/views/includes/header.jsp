@@ -174,7 +174,7 @@ html, body {
 <header>
    <nav class="navbar">
       <div class="navbar_logo">
-         <i class="fa-solid fa-map-location-dot"></i> <a href="home.jsp">여행가기
+         <i class="fa-solid fa-map-location-dot"></i> <a href="../home.jsp">여행가기
             좋은날</a>
       </div>
       <div class="head_container">
@@ -185,8 +185,8 @@ html, body {
          </form>
       </div>
       <ul class="navbar_menu">
-         <li><a href="destination.jsp">여행지 추천</a></li>
-         <li><a href="course/page.do">코스 추천</a></li>
+         <li><a href="../destination/list.do">여행지 추천</a></li>
+         <li><a href="../course/page.do">코스 추천</a></li>
          <li><a href="festival.jsp">축제</a></li>
          <li><a href="board.jsp">자유게시판</a></li>
          <li><a href="login.jsp">로그인</a></li>

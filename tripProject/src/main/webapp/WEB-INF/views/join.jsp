@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
+<script type="text/javascript" src="js/login.find.join.js"></script>
 <style type="text/css">
 * {
 	font-family: 'yg-jalnan', cursive
@@ -113,6 +114,16 @@ h3 {
 	outline: none;
 }
 
+#checkquestion {
+   width: 200px;
+   height: 51px;
+   border: 1px solid #dadada;
+   outline: none;
+   float: left;
+   background-color: white;
+   border-radius: 30px;
+}
+
 #signup-name, #signup-nickname, #signup-gender, #signup-email,
  #signup-phone {
 	width: 100%;
@@ -164,7 +175,7 @@ margin: 20px 0px 50px 0px;
 		</header>
 
 		<!--회원가입 부분-->
-		<form method="post" action="home.jsp">
+		<form method="post" action="joinservlet.jsp">
 			<section class="signup-wrap">
 
 				<div>
@@ -242,10 +253,18 @@ margin: 20px 0px 50px 0px;
 						</div>
 					</div>
 					<span class="choice">
-						<h3>본인 확인 질문</h3>
-					</span> <span class="signup-input"> <input id="signup-email"
-						type="text" placeholder="본인 확인 질문"></input>
-					</span>
+						<h3>본인 확인 질문</h3> <select id="checkquestion" class="selectbox"
+                  name="question" onchange="">
+                     <option value="select">&nbsp;질문을 선택하세요.</option>
+                     <option value="">&nbsp;초등학교이름은?</option>
+                     <option value="">&nbsp;중학교이름은?</option>
+                     <option value="">&nbsp;고등학교이름은?</option>
+                     <option value="">&nbsp;처음산핸드폰기종은?</option>
+                     <option value="">&nbsp;처음산자동차기종은?</option>
+               </select>
+               </span> <span class="signup-input"> <input id="signup-email"
+                  type="text" placeholder="본인 확인 질문"></input>
+               </span>
 
 				</div>
 				<!--가입하기-->

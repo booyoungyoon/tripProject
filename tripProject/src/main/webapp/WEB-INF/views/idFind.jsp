@@ -5,11 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>로그인</title>
+<title>아이디 찾기</title>
 <script type="text/javascript" src="js/login.find.join.js"></script>
-<style>
-
-
+<style type="text/css">
 @font-face {
 	font-family: 'yg-jalnan';
 	src:
@@ -84,7 +82,7 @@ html, body {
 	justify-content: center;
 }
 
-.login {
+.find {
 	width: 40%;
 	height: 600px;
 	background: white;
@@ -103,14 +101,16 @@ h2 {
 	margin-bottom: 50px;
 }
 
+.title {
+	margin-bottom: 50px;
+}
 
-
-.login_id {
+.find_email, .find_birth{
 	margin-top: 50px;
 	width: 80%;
 }
 
-.login_id input {
+.find_name input, .find_email input, .find_birth input{
 	width: 100%;
 	height: 50px;
 	border-radius: 30px;
@@ -120,19 +120,9 @@ h2 {
 	outline: none;
 }
 
-.login_pw {
+.find_email, .find_name, .find_birth {
 	margin-top: 20px;
 	width: 80%;
-}
-
-.login_pw input {
-	width: 100%;
-	height: 50px;
-	border-radius: 30px;
-	margin-top: 10px;
-	padding: 0px 20px;
-	border: 1px solid gray;
-	outline: none;
 }
 
 .submit {
@@ -159,28 +149,25 @@ h2 {
 </head>
 <body>
 	<jsp:include page="includes/header.jsp"></jsp:include>
-	<form method="post" action="home.jsp" name="loginfrm">
+	<form method="post" action="home.jsp" name="findidfrm">
 		<div class="Wallpapers">
-			<div class="login">
-				<h2>로그인</h2>
-				<label> <input type="radio" name="userGrade" value="member"
-					checked> 일반회원 &nbsp;&nbsp; <input type="radio"
-					name="userGrade" value="admin"> 관리자
-				</label>
-				<div class="login_id">
-					<h4>아이디</h4>
-					<input type="text" name="loginid" id="" placeholder="아이디">
+			<div class="find">
+				<h2 class="title">아이디 찾기</h2>
+				<div class="find_name">
+					<input type="text" name="idfindname" id="" placeholder="이름">
 				</div>
-				<div class="login_pw">
-					<h4>비밀번호</h4>
-					<input type="password" name="loginpwd" id="" placeholder="비밀번호">
+				<div class="find_email">
+					<input type="text" name="idfindemail" id="" placeholder="이메일">
+				</div>
+				<div class="find_birth">
+					<input type="text" name="idfindbirth" id="" placeholder="생년월일 8자리">
 				</div>
 				<div class="submit">
-					<input type="submit" value="로그인" onclick="return loginCheck()">
+					<input type="submit" value="아이디 찾기" onclick="return idfindCheck()">
 				</div>
 				<div class="threelinks">
-					<a href="idFind.jsp">아이디 찾기</a> &nbsp;&nbsp;
-					<a href="pwFind.jsp">비밀번호찾기</a> &nbsp;&nbsp; 
+					<a href="login.jsp">로그인</a>&nbsp;&nbsp;
+					<a href="pwFind.jsp">비밀번호찾기</a>&nbsp;&nbsp;
 					<a href="join.jsp">회원가입</a>
 				</div>
 			</div>

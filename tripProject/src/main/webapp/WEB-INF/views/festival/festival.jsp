@@ -77,7 +77,7 @@ p {color : #212121;}
   </script>
 </head>
 <body>
-<jsp:include page="includes/header.jsp"></jsp:include>
+<jsp:include page="../includes/header.jsp"></jsp:include>
 <a style="display:scroll;position:fixed;bottom:20px;z-index: 999;right:60px;font-size: 40px;" href="#" title="âtop">
 	<i class="fa-solid fa-circle-arrow-up"></i></a>
 	
@@ -114,11 +114,11 @@ p {color : #212121;}
                <a href="#" class="fh5co-card-item image-popup">
                   <figure>
                      <div class="overlay"><i class="ti-plus"></i></div>
-                     <img src="${festivalimg}" alt="Image" class="img-responsive">
+                     <img src="${firstImg}" alt="Image" class="img-responsive">
                   </figure>
                   <div class="fh5co-text">
                      <h2>충청도</h2>
-                     <p>역사와 자연이 조화로운 서산 여행</p>
+                     <p>#{title}</p>
                      <p><span class="btn btn-primary"> 보러가기</span></p>
                   </div>
                </a>
@@ -127,11 +127,11 @@ p {color : #212121;}
                <a href="#" class="fh5co-card-item image-popup">
                   <figure>
                      <div class="overlay"><i class="ti-plus"></i></div>
-                     <img src="${festivalimg}" alt="Image" class="img-responsive">
+                     <img src="${firstImg}" alt="Image" class="img-responsive">
                   </figure>
                   <div class="fh5co-text">
                      <h2>강원도 </h2>
-                     <p>영월로 떠나는 어느 여름날의 강원도 힐링여행</p>
+                     <p>#{title}</p>
                      <p><span class="btn btn-primary">보러가기</span></p>
                   </div>
                </a>
@@ -140,11 +140,11 @@ p {color : #212121;}
                <a href="#" class="fh5co-card-item image-popup">
                   <figure>
                      <div class="overlay"><i class="ti-plus"></i></div>
-                     <img src="${festivalimg}"" alt="Image" class="img-responsive">
+                     <img src="${firstImg}"" alt="Image" class="img-responsive">
                   </figure>
                   <div class="fh5co-text">
                      <h2>경상도</h2>
-                     <p>반려견과의 특별한 하루를, 의성펫월드</p>
+                     <p>#{title}</p>
                      <p><span class="btn btn-primary">보러가기</span></p>
                   </div>
                </a>
@@ -155,11 +155,11 @@ p {color : #212121;}
                <a href="#" class="fh5co-card-item image-popup">
                   <figure>
                      <div class="overlay"><i class="ti-plus"></i></div>
-                     <img src="${festivalimg}" alt="Image" class="img-responsive">
+                     <img src="${firstImg}" alt="Image" class="img-responsive">
                   </figure>
                   <div class="fh5co-text">
                      <h2>경기도</h2>
-                     <p>하루만에 즐기는 수원 당일치기 여행코스</p>
+                     <p>#{title}</p>
                      <p><span class="btn btn-primary">보러가기</span></p>
                   </div>
                </a>
@@ -169,11 +169,11 @@ p {color : #212121;}
                <a href="#" class="fh5co-card-item image-popup">
                   <figure>
                      <div class="overlay"><i class="ti-plus"></i></div>
-                     <img src="${festivalimg}" alt="Image" class="img-responsive">
+                     <img src="${firstImg}" alt="Image" class="img-responsive">
                   </figure>
                   <div class="fh5co-text">
                      <h2>전라도</h2>
-                     <p>잠들지 않는 낭만의 도시, 여수를 만끽하다 </p>
+                     <p>#{title} </p>
                      <p><span class="btn btn-primary">보러가기</span></p>
                   </div>
                </a>
@@ -183,11 +183,11 @@ p {color : #212121;}
                <a href="#" class="fh5co-card-item image-popup">
                   <figure>
                      <div class="overlay"><i class="ti-plus"></i></div>
-                     <img src="${festivalimg}" alt="Image" class="img-responsive">
+                     <img src="${firstImg}" alt="Image" class="img-responsive">
                   </figure>
                   <div class="fh5co-text">
                      <h2>제주도</h2>
-                     <p>섬 안에 섬을 여행하는 방법, 가파도 여행 코스</p>
+                     <p>#{title}</p>
                      <p><span class="btn btn-primary">보러가기</span></p>
                   </div>
                </a>
@@ -213,34 +213,13 @@ p {color : #212121;}
 			 
 
  
+</div>
 
 
-
- <div id = "map" style="width: 800px; height: 300px;"></div>
-	<script type="text/javascript" 
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=70d0289eba5f802b9a96043f6181b686"></script>
-	<script>
-		var container = document.getElementById('map');
-		var options = {
-			center: new kakao.maps.LatLng(33.450701, 126.570667),
-			level: 3
-		};
-
-		var map = new kakao.maps.Map(container, options);
-	</script> 
-	
-
-
-	</div>
-        
 
     
-<jsp:include page="includes/footer.jsp"></jsp:include>
+<jsp:include page="../includes/footer.jsp"></jsp:include>
 </body>
 </html>
-<%-- <%
-rs.close();
-st.close();
-con.close();
-%> --%>
+
 

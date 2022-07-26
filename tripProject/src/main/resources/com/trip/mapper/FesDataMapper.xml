@@ -10,4 +10,10 @@
 		select * from festivaldata where num>0
 	</select>
 	
+	<insert id="insert">
+		insert into festivaldata(num, title, address, firstimg, startdate, enddate, mapx, mapy, mlevel)
+		values(fesdata_num.nextval,
+		#{title}, #{address}, #{firstimg}, #{startdate}, #{enddate}, #{mapx}, #{mapy}, #{mlevel})
+	</insert>
+	
 </mapper>

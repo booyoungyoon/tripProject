@@ -187,7 +187,7 @@ html, body {
       <ul class="navbar_menu">
          <li><a href="../destination/list.do">여행지 추천</a></li>
          <li><a href="../course/page.do">코스 추천</a></li>
-         <li><a href="festival/list.do">축제</a></li>
+         <li><a href="../festival/page.do">축제</a></li>
          <li><a href="board.jsp">자유게시판</a></li>
          <li><a href="login.jsp">로그인</a></li>
       </ul>

@@ -25,9 +25,9 @@
 				<tr>
 					<td><c:out value="${festivaldata.num}"/></td>
 					<td><c:out value="${festivaldata.title}"/></td>
-					<td><c:out value="${festivaldata.firstImg}"/></td>
-					<td><c:out value="${festivaldata.startDate}"/></td>
-					<td><c:out value="${festivaldata.endDate }"/></td>
+					<td><c:out value="${festivaldata.firstimg}"/></td>
+					<td><c:out value="${festivaldata.startdate}"/></td>
+					<td><c:out value="${festivaldata.enddate }"/></td>
 					<td><c:out value="${festivaldata.address }"/></td>
 				</tr>
 			</c:forEach>

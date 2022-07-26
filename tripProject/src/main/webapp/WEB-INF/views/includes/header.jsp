@@ -174,7 +174,7 @@ html, body {
 <header>
    <nav class="navbar">
       <div class="navbar_logo">
-         <i class="fa-solid fa-map-location-dot"></i> <a href="../home.jsp">여행가기
+         <i class="fa-solid fa-map-location-dot"></i> <a href="../home.do">여행가기
             좋은날</a>
       </div>
       <div class="head_container">

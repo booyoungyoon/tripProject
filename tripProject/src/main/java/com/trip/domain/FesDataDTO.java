@@ -18,13 +18,13 @@ create table festivaldata (
 
 @Data
 public class FesDataDTO {
-	private int fesNum;
+	private int num;
 	private String title;
 	private String address;
-	private String firstImg;
-	private String startDate;
-	private String endDate;
-	private String mapX;
-	private String mapY;
-	private int mLevel;
+	private String firstimg;
+	private String startdate;
+	private String enddate;
+	private String mapx;
+	private String mapy;
+	private int mlevel;
 }

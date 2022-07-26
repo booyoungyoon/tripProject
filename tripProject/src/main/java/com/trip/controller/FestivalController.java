@@ -1,22 +1,38 @@
 package com.trip.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import java.util.List;
 
-import com.trip.mapper.FestivalMapper;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.trip.domain.FesDataDTO;
+import com.trip.mapper.FesDataMapper;
 
 import lombok.extern.log4j.Log4j;
 
 @Controller
 @Log4j
-@RequestMapping(value="/festival/*")
+@RequestMapping(value="/festival")
 public class FestivalController {
-	private FestivalMapper fmapper;
+	private FesDataMapper fmapper;
+	
+
+	
+	
 	
 	@RequestMapping("list.do")
-	public void list(Model model) {
+	public ModelAndView list(ModelAndView mv) {
 		log.info("list");
-		model.addAttribute("list", fmapper.getList());
+		
+		List<FesDataDTO> list = fmapper.getList();
+		
+		if(list != null) {
+			mv.addObject("list",list);
+		}
+		mv.setViewName("festival/list");
+		log.info("???");
+		return mv;
+		
 	}
 }

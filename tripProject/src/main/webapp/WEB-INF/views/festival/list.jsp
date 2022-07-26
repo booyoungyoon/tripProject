@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h1>List 화면</h1>
-	<table class="table">
+	 <table class="table">
 		<thead>
 			<tr>
 				<th>번호</th>
@@ -20,7 +20,7 @@
 				<th>주소</th>
 			</tr>
 		</thead>
-		<tbody>
+	<tbody>
 			<c:forEach items="${list}" var="festivaldata">
 				<tr>
 					<td><c:out value="${festivaldata.num}"/></td>

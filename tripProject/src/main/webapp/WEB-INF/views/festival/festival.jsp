@@ -49,32 +49,7 @@
 
 p {color : #212121;}
 </style>
-  <script>
-  var xhr = new XMLHttpRequest();
-  var url = 'http://api.visitkorea.or.kr/openapi/service/rest/KorService/searchFestival'; /*URL*/
-  var queryParams = '?' + encodeURIComponent('serviceKey') + '='+'sWi23NfHCswD2JLkVzlAjWdx84T9hH%2B4%2BgYdeHg5rakMR397CZtjr1hoq8Mo56LMzSCjxrlMzLEkI0Bi%2FwFQ0Q%3D%3D'; /*Service Key*/
-  queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10'); /**/
-  queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
-  queryParams += '&' + encodeURIComponent('MobileOS') + '=' + encodeURIComponent('ETC'); /**/
-  queryParams += '&' + encodeURIComponent('MobileApp') + '=' + encodeURIComponent('AppTest'); /**/
-  queryParams += '&' + encodeURIComponent('arrange') + '=' + encodeURIComponent('A'); /**/
-  queryParams += '&' + encodeURIComponent('listYN') + '=' + encodeURIComponent('Y'); /**/
-  queryParams += '&' + encodeURIComponent('areaCode') + '=' + encodeURIComponent(''); /**/
-  queryParams += '&' + encodeURIComponent('sigunguCode') + '=' + encodeURIComponent(''); /**/
-  queryParams += '&' + encodeURIComponent('eventStartDate') + '=' + encodeURIComponent('20220701'); /**/
-  queryParams += '&' + encodeURIComponent('eventEndDate') + '=' + encodeURIComponent(''); /**/
-  queryParams += '&' + encodeURIComponent('modifiedtime') + '=' + encodeURIComponent(''); /**/
-  xhr.open('GET', url + queryParams);
-  xhr.onreadystatechange = function () {
-      if (this.readyState == 4) {
-          alert('Status: '+this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseText);
-      }
-  };
-
-  xhr.send('');
-           
-       	
-  </script>
+ 
 </head>
 <body>
 <jsp:include page="../includes/header.jsp"></jsp:include>

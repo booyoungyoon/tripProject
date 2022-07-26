@@ -74,24 +74,24 @@ public class FesDataMapperTests {
 				FesDataDTO dto = new FesDataDTO();
 				dto.setTitle(title);
 				dto.setAddress(address);
-				dto.setStartDate(startDate);
-				dto.setEndDate(endDate);
-				dto.setFirstImg(firstImg);
-				dto.setMapX(mapX);
-				dto.setMapY(mapY);
+				dto.setStartdate(startDate);
+				dto.setEnddate(endDate);
+				dto.setFirstimg(firstImg);
+				dto.setMapx(mapX);
+				dto.setMapy(mapY);
 				if(elmLevel.get(i).text().length() > 0) {
-					dto.setMLevel(Integer.parseInt(mLevel));
+					dto.setMlevel(Integer.parseInt(mLevel));
 				}
 				
 				
 				System.out.println(dto.getTitle());
 				System.out.println(dto.getAddress());
-				System.out.println(dto.getStartDate());
-				System.out.println(dto.getEndDate());
-				System.out.println(dto.getFirstImg());
-				System.out.println(dto.getMapX());
-				System.out.println(dto.getMapY());
-				System.out.println(dto.getMLevel());
+				System.out.println(dto.getStartdate());
+				System.out.println(dto.getEnddate());
+				System.out.println(dto.getFirstimg());
+				System.out.println(dto.getMapx());
+				System.out.println(dto.getMapy());
+				System.out.println(dto.getMlevel());
 				mapper.insert(dto);
 			}		
 					

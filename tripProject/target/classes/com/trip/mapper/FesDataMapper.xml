@@ -16,4 +16,6 @@
 		#{title}, #{address}, #{firstimg}, #{startdate}, #{enddate}, #{mapx}, #{mapy}, #{mlevel})
 	</insert>
 	
+
+	
 </mapper>

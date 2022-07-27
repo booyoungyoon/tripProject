@@ -8,6 +8,18 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<jsp:include page="../includes/header.jsp"></jsp:include>
+<a style="display:scroll;position:fixed;bottom:20px;z-index: 999;right:60px;font-size: 40px;" href="#" title="âtop">
+<i class="fa-solid fa-circle-arrow-up"></i></a>
+	
+<!-- header card -->
+	
+	<div class="card">
+	   
+	</div>
+	<br><br>
+	<div id="slider">
 	<h1>List 화면</h1>
 	 <table class="table">
 		<thead>
@@ -21,7 +33,7 @@
 			</tr>
 		</thead>
 	<tbody>
-			<c:forEach items="${list}" var="festivaldata">
+			<c:forEach items="${item}" var="festivaldata">
 				<tr>
 					<td><c:out value="${festivaldata.num}"/></td>
 					<td><c:out value="${festivaldata.title}"/></td>

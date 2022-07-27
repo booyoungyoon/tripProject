@@ -1,12 +1,12 @@
 function loginCheck() {
-	if (document.loginfrm.loginid.value.length == 0){
+	if (document.loginfrm.userId.value.length == 0){
 		alert("아이디를 작성해 주세요");
-		loginfrm.loginid.focus();
+		loginfrm.userId.focus();
 		return false;
 		}
-	if (document.loginfrm.loginpwd.value == ""){
+	if (document.loginfrm.userPass.value == ""){
 		alert("비밀번호를 작성해 주세요");
-		loginfrm.loginpwd.focus();
+		loginfrm.userPass.focus();
 		return false;
 		}
 	return true;

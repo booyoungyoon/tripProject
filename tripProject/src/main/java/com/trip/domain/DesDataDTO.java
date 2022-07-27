@@ -17,6 +17,7 @@ create table destinatinodata (
 public class DesDataDTO {
 	private int desNum;
 	private String title;
+	private String content;
 	private String address;
 	private String firstImg;
 	private String secondImg;

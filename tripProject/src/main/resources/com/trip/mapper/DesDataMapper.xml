@@ -9,8 +9,8 @@
 	</select>
 
 	<insert id="insert">
-		insert into destinatinodata(num, title, content, address, firstimg, secondimg, mapx, mapy)
-		values(desdata_seq.nextval, #{content},
+		insert into destinatinodata(num, title, address, firstimg, secondimg, mapx, mapy)
+		values(desdata_seq.nextval,
 		#{title}, #{address}, #{firstImg}, #{secondImg}, #{mapX}, #{mapY})
 	</insert>
 

@@ -27,16 +27,12 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
 	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
 	crossorigin="anonymous"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-	crossorigin="anonymous"></script>
+
 <script src="https://kit.fontawesome.com/c34800a0df.js"
 	crossorigin="anonymous"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6f7f2591af5145e97bd2969fcf925e6f"></script>
 <style>
@@ -67,7 +63,7 @@ ul>li>a {
 
 #slider {
 	width: 1000px;
-	height: 1000px;
+	height: 1800px;
 	margin: 0 auto;
 }
 </style>
@@ -105,14 +101,15 @@ ul>li>a {
 							<div class="card-body">
 								<div class="row pt-5 pb-3">
 									<div class="col">
-										<h5>${fes.title}</h5>
+										<h4>${fes.title}</h4>
 										<span>${fes.startdate}~${fes.enddate}</span><br /> <span>${fes.address}</span>
 									</div>
 
 								</div>
 								<div class="row pt-5">
 									<div class="col">
-										<button type="detailbtn" class="btn btn-primary">상세보기</button>
+										<button type="button" class="btn btn-primary"
+											onclick="showModal(${fes.num})">상세보기</button>
 									</div>
 								</div>
 							</div>
@@ -121,13 +118,39 @@ ul>li>a {
 				</div>
 			</c:forEach>
 		</div>
-
+<!-- 페이지 처리 Start -->
+				<div class="pull-right">
+					  <ul class="pagination">
+					  
+					    <c:if test="${pageMaker.prev }">
+						    <li class="paginate_button previous"><a  href="${pageMaker.startPage-1}">Previous</a></li>
+					    </c:if>
+				
+					  	<c:forEach  var="num"  begin="${pageMaker.startPage }"  end="${pageMaker.endPage }">
+						    <li class="paginate_button  ${pageMaker.cri.pageNum == num ? "active" : "" }">
+						    <a  href="${num }">${num }</a></li>
+					  	</c:forEach>
+					    
+					    <c:if test="${pageMaker.next }">
+						    <li class="paginate_button next"><a  href="${pageMaker.endPage+1}">Next</a></li>
+					    </c:if>
+					  </ul>
+				</div>
+				<!-- 페이지 처리 End -->
+				
+				<form id="actionForm" action="../festival/page.do" method="get">
+					<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
+					<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
+				</form>
+				
 		<button class="btn btn-light btn-grid justify-content-md-end"
 			type="button" onclick="location.href='feditor.jsp' ">글등록</button>
-<script>
-		$("#detailbtn").on("click", function() {
-			self.location = "/festival/detail.do";
-		});
+		<script>
+		//$("#detailbtn").on("click", function() {
+			//$.ajax({
+				
+			//})
+	//	});
 		
 	
 
@@ -136,80 +159,94 @@ ul>li>a {
 
 	</div>
 
-	<nav aria-label="Page navigation example">
-		<ul class="pagination justify-content-center">
-			<li class="page-item disabled"><a class="page-link" href="#"
-				tabindex="-1" aria-disabled="true">Previous</a></li>
-			<li class="page-item"><a class="page-link" href="#">1</a></li>
-			<li class="page-item"><a class="page-link" href="#">2</a></li>
-			<li class="page-item"><a class="page-link" href="#">3</a></li>
-			<li class="page-item"><a class="page-link" href="#">Next</a></li>
-		</ul>
-	</nav>
 
 
 
 
-
-
-
-	<!-- <!-- Modal -->
-	<!-- <div class="modal fade" id="fesModal" tabindex="-1"
+	<!-- Modal -->
+	<div class="modal fade" id="detailModal" tabindex="-1"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal"
-						aria-label="Close"></button>
-				</div>
-				<div class="modal-body">...</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-bs-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
-				</div>
-			</div>
-		</div>
-	</div> --> -->
-<!-- <script>
-	function showModal(num){
-		console.log("??")
-		$.ajax({
-			url:"/festival/get-one",
-			type:"get",
-			data:{
-				"num" : num
-			},
-			success: function(res){
-				$('#fesModal').html = '<div class="modal-dialog">'+
-			'<div class="modal-content">'+
-			'<div class="modal-header">'+
-					'<h5 class="modal-title" id="exampleModalLabel">'+res.data.title+'</h5>'
-					'<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>'+
-				'<div class="modal-body">...</div>'+
-				'<div class="modal-footer">'+
-					<button type="button" class="btn btn-secondary"
-						data-bs-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
-				</div>
-			</div>
-		</div>
-	</div>'
-			},error: function(){
-				console.log("에러")
-			}
-		})
-		//$('#fesModal').modal('show');
+	
+	</div>
+
+<script type="text/javascript" 
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=70d0289eba5f802b9a96043f6181b686"></script>
+	<script type="text/javascript">
+ 
+ 
+	 var mapx="";
+	 var mapy="";
+	 var mlevel="";
+	$(function(){
+		$('#detailModal').on('shown.bs.modal', function (e) {
+			console.log()
+			var container = document.getElementById('map');
+			var options = {
+				center: new kakao.maps.LatLng(mapx,mapy),
+				level: mlevel
+			};
+
+			var map = new kakao.maps.Map(container, options);
+		});	
 		
-	}
+		
+	})
+	
+ function showModal(num){
+		 $.ajax({
+		 url:"detail.do?num="+num,
+		 method:"get",
+		 success: function(res){
+			 console.log(res)
+			 
+			 
+			 
+			 var string = 
+			' <div class="modal-dialog">'+
+    '<div class="modal-content">'+
+      '<div class="modal-header">'+
+       ' <h5 class="modal-title" id="exampleModalLabel">'+res.title+'</h5>'+
+       ' <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>'+
+     ' </div>'+
+     ' <div class="modal-body">'+
+     '<div id="map" style="width:300px; height:200px;"></div>'+
+     ' </div>'+
+      '<div class="modal-footer">'+
+       ' <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>'+
+     ' </div> </div> </div>'		 
+			 	
+   	$('#detailModal').html(string) ;
+			 $('#detailModal').modal('show');
+		 },error: function(e){
+			 console.log("error=>"+e)
+		 }
+	 }) 
+ }
+	var actionForm = $("#actionForm");
+	$(".paginate_button a").on("click", function(e){
+		 e.preventDefault();
+		console.log('click');
+		actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+		actionForm.submit(); 
+	});
+ 
+ </script>
 
 
+	<jsp:include page="../includes/footer.jsp"></jsp:include> 
 
-</script> -->
-
-	<jsp:include page="../includes/footer.jsp"></jsp:include>
 </body>
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </html>
 
 

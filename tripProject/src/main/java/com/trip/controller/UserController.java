@@ -105,10 +105,13 @@ public class UserController {
 	}
 	
 	@PostMapping("modify.do")
-	public String modify(UserVO vo) {
+	public String modify(UserVO vo, HttpSession session) {
 		log.info("------ modify ------");
 		log.info(vo);
 		mapper.update(vo);
+		
+		UserVO user = mapper.get(vo.getUserNum());
+		session.setAttribute("user", user);
 		return "users/mypage";
 	}
 }

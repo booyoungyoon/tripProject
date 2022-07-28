@@ -30,9 +30,6 @@ public class UserController {
 	@PostMapping("login.do")
 	public String login(Model model, UserVO vo, HttpSession session) {
 		log.info("-------login 실행---------");
-		log.info(vo.getAdmin());
-		log.info(vo.getUserId());
-		log.info(vo.getUserPass());
 		UserVO user = mapper.read(vo);
 		log.info(user);
 		if (user != null) {
@@ -52,19 +49,17 @@ public class UserController {
 	@PostMapping("join.do")
 	public String join(Model model, UserVO vo) {
 		log.info("-------join---------");
-		log.info(vo.getUserId());
 		log.info(vo.getUserName());
-		log.info(vo.getUserPass());
-		log.info(vo.getBirth());
-		
 		String birth = vo.getBirth();
+		log.info(birth);
 		birth = birth.replace(",", "");
+		log.info(birth);
 		if(birth.length() < 8) {
 			birth = birth.substring(0, 6) + 0 + birth.substring(6);
+			log.info(birth);
 			vo.setBirth(birth);
 		}
-		log.info(vo.getBirth());
-		log.info(vo.getEmail());
+		vo.setBirth(birth);
 		mapper.insert(vo);
 		log.info("-------- user insert ------------");
 		return "redirect:/users/login.do";
@@ -87,5 +82,33 @@ public class UserController {
 	public void list(Model model) {
 		log.info("list");
 		model.addAttribute("list", mapper.getList());
+	}
+	
+	@RequestMapping("mypage.do")
+	public String mypage(Model model) {
+		log.info("-------- mypage -----------");
+		return "users/mypage";
+	}
+	
+	@GetMapping("withdraw.do")
+	public String withdraw(UserVO vo, HttpSession session) {
+		log.info("------ remove ------");
+		log.info(vo.getUserNum());
+		mapper.delete(vo.getUserNum());
+		session.invalidate();
+		return "redirect:/home.do";
+	}
+	@GetMapping("modify.do")
+	public String modifyPage() {
+		log.info("------ modifyPage ------");
+		return "users/modify";
+	}
+	
+	@PostMapping("modify.do")
+	public String modify(UserVO vo) {
+		log.info("------ modify ------");
+		log.info(vo);
+		mapper.update(vo);
+		return "users/mypage";
 	}
 }

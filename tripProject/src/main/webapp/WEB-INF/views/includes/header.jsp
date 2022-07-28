@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,21 +32,17 @@
    font-weight: normal;
    font-style: normal;
 }
-
 @import url("https://fonts.googleapis.com/css?family=Inconsolata:700");
-
 * {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
    font-family: 'yg-jalnan', cursive
 }
-
 html, body {
    width: 100%;
    height: 100%;
 }
-
 .head_container {
    position: absolute;
    margin: auto;
@@ -56,7 +53,6 @@ html, body {
    width: 200px;
    height: 100px;
 }
-
 .head_container .search {
    position: absolute;
    margin: auto;
@@ -71,11 +67,9 @@ html, body {
    transition: all 0.5s;
    z-index: 4;
 }
-
 .head_container .search:hover {
    cursor: pointer;
 }
-
 .head_container .search::before {
    content: "";
    position: absolute;
@@ -90,7 +84,6 @@ html, body {
    transform: rotate(45deg);
    transition: all 0.5s;
 }
-
 .head_container .search::after {
    content: "";
    position: absolute;
@@ -105,7 +98,6 @@ html, body {
    border: 2px solid white;
    transition: all 0.5s;
 }
-
 .head_container input {
    position: absolute;
    margin: auto;
@@ -127,29 +119,24 @@ html, body {
    font-weight: bolder;
    letter-spacing: 0.1em;
 }
-
 .head_container input:hover {
    cursor: pointer;
 }
-
 .head_container input:focus {
    width: 200px;
    opacity: 1;
    cursor: text;
 }
-
 .head_container input:focus ~ .search {
    right: -150px;
    background: #98a6c3;
    z-index: 6;
 }
-
 .head_container input:focus ~ .search::before {
    top: 0;
    left: 0;
    width: 25px;
 }
-
 .head_container input:focus ~ .search::after {
    top: 0;
    left: 0;
@@ -160,13 +147,14 @@ html, body {
    border-radius: 0%;
    transform: rotate(-45deg);
 }
-
 .head_container input::placeholder {
    color: white;
    opacity: 0.5;
    font-weight: bolder;
 }
-
+.btn-group .btn {
+	margin-top: 10px; border-radius: 5em;
+}
 </style>
 <title>Insert title here</title>
 </head>
@@ -189,8 +177,21 @@ html, body {
          <li><a href="../course/page.do">코스 추천</a></li>
          <li><a href="../festival/page.do">축제</a></li>
          <li><a href="../board/page.do">자유게시판</a></li>
-         <li><a href="../users/login.do">로그인</a></li>
-
+         <c:choose>
+			<c:when test="${user == null}">
+       			<li><a href="../users/login.do">로그인</a></li>
+			</c:when>
+			<c:otherwise>
+				<div class="btn-group">
+					<button type="button" class="btn btn-secondary" data-toggle="dropdown">마이페이지</button>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="../users/mypage.do">내 정보 보기</a></li>
+						<li><a href="#">내 글 보기</a></li>
+						<li><a href="../logout.do">로그아웃</a></li>
+					</ul>
+				</div>
+			</c:otherwise>
+		</c:choose>
       </ul>
    </nav>
 </header>

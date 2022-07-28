@@ -26,17 +26,25 @@
 	font-weight: normal;
 	font-style: normal;
 }
+
 @import url("https://fonts.googleapis.com/css?family=Inconsolata:700");
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'yg-jalnan', cursive;
 }
+
 html, body {
 	width: 100%;
 	height: 100%;
 }
+
+ul>li>a {
+	color: #212121;
+}
+
 .gd-container {
 	max-width: 1100px;
 	position: relative;
@@ -44,20 +52,25 @@ html, body {
 	padding-left: 15px;
 	padding-right: 15px;
 }
+
 #gtco-header {
 	height: 700px;
 	width: 100%;
 }
+
 #gtco-header>ul {
 	display: inline;
 }
+
 #gtco-header .bg {
 	position: relative;
 }
+
 #gtco-header .bg>img {
 	height: 700px;
 	width: 100%;
 }
+
 #gtco-header .bg .text>h1 {
 	display: inline-block;
 	z-index: 999;
@@ -70,9 +83,11 @@ html, body {
 	height: 70px;
 	line-height: 700px;
 }
+
 .bg:hover {
 	opacity: 0.7;
 }
+
 .Wallpapers {
 	width: 100%;
 	height: 100%;
@@ -80,6 +95,7 @@ html, body {
 	align-items: center;
 	justify-content: center;
 }
+
 .login {
 	width: 40%;
 	height: 600px;
@@ -92,15 +108,18 @@ html, body {
 	border: 1px solid lightgray;
 	margin: 0px 0px 50px;
 }
+
 .login h2 {
 	color: aqua;
 	font-size: 2em;
 	margin-bottom: 50px;
 }
+
 .login_id {
 	margin-top: 50px;
 	width: 80%;
 }
+
 .login_id input {
 	width: 100%;
 	height: 50px;
@@ -110,10 +129,12 @@ html, body {
 	border: 1px solid gray;
 	outline: none;
 }
+
 .login_pw {
 	margin-top: 20px;
 	width: 80%;
 }
+
 .login_pw input {
 	width: 100%;
 	height: 50px;
@@ -123,10 +144,12 @@ html, body {
 	border: 1px solid gray;
 	outline: none;
 }
+
 .submit {
 	margin-top: 50px;
 	width: 80%;
 }
+
 .submit input {
 	width: 100%;
 	height: 50px;
@@ -137,6 +160,7 @@ html, body {
 	color: white;
 	font-size: 1.2em;
 }
+
 .threelinks {
 	text-align: center;
 	margin-top: 20px;

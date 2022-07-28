@@ -61,6 +61,8 @@ input {
    float:right;
    margin-top: 5px;
    cursor: pointer;
+   background-color: #2ce8de;
+   color: #fff;
 }
 h3 {
    margin: 10px 0px 8px;
@@ -196,7 +198,7 @@ h3 {
                <input id="signup-id" name="userId" type="text"></input> 
                <span class="signup-at"></span>
                </span>
-               <button class="overLap" type="button" onclick="checkId()" name="checkId" class="checkId">중복확!</button>
+               <button class="overLap" type="button" onclick="checkId()" name="checkId" class="checkId">중복확인</button>
 
                <h3>&nbsp;비밀번호</h3>
                <span class="signup-input"> <input id="signup-pw"
@@ -220,7 +222,7 @@ h3 {
                <span class="signup-input"> <input id="signup-nickname"
                   name="nickName" type="text"></input>
                </span>
-               <button class="overLap" type="button" onclick="checkNick()" name="checkNick" class="checkNick">중복확!</button>
+               <button class="overLap" type="button" onclick="checkNick()" name="checkNick" class="checkNick">중복확인</button>
                <h3>&nbsp;이메일</h3>
                <span class="signup-input"> <input id="signup-email"
                   name="email" type="text"></input>

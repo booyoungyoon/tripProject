@@ -6,11 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
-<script type="text/javascript" src="js/login.find.join.js"></script>
+<script type="text/javascript" src="../js/login.find.join.js"></script>
 <style type="text/css">
 * {
 	font-family: 'yg-jalnan', cursive
 }
+
 @font-face {
 	font-family: 'yg-jalnan';
 	src:
@@ -19,9 +20,11 @@
 	font-weight: normal;
 	font-style: normal;
 }
+
 body {
 	background-color: #f5f6f7;
 }
+
 select {
 	width: 85px;
 	height: 25px;
@@ -29,14 +32,17 @@ select {
 	background: #f5f6f7;
 	border: 1px solid #999;
 }
+
 a {
 	color: black;
 	text-decoration: none;
 }
+
 .main {
 	text-align: center;
 	margin-top: 20px;
 }
+
 input {
 	cursor: pointer
 }
@@ -46,11 +52,13 @@ input {
 	width: 460px;
 	margin: auto;
 }
+
 h3 {
 	margin: 19px 0px 8px;
 	text-align: left;
 	font-size: 14px;
 }
+
 .signup-input {
 	display: flex;
 	/* margin: 0px 10px 8px 10px; */
@@ -60,6 +68,7 @@ h3 {
 	cursor: pointer;
 	border-radius: 30px;
 }
+
 .signup-input-c {
 	display: flex;
 	/* margin: 0px 10px 8px 10px; */
@@ -68,20 +77,24 @@ h3 {
 	background: #f5f6f7;
 	cursor: pointer;
 }
+
 .signup-input-c input {
 	background: #f5f6f7;
 }
+
 #signup-id, #signup-pw, #signup-pww {
 	height: 29px;
 	border: none;
 	outline: none;
 	width: 100%;
 }
+
 .signup-at {
 	color: rgb(150, 150, 150);
 	font-size: 15px;
 	margin-top: 8px;
 }
+
 .signup-input-birth {
 	display: block;
 	position: relative;
@@ -93,35 +106,40 @@ h3 {
 	box-sizing: border-box;
 	border-radius: 30px;
 }
+
 #signup-birth-yy, #signup-birth-mm, #signup-birth-dd {
 	width: 113px;
 	height: 29px;
 	border: none;
 	outline: none;
 }
+
 #checkquestion {
-   width: 200px;
-   height: 51px;
-   border: 1px solid #dadada;
-   outline: none;
-   float: left;
-   background-color: white;
-   border-radius: 30px;
+	width: 200px;
+	height: 51px;
+	border: 1px solid #dadada;
+	outline: none;
+	float: left;
+	background-color: white;
+	border-radius: 30px;
 }
+
 #signup-name, #signup-nickname, #signup-gender, #signup-email,
- #signup-phone {
+	#signup-phone, #signup-answer {
 	width: 100%;
 	height: 29px;
 	border: none;
 	outline: none;
-	
 }
+
 #signup-gender {
 	background-color: white;
 }
+
 #signup-birth-mm {
 	background-color: white;
 }
+
 .choice span {
 	margin-top: 20px;
 	color: rgb(150, 150, 150);
@@ -129,7 +147,7 @@ h3 {
 }
 /*회원가입버튼*/
 #signup-btn {
-margin: 20px 0px 50px 0px;
+	margin: 20px 0px 50px 0px;
 	width: 460px;
 	line-height: 55px;
 	height: 60px;
@@ -152,47 +170,56 @@ margin: 20px 0px 50px 0px;
 		<!--웹페이지 상단-->
 		<header>
 			<!--LOGO-->
-			<h2><a href="../home.do">여행가기 좋은 날</a></h2>
+			<h2>
+				<a href="../home.do">여행가기 좋은 날</a>
+			</h2>
 		</header>
 
 		<!--회원가입 부분-->
-		<form method="post" action="join.do">
+		<form method="post" action="join.do" name="joinfrm">
 			<section class="signup-wrap">
 
 				<div>
 					<!--아이디,비번,비번재확인-->
 
-					<h3>아이디</h3>
-					<span class="signup-input"> <input id="signup-id" name="userId"
-						type="text"></input> <span class="signup-at"></span>
+					<h3>&nbsp;아이디</h3>
+					<span class="signup-input"> 
+					<input id="signup-id" name="userId" type="text"></input> 
+					<span class="signup-at"></span>
+					</span>
+					<button type="button" onclick="checkId()" name="checkId" class="checkId">중복확!</button>
+
+					<h3>&nbsp;비밀번호</h3>
+					<span class="signup-input"> <input id="signup-pw"
+						name="userPass" type="password"></input> <span class="pw-lock"></span>
 					</span>
 
-					<h3>비밀번호</h3>
-					<span class="signup-input"> <input id="signup-pw" name="userPass"
-						type="password"></input> <span class="pw-lock"></span>
-					</span>
-
-					<h3>비밀번호 재확인</h3>
-					<span class="signup-input"> <input id="signup-pww" name="siginPass"
-						type="password"></input> <span class="pww-lock"></span>
+					<h3>&nbsp;비밀번호 재확인</h3>
+					<span class="signup-input"> <input id="signup-pww"
+						name="siginPass" type="password"></input> <span class="pww-lock"></span>
 					</span>
 
 				</div>
 
 				<div style="margin-top: 35px;">
 					<!--이름,생년월일,성별,이메일-->
-					<h3>이름</h3>
-					<span class="signup-input"> <input id="signup-name" name="userName"
-						type="text"></input>
+					<h3>&nbsp;이름</h3>
+					<span class="signup-input"> <input id="signup-name"
+						name="userName" type="text"></input>
 					</span>
-					<h3>닉네임</h3>
-					<span class="signup-input"> <input id="signup-nickname" name="nickName"
-						type="text"></input>
+					<h3>&nbsp;닉네임</h3>
+					<span class="signup-input"> <input id="signup-nickname"
+						name="nickName" type="text"></input>
 					</span>
-					<h3>생년월일</h3>
+					<button type="button" onclick="checkNick()" name="checkNick" class="checkNick">중복확!</button>
+					<h3>&nbsp;이메일</h3>
+					<span class="signup-input"> <input id="signup-email"
+						name="email" type="text"></input>
+					</span>
+					<h3>&nbsp;생년월일</h3>
 					<span style="display: flex;"> <span
-						class="signup-input-birth"> <input id="signup-birth-yy" name="birth"
-							type="text" placeholder="년(4자)"></input>
+						class="signup-input-birth"> <input id="signup-birth-yy"
+							name="birth" type="text" placeholder="년(4자)"></input>
 					</span> <span class="signup-input-birth" style="margin-left: 10px;">
 							<select id="signup-birth-mm" class="selectbox" name="birth"
 							onchange="">
@@ -211,11 +238,12 @@ margin: 20px 0px 50px 0px;
 								<option value="12">12</option>
 						</select>
 					</span> <span class="signup-input-birth" style="margin-left: 10px;">
-							<input id="signup-birth-dd" name="birth" type="text" placeholder="일"></input>
+							<input id="signup-birth-dd" name="birth" type="text"
+							placeholder="일"></input>
 					</span>
 					</span>
 
-					<h3>성별</h3>
+					<h3>&nbsp;성별</h3>
 					<span class="signup-input"> <select id="signup-gender"
 						class="selectbox" name="gender" onchange="">
 							<option value="gender">성별</option>
@@ -224,8 +252,8 @@ margin: 20px 0px 50px 0px;
 					</select>
 					</span>
 					<div style="margin-top: 35px;">
-						<!--휴대전화-->
-						<h3>휴대전화</h3>
+						<!--전화번호-->
+						<h3>&nbsp;전화번호</h3>
 						<div style="display: flex;">
 							<span class="signup-input"
 								style="width: 100%; margin: 10px 0px 0px 0px"> <input
@@ -234,24 +262,22 @@ margin: 20px 0px 50px 0px;
 						</div>
 					</div>
 					<span class="choice">
-						<h3>본인 확인 질문</h3> <select id="checkquestion" class="selectbox"
-                  name="question" onchange="">
-                     <option value="select">&nbsp;질문을 선택하세요.</option>
-                     <option value="elementarySchool">&nbsp;초등학교 이름은?</option>
-                     <option value="middleSchool">&nbsp;중학교 이름은?</option>
-                     <option value="highSchool">&nbsp;고등학교 이름은?</option>
-                     <option value="cellPhoneName">&nbsp;처음 산 휴대전화 기종은?</option>
-                     <option value="car">&nbsp;처음 산 자동차 기종은?</option>
-               </select>
-               </span>
-               <span class="signup-input"> 
-               <input id="signup-email"
-                  name="answer" type="text" placeholder="본인 확인 질문"></input>
-               </span>
-				<input type="hidden" name="email" value="random@naver.com">
+						<h3>&nbsp;본인 확인 질문</h3> <select id="checkquestion"
+						class="selectbox" name="question"">
+							<option value="select">&nbsp;질문을 선택하세요.</option>
+							<option value="elementarySchool">&nbsp;초등학교 이름은?</option>
+							<option value="middleSchool">&nbsp;중학교 이름은?</option>
+							<option value="highSchool">&nbsp;고등학교 이름은?</option>
+							<option value="cellPhoneName">&nbsp;처음 산 휴대전화 기종은?</option>
+							<option value="car">&nbsp;처음 산 자동차 기종은?</option>
+					</select>
+					</span> <span class="signup-input"> <input id="signup-answer"
+						name="answer" type="text" placeholder="본인 확인 질문"></input>
+					</span>
 				</div>
 				<!--가입하기-->
-				<input type="submit" id="signup-btn" value="회원가입">
+				<input type="submit" id="signup-btn" value="회원가입"
+					onclick="return checkJoin()">
 			</section>
 		</form>
 	</div>

@@ -130,18 +130,22 @@
 		<h3>여행지 추천 글 쓰기</h3>
 		<br>
 
-		<form method="post" action="/destination/register.do">
+		<form method="post" action="../destination/register.do">
 			<table border=1 width="100%">
 				<tr>
-					<td align="center">제목</td>
+					<td align="center">여행지 이름</td>
 					<td><input type="text" name="title" style="width: 100%"></td>
 				</tr>
 				<tr>
-					<td colspan="2"><textarea id="summernote" name="content"></textarea>
+					<td align="center">여행지 주소</td>
+					<td><input type="text" name="address" style="width: 100%"></td>
+				</tr>
+				<tr>
+					<td colspan="2"><textarea id="summernote" name="firstImg"></textarea>
 					</td>
 				</tr>
 			</table>
-			<input type="submit" value="등록" onclick="goWrite(this.form)">
+			<input type="submit" value="등록">
 		</form>
 		
 		

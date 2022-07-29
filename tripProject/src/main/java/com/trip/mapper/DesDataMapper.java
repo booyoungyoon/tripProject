@@ -8,9 +8,10 @@ import com.trip.domain.DesDataDTO;
 public interface DesDataMapper {
 	public List<DesDataDTO> getList();
 	public int insert(DesDataDTO dto);
-	public void register(DesDataDTO vo);
+	public void register(DesDataDTO dto);
 	public DesDataDTO read(Long num);
-	
+	public Long delete(Long num);
+	public int update(DesDataDTO dto);
 	
 	public int getTotal(Criteria cri);
 	public List<DesDataDTO> getListWithPagging(Criteria cri);

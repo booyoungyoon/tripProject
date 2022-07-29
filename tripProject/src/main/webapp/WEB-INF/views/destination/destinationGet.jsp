@@ -154,7 +154,7 @@ font-size: 11pt;
 					<img src="${destination.firstImg}"  width="1500">
 				</div>
 
-				<button data-oper='modify' class="btn btn-default">수정하기</button>
+				<button data-oper='update' class="btn btn-default">수정하기</button>
 				<button data-oper='list' class="btn btn-info">목록</button>
 				
 				<form id='operForm' action="/destination/list.do" method="get">
@@ -166,8 +166,8 @@ font-size: 11pt;
 <script>
 	var operForm=$("#operForm");
 	
-	$("button[data-oper='modify']").on("click",function(e){
-		operForm.attr("action","../destination/modify.do").submit();
+	$("button[data-oper='update']").on("click",function(e){
+		operForm.attr("action","../destination/update.do").submit();
 	});
 	
 	$("button[data-oper='list']").on("click",function(e){

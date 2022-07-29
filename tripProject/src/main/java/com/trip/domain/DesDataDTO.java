@@ -15,7 +15,7 @@ create table destinatinodata (
 */
 @Data
 public class DesDataDTO {
-	private int num;
+	private Long num;
 	private String title;
 	private String content;
 	private String address;

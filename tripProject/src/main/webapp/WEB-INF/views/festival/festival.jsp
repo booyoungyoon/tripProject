@@ -83,7 +83,7 @@ ul>li>a {
 	<br>
 	<div id="slider">
 		<h1>축제</h1>
-
+	<hr>
 		<!-- 여기에 내용 넣으세요 -->
 
 
@@ -108,8 +108,9 @@ ul>li>a {
 								</div>
 								<div class="row pt-5">
 									<div class="col">
-										<button type="button" class="btn btn-primary"
-											onclick="showModal(${fes.num})">상세보기</button>
+										 <button type="button" class="btn btn-primary"
+                                 id="detailbtn" onclick="location.href='../festival/detail.do?num='+${fes.num}">상세보기</button>
+
 									</div>
 								</div>
 							</div>
@@ -142,9 +143,7 @@ ul>li>a {
 					<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
 					<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
 				</form>
-				
-		<button class="btn btn-light btn-grid justify-content-md-end"
-			type="button" onclick="location.href='feditor.jsp' ">글등록</button>
+	
 		<script>
 		//$("#detailbtn").on("click", function() {
 			//$.ajax({
@@ -174,54 +173,6 @@ ul>li>a {
 	<script type="text/javascript">
  
  
-	 var mapx="";
-	 var mapy="";
-	 var mlevel="";
-	$(function(){
-		$('#detailModal').on('shown.bs.modal', function (e) {
-			console.log()
-			var container = document.getElementById('map');
-			var options = {
-				center: new kakao.maps.LatLng(mapx,mapy),
-				level: mlevel
-			};
-
-			var map = new kakao.maps.Map(container, options);
-		});	
-		
-		
-	})
-	
- function showModal(num){
-		 $.ajax({
-		 url:"detail.do?num="+num,
-		 method:"get",
-		 success: function(res){
-			 console.log(res)
-			 
-			 
-			 
-			 var string = 
-			' <div class="modal-dialog">'+
-    '<div class="modal-content">'+
-      '<div class="modal-header">'+
-       ' <h5 class="modal-title" id="exampleModalLabel">'+res.title+'</h5>'+
-       ' <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>'+
-     ' </div>'+
-     ' <div class="modal-body">'+
-     '<div id="map" style="width:300px; height:200px;"></div>'+
-     ' </div>'+
-      '<div class="modal-footer">'+
-       ' <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>'+
-     ' </div> </div> </div>'		 
-			 	
-   	$('#detailModal').html(string) ;
-			 $('#detailModal').modal('show');
-		 },error: function(e){
-			 console.log("error=>"+e)
-		 }
-	 }) 
- }
 	var actionForm = $("#actionForm");
 	$(".paginate_button a").on("click", function(e){
 		 e.preventDefault();

@@ -178,6 +178,12 @@ h2 {
 </head>
 <body>
 	<jsp:include page="../includes/header.jsp"></jsp:include>
+	<!-- header card -->
+
+	<div class="card"></div>
+	<br>
+	<br>
+	
 	<form method="post" action="home.jsp" name="findpwfrm">
 		<div class="Wallpapers">
 			<div class="find">

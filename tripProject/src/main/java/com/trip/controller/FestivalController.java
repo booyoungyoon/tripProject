@@ -3,10 +3,8 @@ package com.trip.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.trip.domain.Criteria;
 import com.trip.domain.FesDataDTO;
@@ -32,21 +30,12 @@ public class FestivalController {
 		
 		return "festival/festival";
 	}
-
-//	@GetMapping("festival.do")
-//	public String read(@ModelAttribute("FesDataDTO") FesDataDTO dto, Model model) {
-//		System.out.println("???");
-//		return "/festival/list";
-//	}
-//	
-	
-	@GetMapping(value = "detail.do", produces = "application/json; charset=UTF-8")
-	@ResponseBody
-	public FesDataDTO read(@RequestParam("num") int num, Model model) {
-		System.out.println(num);
-		FesDataDTO dto = mapper.selectOne(num);
-		System.out.println(dto);
-//		model.addAttribute("data", dto);
-		return dto;
-	}
+	@GetMapping(value = "detail.do")
+	   public String read(@RequestParam("num") int num, Model model) {
+//	      System.out.println(num);
+	      FesDataDTO dto = mapper.selectOne(num);
+	      model.addAttribute("data",dto);
+//	      model.addAttribute("data", dto);
+	      return "/festival/list";
+	   }
 }

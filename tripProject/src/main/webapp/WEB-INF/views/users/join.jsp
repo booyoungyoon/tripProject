@@ -11,7 +11,6 @@
 * {
    font-family: 'yg-jalnan', cursive
 }
-
 @font-face {
    font-family: 'yg-jalnan';
    src:
@@ -20,11 +19,9 @@
    font-weight: normal;
    font-style: normal;
 }
-
 body {
    background-color: #f5f6f7;
 }
-
 select {
    width: 85px;
    height: 25px;
@@ -32,17 +29,14 @@ select {
    background: #f5f6f7;
    border: 1px solid #999;
 }
-
 a {
    color: black;
    text-decoration: none;
 }
-
 .main {
    text-align: center;
    margin-top: 20px;
 }
-
 input {
    cursor: pointer
 }
@@ -52,7 +46,6 @@ input {
    width: 360px;
    margin: auto;
 }
-
 .overLap {
    text-align: center;
    width: 90px;
@@ -69,7 +62,6 @@ h3 {
    text-align: left;
    font-size: 14px;
 }
-
 .signup-input {
    display: flex;
    /* margin: 0px 10px 8px 10px; */
@@ -79,7 +71,6 @@ h3 {
    cursor: pointer;
    border-radius: 15px;
 }
-
 .signup-input-c {
    display: flex;
    /* margin: 0px 10px 8px 10px; */
@@ -88,24 +79,20 @@ h3 {
    background: #f5f6f7;
    cursor: pointer;
 }
-
 .signup-input-c input {
    background: #f5f6f7;
 }
-
 #signup-id, #signup-pw, #signup-pww {
    height: 25px;
    border: none;
    outline: none;
    width: 100%;
 }
-
 .signup-at {
    color: rgb(150, 150, 150);
    font-size: 15px;
    margin-top: 8px;
 }
-
 .signup-input-birth {
    display: block;
    position: relative;
@@ -117,14 +104,12 @@ h3 {
    box-sizing: border-box;
    border-radius: 15px;
 }
-
 #signup-birth-yy, #signup-birth-mm, #signup-birth-dd {
    width: 90px;
    height: 25px;
    border: none;
    outline: none;
 }
-
 #checkquestion {
    width: 200px;
    height: 40px;
@@ -134,7 +119,6 @@ h3 {
    background-color: white;
    border-radius: 15px;
 }
-
 #signup-name, #signup-nickname, #signup-gender, #signup-email,
    #signup-phone, #signup-answer {
    width: 100%;
@@ -142,15 +126,12 @@ h3 {
    border: none;
    outline: none;
 }
-
 #signup-gender {
    background-color: white;
 }
-
 #signup-birth-mm {
    background-color: white;
 }
-
 .choice span {
    margin-top: 20px;
    color: rgb(150, 150, 150);
@@ -196,9 +177,10 @@ h3 {
                <h3>&nbsp;아이디</h3>
                <span class="signup-input"> 
                <input id="signup-id" name="userId" type="text"></input> 
+               <input id="reid" name="reid" type="hidden"></input> 
                <span class="signup-at"></span>
                </span>
-               <button class="overLap" type="button" onclick="checkId()" name="checkId" class="checkId">중복확인</button>
+               <button class="overLap" type="button" onclick="idCheck()" name="checkId" class="checkId">중복확인</button>
 
                <h3>&nbsp;비밀번호</h3>
                <span class="signup-input"> <input id="signup-pw"
@@ -207,7 +189,7 @@ h3 {
 
                <h3>&nbsp;비밀번호 재확인</h3>
                <span class="signup-input"> <input id="signup-pww"
-                  name="siginPass" type="password"></input> <span class="pww-lock"></span>
+                  name="signPass" type="password"></input> <span class="pww-lock"></span>
                </span>
 
             </div>
@@ -219,10 +201,11 @@ h3 {
                   name="userName" type="text"></input>
                </span>
                <h3>&nbsp;닉네임</h3>
-               <span class="signup-input"> <input id="signup-nickname"
-                  name="nickName" type="text"></input>
+               <span class="signup-input"> 
+               	<input id="signup-nickname" name="nickName" type="text">
+               	<input name="reNickName" type="hidden">
                </span>
-               <button class="overLap" type="button" onclick="checkNick()" name="checkNick" class="checkNick">중복확인</button>
+               <button class="overLap" type="button" onclick="nickNameCheck()" name="checkNick" class="checkNick">중복확인</button>
                <h3>&nbsp;이메일</h3>
                <span class="signup-input"> <input id="signup-email"
                   name="email" type="text"></input>
@@ -294,5 +277,4 @@ h3 {
       </form>
    </div>
 </body>
-
 </html>

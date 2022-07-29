@@ -194,7 +194,7 @@ h2 {
 				<div class="submit">
 					<input type="submit" value="아이디 찾기" onclick="return idfindCheck()">
 				</div>
-				<jsp:include page="userFooter.jsp"></jsp:include>
+				<jsp:include page="userIncludes/userFooter.jsp"></jsp:include>
 			</div>
 		</div>
 	</form>

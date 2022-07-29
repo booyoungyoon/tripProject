@@ -1,4 +1,4 @@
-package com.trip.controller;
+package com.trip.controller.user;
 
 import javax.servlet.http.HttpSession;
 

@@ -178,32 +178,59 @@ font-size: 11pt;
 			</ul>
 		</div>
 		<br>
-				<table 
-					class="table table-striped table-bordered table-hover">
+			<table 
+				class="table table-striped table-bordered table-hover">
 					
-		<c:forEach items="${list}" var="des">
-		<tr>
+				<c:forEach items="${list}" var="destination">
+					<tr>
 		
-		<th rowspan="3" ><a href=<c:out value="${des.desNum}"/>>
+					<th rowspan="3" width="300px";><a class='move' href=<c:out value="${destination.num}"/>>
+						<img src="${destination.firstImg}"  width="500"></a></th>
 		
-		<img class='move' src="${des.firstImg}"  width="200" height="500"></a></th>
-		
-			<td><a class='move' href=<c:out value="${des.desNum}"/>>
-			<c:out value="${des.title}"/>
-		</tr>
-			<td><a class='move' href=<c:out value="${des.desNum}"/>>
-			<c:out value="${des.content}"/>
-		<tr>
-			<td><a class='move' href=<c:out value="${des.desNum}"/>>
-			<c:out value="${des.address}"/>
-		</tr>
-		
-		
-			</c:forEach>
+					<td><a class='move' href=<c:out value="${destination.num}"/>>
+						<c:out value="${destination.title}"/>
+					</tr>
+						<td><a class='move' href=<c:out value="${destination.num}"/>>
+						<c:out value="${destination.content}"/>
+					<tr>
+						<td><a class='move' href=<c:out value="${destination.num}"/>>
+						<c:out value="${destination.address}"/>
+					</tr>
+					
+				</c:forEach>
 			</table>
-			
-			
-			<button id="writebtn" type="button">글등록</button>
+				<!-- 페이지 처리 Start -->
+				<div class="pull-right" align="center">
+					<ul class="pagination">
+
+						<c:if test="${pageMaker.prev }">
+							<li class="paginate_button previous"><a
+								href="${pageMaker.startPage-1}"><</a></li>
+						</c:if>
+
+						<c:forEach var="num" begin="${pageMaker.startPage }"
+							end="${pageMaker.endPage }">
+							<li class="paginate_button  ${pageMaker.cri.pageNum == num ? "active" : "" }">
+								<a href="${num }">${num }</a>
+							</li>
+						</c:forEach>
+
+						<c:if test="${pageMaker.next }">
+							<li class="paginate_button next"><a
+								href="${pageMaker.endPage+1}">></a></li>
+						</c:if>
+					</ul>
+				</div>
+				<!-- 페이지 처리 End -->
+				
+				<form id="actionForm" action="../destination/list.do" method="get">
+					<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
+					<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
+				</form>
+				
+			<div>
+			<button id="writebtn" type="button" style="float: left;">글등록</button>
+			</div>
 	</div>
 	<script>
 		$("#writebtn").on("click", function() {
@@ -212,13 +239,26 @@ font-size: 11pt;
 		
 		$(".move").on("click",function(e) {
 			e.preventDefault();
-			actionForm.append("<input type = 'hidden' name = 'desNum' value= '"+ $(this).attr("href")+ "'>");
-			actionForm.attr("action","/destination/destinationGet");
+			console.log('test-------------');
+			actionForm.append("<input type = 'hidden' name = 'num' value= '"+ $(this).attr("href")+ "'>");
+			actionForm.attr("action","/destination/get.do");
 			actionForm.submit();
 		});
+		
+		var actionForm = $("#actionForm");
+		$(".paginate_button a").on(
+				"click",
+				function(e) {
+					e.preventDefault();
+					console.log('click');
+					actionForm.find("input[name='pageNum']")
+							.val($(this).attr("href"));
+					actionForm.submit();
+				});
+		
+		
 
 	</script>
 
-	<jsp:include page="../includes/footer.jsp"></jsp:include>    
 </body>
 </html>

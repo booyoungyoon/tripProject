@@ -187,14 +187,15 @@ font-size: 11pt;
 					<th rowspan="3" width="300px";><a class='move' href=<c:out value="${destination.num}"/>>
 						<img src="${destination.firstImg}"  width="500"></a></th>
 		
-					<td><a class='move' href=<c:out value="${destination.num}"/>>
-						<c:out value="${destination.title}"/>
+					<td>
+					<a class='move' href=<c:out value="${destination.num}"/>>
+						<c:out value="${destination.title}"/></td>
 					</tr>
 						<td><a class='move' href=<c:out value="${destination.num}"/>>
-						<c:out value="${destination.content}"/>
+						<c:out value="${destination.address}"/></td>
 					<tr>
 						<td><a class='move' href=<c:out value="${destination.num}"/>>
-						<c:out value="${destination.address}"/>
+						<c:out value="${destination.address}"/></td>
 					</tr>
 					
 				</c:forEach>

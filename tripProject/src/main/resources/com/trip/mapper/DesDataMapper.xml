@@ -41,15 +41,27 @@
 		num > 0
 	</select>
 	
-		<insert id="insertSelectKey">
+		<insert id="register">
 
-		<selectKey keyProperty="num" order="BEFORE"	resultType="int">
-			select seq_board.nextval from dual
+		<selectKey keyProperty="num" order="BEFORE"	resultType="Long">
+			select desdata_seq.nextval from dual
 		</selectKey>
 
-		insert into destinatinodata(num, title, content, img)
-		values(#{bno},
-		#{title}, #{content}, #{writer})
+		insert into destinatinodata(num, title, firstImg)
+		values(#{num},
+		#{title}, #{firstImg})
 	</insert>
+	
+		<update id="update">
+		update destinatinodata
+		set title = #{title},
+		address = #{address},
+		firstImg = #{firstImg}
+		where num = #{num}
+	</update>
+	
+	<delete id="delete">
+		delete from destinatinodata where num=#{num}
+	</delete>
 
 </mapper>

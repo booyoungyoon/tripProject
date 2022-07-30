@@ -11,6 +11,7 @@ public interface UserMapper {
 	public UserVO get(int userNum);
 	public UserVO getId(UserVO vo);
 	public UserVO getNickName(UserVO vo);
+	public List<UserVO> getFindId(UserVO vo);
 	public int delete(int userNum);
 	public int update(UserVO vo);
 }

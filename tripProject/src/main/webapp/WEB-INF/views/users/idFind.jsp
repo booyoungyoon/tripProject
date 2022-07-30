@@ -198,7 +198,7 @@ h2 {
 					<input type="text" name="birth" placeholder="생년월일 8자리">
 				</div>
 				<div class="submit">
-					<input type="submit" value="아이디 찾기" onclick="return idfindCheck()">
+					<input type="submit" value="아이디 찾기" onclick="idfindCheck()">
 				</div>
 				<jsp:include page="userIncludes/userFooter.jsp"></jsp:include>
 			</div>

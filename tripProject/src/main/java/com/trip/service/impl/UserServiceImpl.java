@@ -54,15 +54,24 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
+	public List<UserVO> idList(UserVO vo) {
+		log.info("------- getidList ---------");
+		return mapper.getFindId(vo);
+	}
+	
+	@Override
 	public int remove(int userNum) {
-		// TODO Auto-generated method stub
-		return 0;
+		log.info("------- remove ---------");
+		int result = mapper.delete(userNum);
+		return result;
 	}
 
 	@Override
 	public int modify(UserVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		log.info("------- modify ---------");
+		int result = mapper.update(vo);
+		return result;
 	}
+
 
 }

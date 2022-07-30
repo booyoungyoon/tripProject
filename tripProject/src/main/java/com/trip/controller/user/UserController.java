@@ -1,5 +1,7 @@
 package com.trip.controller.user;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -23,7 +25,7 @@ public class UserController {
 	private UserService serivce;
 	
 	@GetMapping("login.do")
-	public String loginView(Model model) {
+	public String loginView() {
 		log.info("-------login Page---------");
 		return "users/login";
 	}
@@ -48,7 +50,7 @@ public class UserController {
 	}
 	
 	@PostMapping("join.do")
-	public String join(Model model, UserVO vo) {
+	public String join(UserVO vo) {
 		log.info("-------join---------");
 		log.info(vo.getUserName());
 		String birth = vo.getBirth();
@@ -67,13 +69,33 @@ public class UserController {
 	}
 	
 	@GetMapping("idFind.do")
-	public String idFindView(Model model) {
+	public String idFindView() {
 		log.info("-------idFind Page---------");
 		return "users/idFind";
 	}
 	
+	@PostMapping("idFind.do")
+	public String inputFindId() {
+		log.info("-------idFind Page---------");
+		return "users/idFind";
+	}
+	
+	@GetMapping("idFindList.do")
+	public String idFind(Model model, UserVO vo) {
+		log.info("------- idFind ---------");
+		List<UserVO> list = serivce.idList(vo);
+		log.info(list.isEmpty());
+		
+		model.addAttribute("list", list);
+		
+		if(list.isEmpty() == true) {
+			model.addAttribute("list", null);
+		}
+		return "users/userIncludes/idFindList";
+	}
+	
 	@GetMapping("pwFind.do")
-	public String pwFindView(Model model) {
+	public String pwFindView() {
 		log.info("-------pwFind Page---------");
 		return "users/pwFind";
 	}
@@ -93,7 +115,6 @@ public class UserController {
 	
 	@GetMapping("withdraw.do")
 	public String withdraw(UserVO vo, HttpSession session) {
-		log.info("------ remove ------");
 		log.info(vo.getUserNum());
 		serivce.remove(vo.getUserNum());
 		session.invalidate();
@@ -107,7 +128,6 @@ public class UserController {
 	
 	@PostMapping("modify.do")
 	public String modify(UserVO vo, HttpSession session) {
-		log.info("------ modify ------");
 		log.info(vo);
 		serivce.modify(vo);
 		

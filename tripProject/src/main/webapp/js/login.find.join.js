@@ -28,6 +28,10 @@ function idfindCheck() {
 		frm.birth.focus();
 		return false;
 		}
+		var url = "idFindList.do?userName=" + document.frm.userName.value
+		+ "&email=" + document.frm.email.value + "&birth=" + document.frm.birth.value;
+	window.open(url, "_blank_1",
+	"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=450, height=200");
 	return true;
 }
 

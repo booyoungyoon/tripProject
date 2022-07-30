@@ -11,6 +11,7 @@ public interface UserService {
 	public UserVO get(int userNum);
 	public UserVO getId(UserVO vo);
 	public UserVO getNickName(UserVO vo);
+	public List<UserVO> idList(UserVO vo);
 	public int remove(int userNum);
 	public int modify(UserVO vo);
 }

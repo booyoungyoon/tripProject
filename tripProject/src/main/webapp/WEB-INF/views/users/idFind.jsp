@@ -31,7 +31,7 @@
 	crossorigin="anonymous"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript" src="js/login.find.join.js"></script>
+<script type="text/javascript" src="../js/login.find.join.js"></script>
 <style type="text/css">
 @font-face {
 	font-family: 'yg-jalnan';
@@ -184,18 +184,18 @@ h2 {
 	<div class="card"></div>
 	<br>
 	<br>
-	<form method="post" action="home.jsp" name="findidfrm">
+	<form method="post" action="idFind.do" name="frm">
 		<div class="Wallpapers">
 			<div class="find">
 				<h2 class="title">아이디 찾기</h2>
 				<div class="find_name">
-					<input type="text" name="idfindname" id="" placeholder="이름">
+					<input type="text" name="userName" placeholder="이름">
 				</div>
 				<div class="find_email">
-					<input type="text" name="idfindemail" id="" placeholder="이메일">
+					<input type="text" name="email" placeholder="이메일">
 				</div>
 				<div class="find_birth">
-					<input type="text" name="idfindbirth" id="" placeholder="생년월일 8자리">
+					<input type="text" name="birth" placeholder="생년월일 8자리">
 				</div>
 				<div class="submit">
 					<input type="submit" value="아이디 찾기" onclick="return idfindCheck()">

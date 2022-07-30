@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.trip.domain.UserVO;
 import com.trip.mapper.UserMapper;
+import com.trip.service.UserService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -19,7 +20,7 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 @RequestMapping("/users/*")
 public class UserController {
-	private UserMapper mapper;
+	private UserService serivce;
 	
 	@GetMapping("login.do")
 	public String loginView(Model model) {
@@ -30,7 +31,7 @@ public class UserController {
 	@PostMapping("login.do")
 	public String login(Model model, UserVO vo, HttpSession session) {
 		log.info("-------login 실행---------");
-		UserVO user = mapper.read(vo);
+		UserVO user = serivce.login(vo);
 		log.info(user);
 		if (user != null) {
 			session.setAttribute("user", user);
@@ -60,7 +61,7 @@ public class UserController {
 			vo.setBirth(birth);
 		}
 		vo.setBirth(birth);
-		mapper.insert(vo);
+		serivce.register(vo);
 		log.info("-------- user insert ------------");
 		return "redirect:/users/login.do";
 	}
@@ -81,7 +82,7 @@ public class UserController {
 	@RequestMapping("list.do")
 	public void list(Model model) {
 		log.info("list");
-		model.addAttribute("list", mapper.getList());
+		model.addAttribute("list", serivce.getUserList());
 	}
 	
 	@RequestMapping("mypage.do")
@@ -94,7 +95,7 @@ public class UserController {
 	public String withdraw(UserVO vo, HttpSession session) {
 		log.info("------ remove ------");
 		log.info(vo.getUserNum());
-		mapper.delete(vo.getUserNum());
+		serivce.remove(vo.getUserNum());
 		session.invalidate();
 		return "redirect:/home.do";
 	}
@@ -108,9 +109,9 @@ public class UserController {
 	public String modify(UserVO vo, HttpSession session) {
 		log.info("------ modify ------");
 		log.info(vo);
-		mapper.update(vo);
+		serivce.modify(vo);
 		
-		UserVO user = mapper.get(vo.getUserNum());
+		UserVO user = serivce.get(vo.getUserNum());
 		session.setAttribute("user", user);
 		return "users/mypage";
 	}

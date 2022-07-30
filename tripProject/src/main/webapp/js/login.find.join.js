@@ -13,19 +13,19 @@ function loginCheck() {
 }
 
 function idfindCheck() {
-	if (document.findidfrm.idfindname.value.length == 0){
+	if (document.frm.userName.value.length == 0){
 		alert("이름을 작성해 주세요");
-		findidfrm.idfindname.focus();
+		frm.userName.focus();
 		return false;
 		}
-	if (document.findidfrm.idfindemail.value.length == 0){
+	if (document.frm.email.value.length == 0){
 		alert("이메일을 작성해 주세요");
-		findidfrm.idfindemail.focus();
+		frm.email.focus();
 		return false;
 		}
-	if (document.findidfrm.idfindbirth.value.length == 0){
+	if (document.frm.birth.value.length == 0){
 		alert("생년월일을 작성해 주세요");
-		findidfrm.idfindbirth.focus();
+		frm.birth.focus();
 		return false;
 		}
 	return true;

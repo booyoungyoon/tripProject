@@ -241,8 +241,8 @@ h3 {
                <span class="signup-input"> <select id="signup-gender"
                   class="selectbox" name="gender" onchange="">
                      <option value="gender">성별</option>
-                     <option value="male">남자</option>
-                     <option value="female">여자</option>
+                     <option value="남성">남자</option>
+                     <option value="여성">여자</option>
                </select>
                </span>
                <div style="margin-top: 10px;">
@@ -259,12 +259,12 @@ h3 {
                   <h3>&nbsp;본인 확인 질문</h3> <select id="checkquestion"
                   class="selectbox" name="question"">
                      <option value="select">&nbsp;질문을 선택하세요.</option>
-                     <option value="elementarySchool">&nbsp;초등학교 이름은?</option>
-                     <option value="middleSchool">&nbsp;중학교 이름은?</option>
-                     <option value="highSchool">&nbsp;고등학교 이름은?</option>
-                     <option value="cellPhoneName">&nbsp;처음 산 휴대전화 기종은?</option>
-                     <option value="car">&nbsp;처음 산 자동차 기종은?</option>
-                     <option value="birth">&nbsp;다시 태어난 다면?</option>
+                     <option value="초등학교">&nbsp;초등학교 이름은?</option>
+                     <option value="중학교">&nbsp;중학교 이름은?</option>
+                     <option value="고등학교">&nbsp;고등학교 이름은?</option>
+                     <option value="첫 휴대전화">&nbsp;처음 산 휴대전화 기종은?</option>
+                     <option value="첫 자동차">&nbsp;처음 산 자동차 기종은?</option>
+                     <option value="다시 태어난다면">&nbsp;다시 태어난다면?</option>
                </select>
                </span> <span class="signup-input"> <input id="signup-answer"
                   name="answer" type="text" placeholder="본인 확인 질문"></input>

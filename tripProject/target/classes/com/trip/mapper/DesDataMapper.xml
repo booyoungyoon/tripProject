@@ -9,8 +9,8 @@
 	</select>
 
 	<insert id="insert">
-		insert into destinatinodata(num, title, content, address, firstimg, secondimg, mapx, mapy)
-		values(desdata_seq.nextval, #{content},
+		insert into destinatinodata(num, title, address, firstimg, secondimg, mapx, mapy)
+		values(desdata_seq.nextval,
 		#{title}, #{address}, #{firstImg}, #{secondImg}, #{mapX}, #{mapY})
 	</insert>
 	
@@ -23,9 +23,9 @@
 		<select id="getListWithPagging"
 		resultType="com.trip.domain.DesDataDTO">
 		<![CDATA[
-			select num, title, content, firstImg
+			select num, title, firstImg
 		from(
-			select rownum rn, num, title, content, firstImg
+			select rownum rn, num, title, firstImg
 			from destinatinodata
 		where	
 		]]>

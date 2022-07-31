@@ -41,8 +41,8 @@ function pwfindCheck() {
 		frm.pwfindid.focus();
 		return false;
 		}
-	if (document.frm.question.value.length == "select"){
-		alert("이메일의 질문을 선택해 주세요");
+	if (document.frm.question.value == "select"){
+		alert("질문을 선택해 주세요");
 		frm.question.focus();
 		return false;
 		}

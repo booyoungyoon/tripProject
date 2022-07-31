@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.trip.domain.UserVO;
-import com.trip.mapper.UserMapper;
 import com.trip.service.UserService;
 
 import lombok.AllArgsConstructor;
@@ -68,14 +67,8 @@ public class UserController {
 		return "redirect:/users/login.do";
 	}
 	
-	@GetMapping("idFind.do")
+	@RequestMapping("idFind.do")
 	public String idFindView() {
-		log.info("-------idFind Page---------");
-		return "users/idFind";
-	}
-	
-	@PostMapping("idFind.do")
-	public String inputFindId() {
 		log.info("-------idFind Page---------");
 		return "users/idFind";
 	}
@@ -94,10 +87,22 @@ public class UserController {
 		return "users/userIncludes/idFindList";
 	}
 	
-	@GetMapping("pwFind.do")
+	@RequestMapping("pwFind.do")
 	public String pwFindView() {
 		log.info("-------pwFind Page---------");
 		return "users/pwFind";
+	}
+	
+	@RequestMapping("passwordFind.do")
+	public String pwFind(Model model, UserVO vo) {
+		log.info("------- passwordFind ---------");
+		UserVO user = serivce.findPassword(vo);
+		UserVO rightId = serivce.getId(vo);
+		
+		model.addAttribute("user", user);
+		model.addAttribute("id", rightId);
+		
+		return "users/userIncludes/findPassword";
 	}
 	
 	

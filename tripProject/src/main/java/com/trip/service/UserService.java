@@ -10,6 +10,7 @@ public interface UserService {
 	public UserVO login(UserVO vo);
 	public UserVO get(int userNum);
 	public UserVO getId(UserVO vo);
+	public UserVO findPassword(UserVO vo);
 	public UserVO getNickName(UserVO vo);
 	public List<UserVO> idList(UserVO vo);
 	public int remove(int userNum);

@@ -73,5 +73,10 @@ public class UserServiceImpl implements UserService{
 		return result;
 	}
 
+	@Override
+	public UserVO findPassword(UserVO vo) {
+		log.info("------- findPassword ---------");
+		return mapper.getPw(vo);
+	}
 
 }

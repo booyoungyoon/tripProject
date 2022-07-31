@@ -36,6 +36,12 @@
 		select * from users where username = #{userName}
 		and email = #{email} and birth = #{birth}
 	</select>
+	
+	<!-- 비밀번호 찾기 -->
+	<select id="getPw" resultType="com.trip.domain.UserVO">
+		select * from users where userid = #{userId} and
+		question = #{question} and answer = #{answer}
+	</select>
    
    <!-- 회원 추가 -->
 	<insert id="insert">

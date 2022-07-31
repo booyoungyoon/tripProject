@@ -36,21 +36,25 @@ function idfindCheck() {
 }
 
 function pwfindCheck() {
-	if (document.findpwfrm.pwfindid.value.length == 0){
-		alert("이름을 작성해 주세요");
-		findpwfrm.pwfindid.focus();
+	if (document.frm.userId.value.length == 0){
+		alert("아이디를 입력해 주세요");
+		frm.pwfindid.focus();
 		return false;
 		}
-	if (document.findpwfrm.pwfindemail.value.length == 0){
-		alert("이메일을 작성해 주세요");
-		findpwfrm.pwfindemail.focus();
+	if (document.frm.question.value.length == "select"){
+		alert("이메일의 질문을 선택해 주세요");
+		frm.question.focus();
 		return false;
 		}
-	if (document.findpwfrm.pwfindphone.value.length == 0){
-		alert("핸드폰번호를 작성해 주세요");
-		findpwfrm.pwfindphone.focus();
+	if (document.frm.answer.value.length == 0){
+		alert("답변을 작성해 주세요");
+		frm.answer.focus();
 		return false;
 		}
+		var url = "passwordFind.do?userId=" + document.frm.userId.value
+		+ "&question=" + document.frm.question.value + "&answer=" + document.frm.answer.value;
+	window.open(url, "_blank_1",
+	"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=450, height=200");
 	return true;
 }
 

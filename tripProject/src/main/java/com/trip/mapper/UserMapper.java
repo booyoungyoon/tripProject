@@ -10,6 +10,7 @@ public interface UserMapper {
 	public UserVO read(UserVO vo);
 	public UserVO get(int userNum);
 	public UserVO getId(UserVO vo);
+	public UserVO getPw(UserVO vo);
 	public UserVO getNickName(UserVO vo);
 	public List<UserVO> getFindId(UserVO vo);
 	public int delete(int userNum);

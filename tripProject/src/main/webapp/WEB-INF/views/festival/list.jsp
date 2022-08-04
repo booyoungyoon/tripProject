@@ -66,6 +66,11 @@ ul>li>a {
 	height: 1800px;
 	margin: 0 auto;
 }
+#slider > h1 {
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: red;
+}
 </style>
 
 </head>
@@ -85,6 +90,7 @@ ul>li>a {
 	<div id="slider">
 		
 		<h1>${data.title }</h1>
+		
 		<br><br>
 		
 		<div>

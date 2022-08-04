@@ -66,6 +66,7 @@ ul>li>a {
 	height: 1800px;
 	margin: 0 auto;
 }
+
 </style>
 
 </head>
@@ -82,7 +83,29 @@ ul>li>a {
 	<br>
 	<br>
 	<div id="slider">
+		
+		<div class="searchcontainer">
+	
+		<div class="row">
 		<h1>축제</h1>
+			<form method="post" name="search" action="searchfes.jsp">
+				<table float="right">
+					<tr>
+					<td><select class="form-control" name="searchField" >
+								<option value="0">선택</option>
+								<option value="title">제목</option>
+								<option value="address">지역</option>
+						</select></td>
+						<td><input type="text" class="form-control"
+							placeholder="검색어 입력" name="searchText" maxlength="100"></td>
+						<td><button class="btn btn-outline-info" type="submit">Search</button></td>
+					</tr>
+
+				</table>
+			</form>
+		</div>
+	</div>
+
 	<hr>
 		<!-- 여기에 내용 넣으세요 -->
 

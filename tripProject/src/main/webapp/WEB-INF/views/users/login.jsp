@@ -98,7 +98,7 @@ ul>li>a {
 
 .login {
 	width: 40%;
-	height: 600px;
+	height: 700px;
 	background: white;
 	border-radius: 20px;
 	display: flex;
@@ -196,9 +196,34 @@ ul>li>a {
 				<div class="submit">
 					<input type="submit" value="로그인" onclick="return loginCheck()">
 				</div>
+				<div class="submit"  align="center">
+				<a href = "javascript:kakaoLogin();"><img src="https://www.gb.go.kr/Main/Images/ko/member/certi_kakao_login.png" 
+				style = "height: 50px; width:auto;"></a>				
+				</div>
 				<jsp:include page="userIncludes/userFooter.jsp"></jsp:include>
 			</div>
 		</div>
 	</form>
+	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<script type="text/javascript">
+	//70d0289eba5f802b9a96043f6181b686
+	window.Kakao.init('70d0289eba5f802b9a96043f6181b686');
+	
+	function kakaoLogin() {
+		window.Kakao.Auth.login({
+			scope:'profile_nickname, profile_image, account_email, gender',
+			success : function(authObj){
+				console.log(authObj);
+				window.Kakao.API.request({
+				url:'/v2/user/me',
+				success :res => {
+					const kakao_account = res.kakao_account;
+					console.log(kakao_account);
+				} 
+				});
+			}
+		});
+	}
+	</script>
 </body>
 </html>

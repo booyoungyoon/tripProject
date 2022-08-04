@@ -86,6 +86,8 @@ ul>li>a {
 	<hr>
 		<!-- 여기에 내용 넣으세요 -->
 
+	<!-- 검색 시작 -->
+
 
 		<div class="row  justify-content-center">
 			<c:forEach items="${list}" var="fes">

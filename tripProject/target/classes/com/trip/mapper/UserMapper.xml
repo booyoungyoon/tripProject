@@ -15,6 +15,33 @@
 		select * from users where userid =
 		#{userId} and userpass= #{userPass}
 	</select>
+	
+	<!-- 회원정보 확인 -->
+	<select id="get" resultType="com.trip.domain.UserVO">
+		select * from users where usernum = #{userNum}
+	</select>
+	
+	<!-- 회원 중복용 닉네임 확인 -->
+	<select id="getNickName" resultType="com.trip.domain.UserVO">
+		select * from users where nickname = #{nickName}
+	</select>
+	
+	<!-- 회원 중복용 아이디 확인 -->
+	<select id="getId" resultType="com.trip.domain.UserVO">
+		select * from users where userid = #{userId}
+	</select>
+	
+	<!-- 아이디 찾기 -->
+	<select id="getFindId" resultType="com.trip.domain.UserVO">
+		select * from users where username = #{userName}
+		and email = #{email} and birth = #{birth}
+	</select>
+	
+	<!-- 비밀번호 찾기 -->
+	<select id="getPw" resultType="com.trip.domain.UserVO">
+		select * from users where userid = #{userId} and
+		question = #{question} and answer = #{answer}
+	</select>
    
    <!-- 회원 추가 -->
 	<insert id="insert">
@@ -26,5 +53,20 @@
 		#{phone}, #{birth}, #{gender}, #{email}, 1,
 		#{question}, #{answer})
 	</insert>
+	
+	<!-- 회원 탈퇴 -->
+	<delete id="delete">
+		delete from users where usernum=#{userNum}
+	</delete>
+
+	<!-- 회원 정보 수정 -->
+	<update id="update">
+		update users
+		set nickname=#{nickName},
+		userpass =#{userPass},
+		phone = #{phone},
+		email = #{email}
+		where usernum = #{userNum}
+	</update>
 	
 </mapper>

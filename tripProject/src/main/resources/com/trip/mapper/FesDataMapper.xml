@@ -15,16 +15,17 @@
 		values(fesdata_num.nextval,
 		#{title}, #{address}, #{firstimg}, #{startdate}, #{enddate}, #{mapx}, #{mapy}, #{mlevel})
 	</insert>
+<select id="selectOne" parameterType="Integer" resultType="com.trip.domain.FesDataDTO">
+      select * from festivaldata where num=#{num}
+   </select>
+   
+   <select id="read" resultType="com.trip.domain.FesDataDTO">
+      select * from festivaldata
+      where #{num} 
+      order by num desc
+   </select>
 	
-	<select id="selectOne" parameterType="Integer" resultType="com.trip.domain.FesDataDTO">
-		select * from festivaldata where num=#{num}
-	</select>
-	
-	<select id="festivalList" resultType="com.trip.domain.FesDataDTO">
-		select * from festivaldata
-		where #{title} 
-		order by num desc
-	</select>
+
 	
 	  <select id="getListWithPagging" resultType="com.trip.domain.FesDataDTO">
       <![CDATA[

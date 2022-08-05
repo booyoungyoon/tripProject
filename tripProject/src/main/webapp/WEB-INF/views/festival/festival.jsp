@@ -66,6 +66,7 @@ ul>li>a {
 	height: 1800px;
 	margin: 0 auto;
 }
+
 </style>
 
 </head>
@@ -82,9 +83,33 @@ ul>li>a {
 	<br>
 	<br>
 	<div id="slider">
+		
+		<div class="searchcontainer">
+	
+		<div class="row">
 		<h1>축제</h1>
+			<form method="post" name="search" action="searchfes.jsp">
+				<table float="right">
+					<tr>
+					<td><select class="form-control" name="searchField" >
+								<option value="0">선택</option>
+								<option value="title">제목</option>
+								<option value="address">지역</option>
+						</select></td>
+						<td><input type="text" class="form-control"
+							placeholder="검색어 입력" name="searchText" maxlength="100"></td>
+						<td><button class="btn btn-outline-info" type="submit">Search</button></td>
+					</tr>
 
+				</table>
+			</form>
+		</div>
+	</div>
+
+	<hr>
 		<!-- 여기에 내용 넣으세요 -->
+
+	<!-- 검색 시작 -->
 
 
 		<div class="row  justify-content-center">
@@ -108,8 +133,9 @@ ul>li>a {
 								</div>
 								<div class="row pt-5">
 									<div class="col">
-										<button type="button" class="btn btn-primary"
-											onclick="showModal(${fes.num})">상세보기</button>
+										 <button type="button" class="btn btn-primary"
+                                 id="detailbtn" onclick="location.href='../festival/detail.do?num='+${fes.num}">상세보기</button>
+
 									</div>
 								</div>
 							</div>
@@ -142,9 +168,7 @@ ul>li>a {
 					<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
 					<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
 				</form>
-				
-		<button class="btn btn-light btn-grid justify-content-md-end"
-			type="button" onclick="location.href='feditor.jsp' ">글등록</button>
+	
 		<script>
 		//$("#detailbtn").on("click", function() {
 			//$.ajax({
@@ -174,54 +198,6 @@ ul>li>a {
 	<script type="text/javascript">
  
  
-	 var mapx="";
-	 var mapy="";
-	 var mlevel="";
-	$(function(){
-		$('#detailModal').on('shown.bs.modal', function (e) {
-			console.log()
-			var container = document.getElementById('map');
-			var options = {
-				center: new kakao.maps.LatLng(mapx,mapy),
-				level: mlevel
-			};
-
-			var map = new kakao.maps.Map(container, options);
-		});	
-		
-		
-	})
-	
- function showModal(num){
-		 $.ajax({
-		 url:"detail.do?num="+num,
-		 method:"get",
-		 success: function(res){
-			 console.log(res)
-			 
-			 
-			 
-			 var string = 
-			' <div class="modal-dialog">'+
-    '<div class="modal-content">'+
-      '<div class="modal-header">'+
-       ' <h5 class="modal-title" id="exampleModalLabel">'+res.title+'</h5>'+
-       ' <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>'+
-     ' </div>'+
-     ' <div class="modal-body">'+
-     '<div id="map" style="width:300px; height:200px;"></div>'+
-     ' </div>'+
-      '<div class="modal-footer">'+
-       ' <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>'+
-     ' </div> </div> </div>'		 
-			 	
-   	$('#detailModal').html(string) ;
-			 $('#detailModal').modal('show');
-		 },error: function(e){
-			 console.log("error=>"+e)
-		 }
-	 }) 
- }
 	var actionForm = $("#actionForm");
 	$(".paginate_button a").on("click", function(e){
 		 e.preventDefault();

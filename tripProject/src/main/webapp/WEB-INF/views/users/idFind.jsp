@@ -6,17 +6,32 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>아이디 찾기</title>
-<link rel="stylesheet" href="../fontawesome/css/all.min.css"> <!-- https://fontawesome.com/ -->
-  <link rel="stylesheet" href="../css/nav.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/animate.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/c34800a0df.js" crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript" src="js/login.find.join.js"></script>
+<link rel="stylesheet" href="../fontawesome/css/all.min.css">
+<!-- https://fontawesome.com/ -->
+<link rel="stylesheet" href="../css/nav.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/animate.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/c34800a0df.js"
+	crossorigin="anonymous"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="../js/login.find.join.js"></script>
 <style type="text/css">
 @font-face {
 	font-family: 'yg-jalnan';
@@ -26,17 +41,25 @@
 	font-weight: normal;
 	font-style: normal;
 }
+
 @import url("https://fonts.googleapis.com/css?family=Inconsolata:700");
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'yg-jalnan', cursive;
 }
+
 html, body {
 	width: 100%;
 	height: 100%;
 }
+
+ul>li>a {
+	color: #212121;
+}
+
 .gd-container {
 	max-width: 1100px;
 	position: relative;
@@ -44,20 +67,25 @@ html, body {
 	padding-left: 15px;
 	padding-right: 15px;
 }
+
 #gtco-header {
 	height: 700px;
 	width: 100%;
 }
+
 #gtco-header>ul {
 	display: inline;
 }
+
 #gtco-header .bg {
 	position: relative;
 }
+
 #gtco-header .bg>img {
 	height: 700px;
 	width: 100%;
 }
+
 #gtco-header .bg .text>h1 {
 	display: inline-block;
 	z-index: 999;
@@ -70,9 +98,11 @@ html, body {
 	height: 70px;
 	line-height: 700px;
 }
+
 .bg:hover {
 	opacity: 0.7;
 }
+
 .Wallpapers {
 	width: 100%;
 	height: 100%;
@@ -80,6 +110,7 @@ html, body {
 	align-items: center;
 	justify-content: center;
 }
+
 .find {
 	width: 40%;
 	height: 600px;
@@ -92,19 +123,23 @@ html, body {
 	border: 1px solid lightgray;
 	margin: 0px 0px 50px;
 }
+
 h2 {
 	color: aqua;
 	font-size: 2em;
 	margin-bottom: 50px;
 }
+
 .title {
 	margin-bottom: 50px;
 }
-.find_email, .find_birth{
+
+.find_email, .find_birth {
 	margin-top: 50px;
 	width: 80%;
 }
-.find_name input, .find_email input, .find_birth input{
+
+.find_name input, .find_email input, .find_birth input {
 	width: 100%;
 	height: 50px;
 	border-radius: 30px;
@@ -113,14 +148,17 @@ h2 {
 	border: 1px solid gray;
 	outline: none;
 }
+
 .find_email, .find_name, .find_birth {
 	margin-top: 20px;
 	width: 80%;
 }
+
 .submit {
 	margin-top: 50px;
 	width: 80%;
 }
+
 .submit input {
 	width: 100%;
 	height: 50px;
@@ -131,6 +169,7 @@ h2 {
 	color: white;
 	font-size: 1.2em;
 }
+
 .threelinks {
 	text-align: center;
 	margin-top: 20px;
@@ -139,23 +178,29 @@ h2 {
 </head>
 <body>
 	<jsp:include page="../includes/header.jsp"></jsp:include>
-	<form method="post" action="home.jsp" name="findidfrm">
+	
+	<!-- header card -->
+
+	<div class="card"></div>
+	<br>
+	<br>
+	<form method="post" action="idFind.do" name="frm">
 		<div class="Wallpapers">
 			<div class="find">
 				<h2 class="title">아이디 찾기</h2>
 				<div class="find_name">
-					<input type="text" name="idfindname" id="" placeholder="이름">
+					<input type="text" name="userName" placeholder="이름">
 				</div>
 				<div class="find_email">
-					<input type="text" name="idfindemail" id="" placeholder="이메일">
+					<input type="text" name="email" placeholder="이메일">
 				</div>
 				<div class="find_birth">
-					<input type="text" name="idfindbirth" id="" placeholder="생년월일 8자리">
+					<input type="text" name="birth" placeholder="생년월일 8자리">
 				</div>
 				<div class="submit">
-					<input type="submit" value="아이디 찾기" onclick="return idfindCheck()">
+					<input type="submit" value="아이디 찾기" onclick="idfindCheck()">
 				</div>
-				<jsp:include page="userFooter.jsp"></jsp:include>
+				<jsp:include page="userIncludes/userFooter.jsp"></jsp:include>
 			</div>
 		</div>
 	</form>

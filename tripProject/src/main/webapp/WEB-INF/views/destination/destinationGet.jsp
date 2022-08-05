@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html>
@@ -124,30 +126,7 @@ li div p {
 color:grey;
 font-size: 11pt;
 }
-.box_rightType{width:950px; height:50px; border:1px solid #e6e6e6; background-color:#f7f7f7; line-height: 50px;border-radius: 2em;}
 
-.box_rightType ul li {
-    margin: 0 20px 10px 10px;
-    padding: 0 0 0 0;
-    border : 0;
-    float: left;
-    font-size: 13pt;
-}
-.box_rightType ul li button{outline: 0;}
-
-#writebtn {
-  background-color: #e7e7e7;
-  border: none;
-  padding: 13px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  float: right;
-  outline: 0;
-}
 </style>
   
 </head>
@@ -161,26 +140,41 @@ font-size: 11pt;
 	<br><br>
 <div id="slider">
          <!-- 여기에 내용 넣으세요 -->
-         
-         <div class="box_rightType">
-         <ul>
-         	<li style="margin-left: 25px"><button>서울시</button></li>
-         	<li><button>경기도</button></li>
-         	<li><button>강원도</button></li>
-         	<li><button>충청북도</button></li>
-         	<li><button>충청남도</button></li>
-         	<li><button>경상북도</button></li>
-         	<li><button>경상남도</button></li>
-         	<li><button>전라북도</button></li>
-         	<li><button>전라남도</button></li>
-         	<li><button>제주도</button></li>
-         </ul>
-         </div>
-         <br>
+        <div class="panel-body">
+				<div class="form-group">
+					<label>Bno</label>
+					<input name="num" class="form-control" readonly="readonly" value='<c:out value="${destination.num}"/>'><br>
+				</div>
+				<div class="form-group">
+					<label>Title</label>
+					<input name="title" class="form-control" readonly="readonly" value='<c:out value="${destination.title}"/>'><br>
+				</div>
+				<div class="form-group">
+					<label>이미지</label>
+					<img src="${destination.firstImg}"  width="1500">
+				</div>
 
-<button id="writebtn" type="button" onclick="location.href='destinationInsert.jsp' ">글등록</button>
-</div>
-
+				<button data-oper='update' class="btn btn-default">수정하기</button>
+				<button data-oper='list' class="btn btn-info">목록</button>
+				
+				<form id='operForm' action="/destination/list.do" method="get">
+					<input type="hidden" id="num" name="num" value='<c:out value="${destination.num}"/>'>
+					<input type="hidden" name="pageNum" value='<c:out value="${cri.pageNum}"/>'>
+					<input type="hidden" name="amount" value='<c:out value="${cri.amount}"/>'>
+				</form>
+			</div>
+<script>
+	var operForm=$("#operForm");
+	
+	$("button[data-oper='update']").on("click",function(e){
+		operForm.attr("action","../destination/update.do").submit();
+	});
+	
+	$("button[data-oper='list']").on("click",function(e){
+		operForm.find("#num").remove();
+		operForm.attr("action","../destination/list.do").submit();
+	});
+</script>
 
 <jsp:include page="../includes/footer.jsp"></jsp:include>    
 </body>

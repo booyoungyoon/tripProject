@@ -13,40 +13,48 @@ function loginCheck() {
 }
 
 function idfindCheck() {
-	if (document.findidfrm.idfindname.value.length == 0){
+	if (document.frm.userName.value.length == 0){
 		alert("이름을 작성해 주세요");
-		findidfrm.idfindname.focus();
+		frm.userName.focus();
 		return false;
 		}
-	if (document.findidfrm.idfindemail.value.length == 0){
+	if (document.frm.email.value.length == 0){
 		alert("이메일을 작성해 주세요");
-		findidfrm.idfindemail.focus();
+		frm.email.focus();
 		return false;
 		}
-	if (document.findidfrm.idfindbirth.value.length == 0){
+	if (document.frm.birth.value.length == 0){
 		alert("생년월일을 작성해 주세요");
-		findidfrm.idfindbirth.focus();
+		frm.birth.focus();
 		return false;
 		}
+		var url = "idFindList.do?userName=" + document.frm.userName.value
+		+ "&email=" + document.frm.email.value + "&birth=" + document.frm.birth.value;
+	window.open(url, "_blank_1",
+	"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=450, height=200");
 	return true;
 }
 
 function pwfindCheck() {
-	if (document.findpwfrm.pwfindid.value.length == 0){
-		alert("이름을 작성해 주세요");
-		findpwfrm.pwfindid.focus();
+	if (document.frm.userId.value.length == 0){
+		alert("아이디를 입력해 주세요");
+		frm.pwfindid.focus();
 		return false;
 		}
-	if (document.findpwfrm.pwfindemail.value.length == 0){
-		alert("이메일을 작성해 주세요");
-		findpwfrm.pwfindemail.focus();
+	if (document.frm.question.value == "select"){
+		alert("질문을 선택해 주세요");
+		frm.question.focus();
 		return false;
 		}
-	if (document.findpwfrm.pwfindphone.value.length == 0){
-		alert("핸드폰번호를 작성해 주세요");
-		findpwfrm.pwfindphone.focus();
+	if (document.frm.answer.value.length == 0){
+		alert("답변을 작성해 주세요");
+		frm.answer.focus();
 		return false;
 		}
+		var url = "passwordFind.do?userId=" + document.frm.userId.value
+		+ "&question=" + document.frm.question.value + "&answer=" + document.frm.answer.value;
+	window.open(url, "_blank_1",
+	"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=450, height=200");
 	return true;
 }
 
@@ -58,18 +66,17 @@ function checkJoin() {
 		return false;
 	}
 	
+	if (document.joinfrm.reid.value.length == 0){
+		alert("아이디 중복확인을 해주세요.");
+		joinfrm.userId.focus();
+		return false;
+	}
+	
 	if (document.joinfrm.userPass.value.length == 0){
 		alert("비밀번호를 입력하세요.");
 		joinfrm.userPass.focus();
 		return false;
 	}
-	
-	if (document.joinfrm.siginPass.value.length == 0){
-		alert("비밀번호를 입력하세요.");
-		joinfrm.siginPass.focus();
-		return false;
-	}
-	
 	
 	var p1 = document.getElementById('signup-pw').value;
 	var p2 = document.getElementById('signup-pww').value;
@@ -84,17 +91,30 @@ function checkJoin() {
 		return false;
 	}
 	
+	if (document.joinfrm.nickName.value.length == 0){
+		alert("닉네임을 입력하세요.");
+		joinfrm.nickName.focus();
+		return false;
+	}
+	
+	if (document.joinfrm.reNickName.value.length == 0){
+		alert("닉네임 중복확인을 해주세요.");
+		joinfrm.nickName.focus();
+		return false;
+	}
+	
 	if (document.joinfrm.email.value.length == 0){
 		alert("이메일을 입력하세요.");
 		joinfrm.email.focus();
+		return false;
+	}
+	
+	var birth_day = document.getElementById('signup-birth-dd').value;
+	if (birth_day > 31){
+		alert("생년월일을 정확히 입력해주세요.");
 		return false;
 	}
 		
-	if (document.joinfrm.email.value.length == 0){
-		alert("이메일을 입력하세요.");
-		joinfrm.email.focus();
-		return false;
-	}
 	
 	if (document.joinfrm.gender.value == "gender"){
 		alert("성별을 선택하세요.");
@@ -120,4 +140,38 @@ function checkJoin() {
 		return false;
 	}
 	return true;
+}
+
+function idCheck() {
+	if (document.joinfrm.userId.value == "") {
+		alert('아이디를 입력하여 주십시오.');
+		document.joinfrm.userId.focus();
+		return;
+	}
+	var url = "../idCheck.do?userId=" + document.joinfrm.userId.value;
+	window.open(url, "_blank_1",
+	"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=450, height=200");
+}
+
+function nickNameCheck() {
+	if (document.joinfrm.nickName.value == "") {
+		alert('닉네임을 입력하여 주십시오.');
+		document.joinfrm.nickName.focus();
+		return;
+	}
+	var url = "../nickNameCheck.do?nickName=" + document.joinfrm.nickName.value;
+	window.open(url, "_blank_1",
+	"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=450, height=200");
+}
+
+function idok() {
+	opener.joinfrm.userId.value=document.frm.userId.value;
+	opener.joinfrm.reid.value=document.frm.userId.value;
+	self.close();
+}
+
+function nicknameok() {
+	opener.joinfrm.nickName.value=document.frm.nickName.value;
+	opener.joinfrm.reNickName.value=document.frm.nickName.value;
+	self.close();
 }

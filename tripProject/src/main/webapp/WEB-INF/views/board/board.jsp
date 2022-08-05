@@ -36,10 +36,14 @@
   padding-left: 15px;
   padding-right: 15px;
 }
+.container{
+max-width: 1000px;
+}
 
  ul > li > a {color: #212121;}
  #slider {width: 1000px; height: 1000px; margin: 0 auto;}
  
+ h1 { text-align: center; }
 </style>
   
 </head>
@@ -49,12 +53,42 @@
    
 	</div>
 	<br><br>
-<div id="slider">
-         <!-- 여기에 내용 넣으세요 -->
-        
-        
-</div>
+	<div id="slider">
+		<!-- 여기에 내용 넣으세요 -->
+		<h1>자유게시판</h1>
+		<hr>
+		<!--게시판 메인페이지 영역 시작-->
+		<div class="container">
+			<div class="row">
+				<table class="table table-striped"
+					style="text-align: center; border: 1px solid #dddddd">
+					<thead>
+						<tr>
+							<th style="backgorund-color: #eeeeee; text-align: center;">번호</th>
+							<th style="backgorund-color: #eeeeee; text-align: center;">제목</th>
+							<th style="backgorund-color: #eeeeee; text-align: center;">작성자</th>
+							<th style="backgorund-color: #eeeeee; text-align: center;">작성일</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<!-- 테스트 코드 -->
+							<td>1</td>
+							<td>안녕하세요</td>
+							<td>황인주</td>
+							<td>2022-08-04</td>
+						</tr>
+					</tbody>
+				</table>
 
-<jsp:include page="../includes/footer.jsp"></jsp:include>    
+			</div>
+		</div>
+		<!--게시판 메인페이지 영역 끝-->
+			<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+		<button class="btn btn-primary me-md-2" type="button">글쓰기</button>
+	</div>
+	</div>
+
+	<jsp:include page="../includes/footer.jsp"></jsp:include>
 </body>
 </html>

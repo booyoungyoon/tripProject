@@ -54,6 +54,21 @@ public class FesDataMapperTests {
 					elfirstImg.add(i, elImg);
 					System.out.println("noimage");
 				}
+				if (!(htmlTmp.contains("addr1"))) {
+					Element eladdr = new Element("addr1");
+					eladdress.add(i, eladdr);
+					System.out.println("noaddress");
+				}
+				if (!(htmlTmp.contains("mapx"))) {
+		               Element elmapx = new Element("mapx");
+		               elmapX.add(i, elmapx);
+		               
+		               System.out.println("nomapx");
+		            }if (!(htmlTmp.contains("mapy"))) {
+		               Element elmapy = new Element("mapy");
+		               elmapY.add(i, elmapy);
+		               System.out.println("nomapy");
+		            }
 				if (!(htmlTmp.contains("mlevel"))) {
 					Element ellevel = new Element("mlevel");
 					elmLevel.add(i, ellevel);

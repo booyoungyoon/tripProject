@@ -39,6 +39,7 @@
       where
       ]]>
       
+        <include refid="criterial"></include>
       
       <![CDATA[
       rn > (#{pageNum}-1)*#{amount}
@@ -50,6 +51,18 @@
          
      num>0
    </select>
-	
+	   <sql id="criterial">
+      <trim prefix="(" suffix=") and">
+         <foreach collection="typeArr" item="type" separator="or">
+            <if test="type=='T'.toString()">
+               Title like '%'|| #{keyword} ||'%'
+            </if>
+            <if test="type=='P'.toString()">
+               Address like '%'|| #{keyword} ||'%'
+            </if>
+           
+         </foreach>
+      </trim>
+   </sql>
 	
 </mapper>

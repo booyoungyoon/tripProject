@@ -66,6 +66,7 @@ ul>li>a {
 	height: 1800px;
 	margin: 0 auto;
 }
+h1 { text-align: center; }
 
 </style>
 
@@ -83,29 +84,25 @@ ul>li>a {
 	<br>
 	<br>
 	<div id="slider">
-		
-		<div class="searchcontainer">
-	
-		<div class="row">
 		<h1>축제</h1>
-			<form method="post" name="search" action="searchfes.jsp">
-				<table float="right">
-					<tr>
-					<td><select class="form-control" name="searchField" >
-								<option value="0">선택</option>
-								<option value="title">제목</option>
-								<option value="address">지역</option>
-						</select></td>
-						<td><input type="text" class="form-control"
-							placeholder="검색어 입력" name="searchText" maxlength="100"></td>
-						<td><button class="btn btn-outline-info" type="submit">Search</button></td>
-					</tr>
-
-				</table>
-			</form>
-		</div>
-	</div>
-
+<!-- 검색조건 start -->
+					<form id = "SearchForm" action = "../festival/page.do" method="get" style="text-align: right;">
+						<select name='type'>
+							<option value="" <c:out value="${pageMaker.cri.type==null?'selected':''}"/>>검색</option>
+							<option value="T" <c:out value="${pageMaker.cri.type eq T?'selected':''}"/> >제목</option>
+							<option value="P" <c:out value="${pageMaker.cri.type eq P?'selected':''}"/>>지역</option>
+							
+						</select>
+						
+					<input type="text" name="keyword"  >	
+					<input type ="hidden" name="pageNum"value='${pageMaker.cri.pageNum}'/>	
+					<input type ="hidden" name="amount"value='${pageMaker.cri.amount}'/>	
+					
+					<button type="button" class="btn btn-outline-info">Search</button>	
+						
+					</form>
+				
+				<!-- 검색 조건 end -->
 	<hr>
 		<!-- 여기에 내용 넣으세요 -->
 
@@ -144,6 +141,7 @@ ul>li>a {
 				</div>
 			</c:forEach>
 		</div>
+		
 <!-- 페이지 처리 Start -->
 				<div class="pull-right">
 					  <ul class="pagination">
@@ -167,6 +165,8 @@ ul>li>a {
 				<form id="actionForm" action="../festival/page.do" method="get">
 					<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
 					<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
+					  <input type="hidden" name="type" value='<c:out value="${cri.type}"/>'>
+               <input type="hidden" name="keyword"   value='<c:out value="${cri.keyword}"/>'>
 				</form>
 	
 		<script>
@@ -205,6 +205,24 @@ ul>li>a {
 		actionForm.find("input[name='pageNum']").val($(this).attr("href"));
 		actionForm.submit(); 
 	});
+    var searchForm = $("#searchForm");
+    
+    $("#searchForm button").on("click", function(e){
+       e.preventDefault();
+       
+       if(!searchForm.find("option:selected").val()){
+          alert("검색종류를 선택하세요.")
+          return false;
+       }
+
+       if(!searchForm.find("[name='keyword']").val()){
+          alert("키워드를 선택하세요.")
+          return false;
+       }
+       
+       searchForm.find("input[name='pageNum']").val(1);
+       searchForm.submit();
+    });
  
  </script>
 

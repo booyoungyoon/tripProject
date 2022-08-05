@@ -133,17 +133,21 @@
 				
 					<input type="hidden" name="pageNum" value='<c:out value="${cri.pageNum}"/>'>
 					<input type="hidden" name="amount" value='<c:out value="${cri.amount}"/>'>
-					<input type="hidden" name="num" value='<c:out value="${destination.num}"/>'>
+					<input type="hidden" name="type" value='<c:out value="${cri.type}"/>'>
+					<input type="hidden" name="keyword" value='<c:out value="${cri.keyword}"/>'>
+					
+					<input type="hidden" name="destinationNum" value='<c:out value="${destination.destinationNum}"/>'>
+					<input type="hidden" name="userNum" value='<c:out value="${destination.userNum}"/>'>
 					
 					<div class="form-group">
-						<input name="title" class="form-control" value='<c:out value="${destination.title}"/>'><br>
+						<input name="destinationTitle" class="form-control" value='<c:out value="${destination.destinationTitle}"/>'><br>
 					</div>
 					<div class="form-group">
-						<input name="address" class="form-control" value='<c:out value="${destination.address}"/>'>
+						<input name="destinationAddress" class="form-control" value='<c:out value="${destination.destinationAddress}"/>'>
 						<br>
 					</div>
 					<div class="form-group">
-						<input name="firstImg" class="form-control" value='<c:out value="${destination.firstImg}"/>'>
+						<input name="destinationFirstImg" class="form-control" value='<c:out value="${destination.destinationFirstImg}"/>'>
 						<br>
 					</div>
 
@@ -170,9 +174,13 @@
  					formObj.attr("action","../destination/list.do").attr("method","get");
  					var pageNumTag = $("input[name='pageNum']").clone();
  					var amountTag = $("input[name='amount']").clone();
+ 					var typeTag = $("input[name='type']").clone();
+ 					var keywordTag = $("input[name='keyword']").clone();
  					formObj.empty();
  					formObj.append(pageNumTag);
  					formObj.append(amountTag);
+ 					formObj.append(typeTag);
+ 					formObj.append(keywordTag);
  				}
  				formObj.submit();
  			});

@@ -71,19 +71,20 @@ public class DesDataMapperTest {
 				System.out.println("¹øÈ£ : " + (i+1));
 				
 				DesDataDTO dto = new DesDataDTO();
-				dto.setTitle(title);
-				dto.setAddress(address);
-				dto.setFirstImg(firstImg);
-				dto.setSecondImg(secondImg);
-				dto.setMapX(mapX);
-				dto.setMapY(mapY);
+				dto.setDestinationTitle(title);
+				dto.setDestinationAddress(address);
+				dto.setDestinationFirstImg(firstImg);
+				dto.setDestinationSecondImg(secondImg);
+				dto.setDestinationMapX(mapX);
+				dto.setDestinationMapY(mapY);
 				
-				System.out.println(dto.getTitle());
-				System.out.println(dto.getAddress());
-				System.out.println(dto.getFirstImg());
-				System.out.println(dto.getSecondImg());
-				System.out.println(dto.getMapX());
-				System.out.println(dto.getMapY());
+				
+				System.out.println(dto.getDestinationTitle());
+				System.out.println(dto.getDestinationAddress());
+				System.out.println(dto.getDestinationFirstImg());
+				System.out.println(dto.getDestinationSecondImg());
+				System.out.println(dto.getDestinationMapX());
+				System.out.println(dto.getDestinationMapY());
 				mapper.insert(dto);
 			}		
 			

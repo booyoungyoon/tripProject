@@ -15,12 +15,14 @@ create table destinatinodata (
 */
 @Data
 public class DesDataDTO {
-	private Long num;
-	private String title;
-	private String content;
-	private String address;
-	private String firstImg;
-	private String secondImg;
-	private String mapX;
-	private String mapY;
+	private Long destinationNum;
+	private String destinationTitle;
+	private String destinationAddress;
+	private String destinationFirstImg;
+	private String destinationSecondImg;
+	private String destinationMapX;
+	private String destinationMapY;
+	private String destinationContent;
+	private String destinationCity;
+	private Long userNum;
 }

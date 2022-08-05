@@ -184,22 +184,47 @@ font-size: 11pt;
 				<c:forEach items="${list}" var="destination">
 					<tr>
 		
-					<th rowspan="3" width="300px";><a class='move' href=<c:out value="${destination.num}"/>>
-						<img src="${destination.firstImg}"  width="500"></a></th>
+					<th rowspan="3" width="300px";><a class='move' href=<c:out value="${destination.destinationNum}"/>>
+						<img src="${destination.destinationFirstImg}"  width="500"></a></th>
+						
+						
 		
 					<td>
-					<a class='move' href=<c:out value="${destination.num}"/>>
-						<c:out value="${destination.title}"/></td>
+					<a class='move' href=<c:out value="${destination.destinationNum}"/>>
+						<c:out value="${destination.destinationTitle}"/></td>
 					</tr>
-						<td><a class='move' href=<c:out value="${destination.num}"/>>
-						<c:out value="${destination.address}"/></td>
+						<td><a class='move' href=<c:out value="${destination.destinationNum}"/>>
+						<c:out value="${destination.destinationAddress}"/></td>
 					<tr>
-						<td><a class='move' href=<c:out value="${destination.num}"/>>
-						<c:out value="${destination.address}"/></td>
+						<td><a class='move' href=<c:out value="${destination.destinationNum}"/>>
+						<c:out value="${destination.destinationAddress}"/></td>
 					</tr>
 					
 				</c:forEach>
 			</table>
+			
+			<!-- 검색 조건 Start-->
+					<form id="searchForm" action="/destination/list.do" method="get">
+						<select name="type">
+							<option value=""   	<c:out value="${pageMaker.cri.type == null ? 'selected' : '' }"/>  	>--</option>
+							<option value="T"
+							<c:out value="${pageMaker.cri.type eq 'T' ? 'selected' : '' }"/>
+							>제목</option>
+							<option value="C" <c:out value="${pageMaker.cri.type eq 'C' ? 'selected' : '' }"/>>내용</option>
+							<option value="A" <c:out value="${pageMaker.cri.type eq 'W' ? 'selected' : '' }"/>>지역</option>
+							<option value="TC" <c:out value="${pageMaker.cri.type eq 'TC' ? 'selected' : '' }"/>>제목+내용</option>
+							<option value="TA" <c:out value="${pageMaker.cri.type eq 'TW' ? 'selected' : '' }"/>>제목+지역</option>
+							<option value="TCA"  <c:out value="${pageMaker.cri.type eq 'TCW' ? 'selected' : '' }"/> >제목+내용+지역</option>
+						</select>
+						
+						<input type="text" name="keyword" />
+						<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
+						<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
+						<button class="btn btn-primary">Search</button>
+					</form>	
+							
+				<!-- 검색 조건 End -->
+			
 				<!-- 페이지 처리 Start -->
 				<div class="pull-right" align="center">
 					<ul class="pagination">
@@ -227,11 +252,18 @@ font-size: 11pt;
 				<form id="actionForm" action="../destination/list.do" method="get">
 					<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
 					<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
+					<input type="hidden" name="type" value="${pageMaker.cri.type}">
+					<input type="hidden" name="keyword" value="${pageMaker.cri.keyword}">
+					
 				</form>
 				
+			<c:choose>
+				<c:when test="${user.admin==0}">
 			<div>
 			<button id="writebtn" type="button" style="float: left;">글등록</button>
 			</div>
+				</c:when>
+			</c:choose>
 	</div>
 	<script>
 		$("#writebtn").on("click", function() {
@@ -257,9 +289,29 @@ font-size: 11pt;
 					actionForm.submit();
 				});
 		
-		
+		  window.onpageshow = function(e) {
+		         if (e.persisted || (window.performance && window.performance.navigation.type == 2)) { //뒤로가기 감지
+		            location.reload(); //현재 페이지 새로고침
+		         }
+		      }
+			var searchForm = $("#searchForm");
+			
+			$("#searchForm button").on("click", function(e){
+				e.preventDefault();
+				
+				if(!searchForm.find("option:selected").val()){
+					alert("검색종류를 선택하세요.")
+					return false;
+				}
 
+				if(!searchForm.find("[name='keyword']").val()){
+					alert("키워드를 선택하세요.")
+					return false;
+				}
+				
+				searchForm.find("input[name='pageNum']").val(1);
+				searchForm.submit();
+			});
 	</script>
-
 </body>
 </html>

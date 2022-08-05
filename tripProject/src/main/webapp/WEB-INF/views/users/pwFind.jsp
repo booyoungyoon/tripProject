@@ -145,7 +145,7 @@ h2 {
 	border: 0;
 	outline: none;
 	border-radius: 40px;
-	background: #2ce8de;
+	background: #337ab7;
 	color: white;
 	font-size: 1.2em;
 }

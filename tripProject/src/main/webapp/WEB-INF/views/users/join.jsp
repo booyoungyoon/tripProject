@@ -54,7 +54,7 @@ input {
    float:right;
    margin-top: 5px;
    cursor: pointer;
-   background-color: #2ce8de;
+   background-color: #337ab7;
    color: #fff;
 }
 h3 {
@@ -143,7 +143,7 @@ h3 {
    width: 360px;
    line-height: 55px;
    height: 55px;
-   background-color: #2ce8de;
+   background-color: #337ab7;
    border: none;
    color: #fff;
    font-size: 18px;

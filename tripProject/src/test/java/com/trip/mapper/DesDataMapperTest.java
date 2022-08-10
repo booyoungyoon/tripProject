@@ -27,7 +27,7 @@ public class DesDataMapperTest {
 	public void testInsert() throws IOException {
         try {
 			Document doc = Jsoup.connect("http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList"
-					+ "?serviceKey=sWi23NfHCswD2JLkVzlAjWdx84T9hH%2B4%2BgYdeHg5rakMR397CZtjr1hoq8Mo56LMzSCjxrlMzLEkI0Bi%2FwFQ0Q%3D%3D&pageNo=1&numOfRows=250&MobileApp=AppTest&MobileOS=ETC&arrange=B&cat1=&contentTypeId=12&listYN=Y").get();
+					+ "?serviceKey=sWi23NfHCswD2JLkVzlAjWdx84T9hH%2B4%2BgYdeHg5rakMR397CZtjr1hoq8Mo56LMzSCjxrlMzLEkI0Bi%2FwFQ0Q%3D%3D&pageNo=1&numOfRows=900&MobileApp=AppTest&MobileOS=ETC&arrange=B&cat1=&contentTypeId=12&listYN=Y").get();
 			Elements all = doc.select("item");
 			Elements el = doc.getElementsByAttribute("firstimage");
 			
@@ -46,7 +46,7 @@ public class DesDataMapperTest {
 			Elements elmapX = all.select("mapx");
 			Elements elmapY = all.select("mapy");
 			
-			for(int i=0; i<200; i++) {
+			for(int i=0; i<800; i++) {
 				
 				String htmlTmp = all.get(i).html();
 				if (!(htmlTmp.contains("firstimage"))) {
@@ -68,7 +68,7 @@ public class DesDataMapperTest {
 				String mapY = elmapY.get(i).text();
 				
 				
-				System.out.println("¹øÈ£ : " + (i+1));
+				System.out.println("ï¿½ï¿½È£ : " + (i+1));
 				
 				DesDataDTO dto = new DesDataDTO();
 				dto.setDestinationTitle(title);

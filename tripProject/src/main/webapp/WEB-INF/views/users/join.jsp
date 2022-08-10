@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
-<script type="text/javascript" src="../js/login.find.join.js"></script>
+<script type="text/javascript" src="/resources/js/login.find.join.js"></script>
 <style type="text/css">
 * {
    font-family: 'yg-jalnan', cursive
@@ -152,8 +152,8 @@ h3 {
    border-radius: 15px;
 }
 </style>
-<link rel="stylesheet" href="style.css">
-<script src="js/login.js"></script>
+<link rel="stylesheet" href="/resources/style.css">
+<script src="/resources/js/login.js"></script>
 
 </head>
 
@@ -163,7 +163,7 @@ h3 {
       <header>
          <!--LOGO-->
          <h2>
-            <a href="../home.do">여행가기 좋은 날</a>
+            <a href="/home.do">여행가기 좋은 날</a>
          </h2>
       </header>
 

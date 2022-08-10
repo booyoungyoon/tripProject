@@ -151,7 +151,7 @@
 		var dots = {};
 	    
 		for (var i=0; i<courseList.length; i++) {
-			var latlng = new kakao.maps.LatLng(courseList[i].mapY, courseList[i].mapX)
+			var latlng = new kakao.maps.LatLng(courseList[i].destinationMapY, courseList[i].destinationMapX)
 			var imageSrc = "/resources/img/marker/marker-icon" + (i+1) +".png"; 
 		    
 		    // 마커 이미지의 이미지 크기 입니다
@@ -164,14 +164,14 @@
 		    var marker = new kakao.maps.Marker({
 		        map: map, // 마커를 표시할 지도
 		        position: latlng, // 마커를 표시할 위치
-		        title : courseList[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+		        title : courseList[i].destinationTitle, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
 		        image : markerImage // 마커 이미지 
 		    });
 		    
 		 // 커스텀 오버레이에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
 		    var content = '<div class="customoverlay">' +
-		        '  <a href="/destination/get.do?num='+courseList[i].num+'">' +
-		        '    <span class="title">'+ courseList[i].title +'</span>' +
+		        '  <a href="/destination/get.do?num='+courseList[i].destinationNum+'">' +
+		        '    <span class="title">'+ courseList[i].destinationTitle +'</span>' +
 		        '  </a>' +
 		        '</div>';
 		    
@@ -190,8 +190,8 @@
 
 		for (var i = 0; i < courseList.length; i++) {
 			if (i != 0) {
-				linePath = [ new kakao.maps.LatLng(courseList[i-1].mapY, courseList[i-1].mapX),
-							 new kakao.maps.LatLng(courseList[i].mapY, courseList[i].mapX) ]
+				linePath = [ new kakao.maps.LatLng(courseList[i-1].destinationMapY, courseList[i-1].destinationMapX),
+							 new kakao.maps.LatLng(courseList[i].destinationMapY, courseList[i].destinationMapX) ]
 			}
 			;
 			lineLine.setPath(linePath);
@@ -208,7 +208,7 @@
 
 			distance = Math.round(lineLine.getLength());
 			totalDistance = totalDistance + distance; 
-			displayCircleDot(new kakao.maps.LatLng(courseList[i].mapY, courseList[i].mapX), distance);
+			displayCircleDot(new kakao.maps.LatLng(courseList[i].destinationMapY, courseList[i].destinationMapX), distance);
 		}
 		if(7500< totalDistance && totalDistance < 12500) {
 		 	map.setLevel(5);

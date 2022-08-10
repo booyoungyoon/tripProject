@@ -18,6 +18,7 @@ import com.trip.domain.DesAndCourseVO;
 import com.trip.domain.DesDataDTO;
 import com.trip.mapper.CourseMapper;
 import com.trip.mapper.DesDataMapper;
+import com.trip.service.CourseService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -27,26 +28,25 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 @RequestMapping("/course/*")
 public class CourseController {
-	private CourseMapper courseMapper;
+	private CourseService service;
 	private DesDataMapper desMapper;
 	
 	@RequestMapping("list.do")
 	public String list(Model model, String city) {
 		log.info(city);
 		
-		List<CourseVO> list = courseMapper.getList();	//코스 리스트를 list에 담는다.
+		List<CourseVO> list = service.getCourseList();	//코스 리스트를 list에 담는다.
 		if(city != null) {
-			list = courseMapper.getCityList(city);
+			list = service.searchCityList(city);
 		}
 		int i = 0;
 		
 		for (CourseVO vo : list) {
 			log.info(vo);
 			int courseNum = list.get(i).getCourseNum();
-			List<DesAndCourseVO> desNumList = courseMapper.getDesList(courseNum);
+			List<DesAndCourseVO> desNumList = service.getDesList(courseNum);
 			List<DesDataDTO> desList = new ArrayList<DesDataDTO>(); //여행지 리스트를 desList에 담는다.(코스VO의 desList에 담기위해 생성)
 			for(DesAndCourseVO destinations : desNumList) {
-				log.info(destinations);
 				Long long1 = (long) destinations.getDestinationNum();
 				DesDataDTO dto = desMapper.read(long1);
 				desList.add(dto);
@@ -67,9 +67,9 @@ public class CourseController {
 		double numMapX = 0;	//center좌표 설정에 사용할 mapX값
 		double numMapY = 0; //center좌표 설정에 사용할 mapY값
 		
-		CourseVO vo = courseMapper.readCourse(num);
+		CourseVO vo = service.getCourse(num);
 		
-		List<DesAndCourseVO> desNumList = courseMapper.getDesList(num);
+		List<DesAndCourseVO> desNumList = service.getDesList(num);
 		List<DesDataDTO> desList = new ArrayList<DesDataDTO>(); //여행지 리스트를 desList에 담는다.(코스VO의 desList에 담기위해 생성)
 		for(DesAndCourseVO destinations : desNumList) {
 			Long long1 = (long) destinations.getDestinationNum();
@@ -96,10 +96,9 @@ public class CourseController {
 	public ResponseEntity<List<DesDataDTO>> desList(@PathVariable("num") int num) {
 		log.info("getList.........." + num);
 		
-		List<DesAndCourseVO> desNumList = courseMapper.getDesList(num);
+		List<DesAndCourseVO> desNumList = service.getDesList(num);
 		List<DesDataDTO> desList = new ArrayList<DesDataDTO>(); //여행지 리스트를 desList에 담는다.(코스VO의 desList에 담기위해 생성)
 		for(DesAndCourseVO destinations : desNumList) {
-			log.info(destinations);
 			Long long1 = (long) destinations.getDestinationNum();
 			DesDataDTO dto = desMapper.read(long1);
 			desList.add(dto);
@@ -111,8 +110,7 @@ public class CourseController {
 	@RequestMapping(method = {RequestMethod.PUT, RequestMethod.PATCH},
 			value = "/{num}", produces = {MediaType.TEXT_PLAIN_VALUE})
 	public ResponseEntity<String> like(@PathVariable("num") int num) {
-		log.info("like메소드 실행..");
-		int check = courseMapper.likesCourse(num);
+		int check = service.likesCourse(num);
 		log.info(check);
 		return check == 1 ? new ResponseEntity<String>("success", HttpStatus.OK) :
 									new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);

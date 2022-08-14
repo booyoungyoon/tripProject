@@ -186,7 +186,8 @@ html, body {
 			<c:when test="${user == null}">
        			<li><a href="/users/login.do">로그인</a></li>
 			</c:when>
-			<c:otherwise>
+			
+			<c:when test="${user.admin == 1}">
 				<div class="btn-group">
 					<button type="button" class="btn btn-secondary" data-toggle="dropdown">마이페이지</button>
 					<ul class="dropdown-menu" role="menu">
@@ -195,7 +196,19 @@ html, body {
 						<li><a href="/logout.do">로그아웃</a></li>
 					</ul>
 				</div>
-			</c:otherwise>
+			</c:when>
+			
+			<c:when test="${user.admin == 0}">
+				<div class="btn-group">
+					<button type="button" class="btn btn-secondary" data-toggle="dropdown">마이페이지</button>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="/users/list.do">회원 목록 조회</a></li>
+						<li><a href="#">내 글 보기</a></li>
+						<li><a href="/logout.do">로그아웃</a></li>
+					</ul>
+				</div>
+			</c:when>
+			
 		</c:choose>
       </ul>
    </nav>

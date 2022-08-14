@@ -119,9 +119,10 @@ public class UserController {
 	
 	
 	@RequestMapping("list.do")
-	public void list(Model model) {
+	public String list(Model model) {
 		log.info("list");
 		model.addAttribute("list", service.getUserList());
+		return "users/list";
 	}
 	
 	@RequestMapping("mypage.do")
@@ -187,8 +188,6 @@ public class UserController {
 				} catch (JsonProcessingException e) {
 					e.printStackTrace();
 				}
-				
-			log.info("카카오 엑세스 토큰 : "+oauthToken.getAccess_token());
 			
 			RestTemplate rt2 = new RestTemplate();
 			
@@ -221,11 +220,6 @@ public class UserController {
 			}
 			
 			log.info("카카오 아이디(번호) : " + kakaoProfile.getId());
-			log.info("카카오 아이디(번호) : " + kakaoProfile.getKakao_account().getEmail());
-			
-			
-			log.info("닉네임 : " + kakaoProfile.getProperties().getNickname());
-			log.info("성별 : " + kakaoProfile.getKakao_account().getGender());
 			
 			UserVO user = new UserVO();
 			

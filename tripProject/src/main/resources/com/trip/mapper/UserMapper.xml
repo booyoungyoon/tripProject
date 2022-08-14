@@ -7,7 +7,7 @@
 	<!-- 전체 데이터 출력 -->
 	<select id="getList" resultType="com.trip.domain.UserVO">
 		select * from users where
-		usernum>0
+		usernum>0 order by usernum desc
 	</select>
 
 	<!-- 로그인 회원정보 확인 -->

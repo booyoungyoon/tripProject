@@ -24,25 +24,20 @@
 	font-weight: normal;
 	font-style: normal;
 }
-
 @import url("https://fonts.googleapis.com/css?family=Inconsolata:700");
-
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'yg-jalnan', cursive;
 }
-
 html, body {
 	width: 100%;
 	height: 100%;
 }
-
 ul>li>a {
 	color: #212121;
 }
-
 .gd-container {
 	max-width: 1100px;
 	position: relative;
@@ -50,25 +45,20 @@ ul>li>a {
 	padding-left: 15px;
 	padding-right: 15px;
 }
-
 #gtco-header {
 	height: 700px;
 	width: 100%;
 }
-
 #gtco-header>ul {
 	display: inline;
 }
-
 #gtco-header .bg {
 	position: relative;
 }
-
 #gtco-header .bg>img {
 	height: 700px;
 	width: 100%;
 }
-
 #gtco-header .bg .text>h1 {
 	display: inline-block;
 	z-index: 999;
@@ -81,11 +71,9 @@ ul>li>a {
 	height: 70px;
 	line-height: 700px;
 }
-
 .bg:hover {
 	opacity: 0.7;
 }
-
 .Wallpapers {
 	width: 100%;
 	height: 100%;
@@ -93,7 +81,6 @@ ul>li>a {
 	align-items: center;
 	justify-content: center;
 }
-
 .login {
 	width: 40%;
 	height: 700px;
@@ -106,18 +93,15 @@ ul>li>a {
 	border: 1px solid lightgray;
 	margin: 0px 0px 50px;
 }
-
 .login h2 {
 	color: #212121;
 	font-size: 2em;
 	margin-bottom: 50px;
 }
-
 .login_id {
 	margin-top: 50px;
 	width: 80%;
 }
-
 .login_id input {
 	width: 100%;
 	height: 50px;
@@ -127,12 +111,10 @@ ul>li>a {
 	border: 1px solid gray;
 	outline: none;
 }
-
 .login_pw {
 	margin-top: 20px;
 	width: 80%;
 }
-
 .login_pw input {
 	width: 100%;
 	height: 50px;
@@ -142,12 +124,10 @@ ul>li>a {
 	border: 1px solid gray;
 	outline: none;
 }
-
 .submit {
 	margin-top: 50px;
 	width: 80%;
 }
-
 .submit input {
 	width: 100%;
 	height: 50px;
@@ -158,7 +138,6 @@ ul>li>a {
 	color: white;
 	font-size: 1.2em;
 }
-
 .threelinks {
 	text-align: center;
 	margin-top: 20px;
@@ -195,32 +174,14 @@ ul>li>a {
 					<input type="submit" value="로그인" onclick="return loginCheck()">
 				</div>
 				<div class="submit"  align="center">
-				<div onclick="kakaoLogin()" style="cursor:pointer;"><img src="https://www.gb.go.kr/Main/Images/ko/member/certi_kakao_login.png" 
-				style = "height: 50px; width:auto;"></div>			
+				<a href="https://kauth.kakao.com/oauth/authorize?client_id=accbd8d322bc5b0248a5ea6eb444cd28&redirect_uri=http://localhost:8081/users/kakaoLogin.do&response_type=code">
+				<img src="https://www.gb.go.kr/Main/Images/ko/member/certi_kakao_login.png" 
+				style = "height: 50px; width:auto;"></a>			
 				</div>
 				<jsp:include page="userIncludes/userFooter.jsp"></jsp:include>
 			</div>
 		</div>
 	</form>
 	
-	<script>
-
-	
-	function kakaoLogin(){
-		
-		$.ajax({
-			url: "../users/login/getkakao.do",
-			type: "get",
-			success: function(res){
-				location.href=res
-			},error: function(er){
-				console.log("서버에러");
-			}
-			
-		})
-		
-	}
-	
-	</script>
 </body>
 </html>

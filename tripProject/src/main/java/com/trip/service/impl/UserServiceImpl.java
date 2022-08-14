@@ -79,4 +79,11 @@ public class UserServiceImpl implements UserService{
 		return mapper.getPw(vo);
 	}
 
+	@Override
+	public void registerToKakao(UserVO vo) {
+		log.info("------ 카카오 회원가입 --------");
+		mapper.kakaoInsert(vo);
+	}
+
+
 }

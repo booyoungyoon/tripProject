@@ -7,6 +7,7 @@ import com.trip.domain.UserVO;
 public interface UserMapper {
 	public List<UserVO> getList();
 	public void insert(UserVO vo);
+	public void kakaoInsert(UserVO vo);
 	public UserVO read(UserVO vo);
 	public UserVO get(int userNum);
 	public UserVO getId(UserVO vo);

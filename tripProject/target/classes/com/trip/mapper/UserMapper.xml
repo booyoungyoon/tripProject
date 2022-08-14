@@ -54,6 +54,15 @@
 		#{question}, #{answer})
 	</insert>
 	
+   <!-- 카카오 로그인 회원가입 -->
+	<insert id="kakaoInsert">
+		insert into users (usernum, userid, nickname, username,
+		userpass, gender, email, admin)
+		values(users_seq.nextval,
+		#{userId}, #{nickName}, #{userName}, #{userPass},
+		#{gender}, #{email}, 1)
+	</insert>
+	
 	<!-- 회원 탈퇴 -->
 	<delete id="delete">
 		delete from users where usernum=#{userNum}

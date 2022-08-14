@@ -7,6 +7,7 @@ import com.trip.domain.UserVO;
 public interface UserService {
 	public List<UserVO> getUserList();
 	public void register(UserVO vo);
+	public void registerToKakao(UserVO vo);
 	public UserVO login(UserVO vo);
 	public UserVO get(int userNum);
 	public UserVO getId(UserVO vo);

@@ -203,9 +203,7 @@ h3 {
                <h3>&nbsp;닉네임</h3>
                <span class="signup-input"> 
                	<input id="signup-nickname" name="nickName" type="text">
-               	<input name="reNickName" type="hidden">
                </span>
-               <button class="overLap" type="button" onclick="nickNameCheck()" name="checkNick" class="checkNick">중복확인</button>
                <h3>&nbsp;이메일</h3>
                <span class="signup-input"> <input id="signup-email"
                   name="email" type="text"></input>

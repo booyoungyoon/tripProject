@@ -97,12 +97,6 @@ function checkJoin() {
 		return false;
 	}
 	
-	if (document.joinfrm.reNickName.value.length == 0){
-		alert("닉네임 중복확인을 해주세요.");
-		joinfrm.nickName.focus();
-		return false;
-	}
-	
 	if (document.joinfrm.email.value.length == 0){
 		alert("이메일을 입력하세요.");
 		joinfrm.email.focus();
@@ -153,25 +147,8 @@ function idCheck() {
 	"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=450, height=200");
 }
 
-function nickNameCheck() {
-	if (document.joinfrm.nickName.value == "") {
-		alert('닉네임을 입력하여 주십시오.');
-		document.joinfrm.nickName.focus();
-		return;
-	}
-	var url = "../nickNameCheck.do?nickName=" + document.joinfrm.nickName.value;
-	window.open(url, "_blank_1",
-	"toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=450, height=200");
-}
-
 function idok() {
 	opener.joinfrm.userId.value=document.frm.userId.value;
 	opener.joinfrm.reid.value=document.frm.userId.value;
-	self.close();
-}
-
-function nicknameok() {
-	opener.joinfrm.nickName.value=document.frm.nickName.value;
-	opener.joinfrm.reNickName.value=document.frm.nickName.value;
 	self.close();
 }

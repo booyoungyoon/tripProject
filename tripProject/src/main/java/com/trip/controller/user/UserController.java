@@ -33,7 +33,7 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 @RequestMapping("/users/*")
 public class UserController {
-	private UserService serivce;
+	private UserService service;
 	
 	@GetMapping("login.do")
 	public String loginView() {
@@ -44,7 +44,7 @@ public class UserController {
 	@PostMapping("login.do")
 	public String login(Model model, UserVO vo, HttpSession session) {
 		log.info("-------login 실행---------");
-		UserVO user = serivce.login(vo);
+		UserVO user = service.login(vo);
 		log.info(user);
 		if (user != null) {
 			session.setAttribute("user", user);
@@ -74,7 +74,7 @@ public class UserController {
 			vo.setBirth(birth);
 		}
 		vo.setBirth(birth);
-		serivce.register(vo);
+		service.register(vo);
 		log.info("-------- user insert ------------");
 		return "redirect:/users/login.do";
 	}
@@ -88,7 +88,7 @@ public class UserController {
 	@GetMapping("idFindList.do")
 	public String idFind(Model model, UserVO vo) {
 		log.info("------- idFind ---------");
-		List<UserVO> list = serivce.idList(vo);
+		List<UserVO> list = service.idList(vo);
 		log.info(list.isEmpty());
 		
 		model.addAttribute("list", list);
@@ -108,8 +108,8 @@ public class UserController {
 	@RequestMapping("passwordFind.do")
 	public String pwFind(Model model, UserVO vo) {
 		log.info("------- passwordFind ---------");
-		UserVO user = serivce.findPassword(vo);
-		UserVO rightId = serivce.getId(vo);
+		UserVO user = service.findPassword(vo);
+		UserVO rightId = service.getId(vo);
 		
 		model.addAttribute("user", user);
 		model.addAttribute("id", rightId);
@@ -121,7 +121,7 @@ public class UserController {
 	@RequestMapping("list.do")
 	public void list(Model model) {
 		log.info("list");
-		model.addAttribute("list", serivce.getUserList());
+		model.addAttribute("list", service.getUserList());
 	}
 	
 	@RequestMapping("mypage.do")
@@ -133,7 +133,7 @@ public class UserController {
 	@GetMapping("withdraw.do")
 	public String withdraw(UserVO vo, HttpSession session) {
 		log.info(vo.getUserNum());
-		serivce.remove(vo.getUserNum());
+		service.remove(vo.getUserNum());
 		session.invalidate();
 		return "redirect:/home.do";
 	}
@@ -146,9 +146,9 @@ public class UserController {
 	@PostMapping("modify.do")
 	public String modify(UserVO vo, HttpSession session) {
 		log.info(vo);
-		serivce.modify(vo);
+		service.modify(vo);
 		
-		UserVO user = serivce.get(vo.getUserNum());
+		UserVO user = service.get(vo.getUserNum());
 		session.setAttribute("user", user);
 		return "users/mypage";
 	}
@@ -228,6 +228,7 @@ public class UserController {
 			log.info("성별 : " + kakaoProfile.getKakao_account().getGender());
 			
 			UserVO user = new UserVO();
+			
 			user.setUserId(kakaoProfile.getKakao_account().getEmail() + "_" +kakaoProfile.getId());
 			user.setUserName(kakaoProfile.getProperties().getNickname());
 			user.setEmail(kakaoProfile.getKakao_account().getEmail());
@@ -241,12 +242,15 @@ public class UserController {
 			}
 			
 			
-			if (serivce.getId(user) == null) {
-				serivce.registerToKakao(user);
+			if (service.getId(user) == null) {
+				service.registerToKakao(user);
 			}
 			
-			serivce.login(user);
+			user = service.login(user);
+			
 			session.setAttribute("user", user);
+			
+			log.info(user.getAdmin());
 			
 		return "redirect:/home.do";
 	}

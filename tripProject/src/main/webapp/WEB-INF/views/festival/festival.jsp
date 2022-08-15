@@ -55,11 +55,12 @@ ul>li>a {
 
 #slider {
 	width: 1000px;
-	height: 1800px;
+	height: 2000px;
 	margin: 0 auto;
 }
 h1 { text-align: center; }
 
+#menu button { font-size : 1.2em; }
 </style>
 
 </head>
@@ -77,29 +78,25 @@ h1 { text-align: center; }
 	<br>
 	<div id="slider">
 		<h1>축제</h1>
-<!-- 검색조건 start -->
-					<form id = "SearchForm" action = "../festival/page.do" method="get" style="text-align: right;">
-						<select name='type'>
-							<option value="" <c:out value="${pageMaker.cri.type==null?'selected':''}"/>>검색</option>
-							<option value="T" <c:out value="${pageMaker.cri.type eq T?'selected':''}"/> >제목</option>
-							<option value="P" <c:out value="${pageMaker.cri.type eq P?'selected':''}"/>>지역</option>
-							
-						</select>
-						
-					<input type="text" name="keyword"  >	
-					<input type ="hidden" name="pageNum"value='${pageMaker.cri.pageNum}'/>	
-					<input type ="hidden" name="amount"value='${pageMaker.cri.amount}'/>	
-					
-					<button type="button" class="btn btn-outline-info">Search</button>	
-						
-					</form>
-				
-				<!-- 검색 조건 end -->
-	<hr>
+
+<br>
 		<!-- 여기에 내용 넣으세요 -->
-
-	<!-- 검색 시작 -->
-
+<div id="menu" class="card text-center" style="border-radius: 30px;">
+  <div class="card-header" style="border-radius: 30px;" >
+    <button onclick="location.href='/festival/page.do?fesCity=서울'" type="button" class="btn btn-light fw-bolder">서울시</button>
+    <button onclick="location.href='/festival/page.do?fesCity=경기'" type="button" class="btn btn-light">경기도</button>
+    <button onclick="location.href='/festival/page.do?fesCity=강원'" type="button" class="btn btn-light">강원도</button>
+    <button onclick="location.href='/festival/page.do?fesCity=충청남'" type="button" class="btn btn-light">충청북도</button>
+    <button onclick="location.href='/festival/page.do?fesCity=충청북'" type="button" class="btn btn-light">충청남도</button>
+    <button onclick="location.href='/festival/page.do?fesCity=경상북'" type="button" class="btn btn-light">경상북도</button>
+    <button onclick="location.href='/festival/page.do?fesCity=경상남'" type="button" class="btn btn-light">경상남도</button>
+    <button onclick="location.href='/festival/page.do?fesCity=전라북'" type="button" class="btn btn-light">전라북도</button>
+    <button onclick="location.href='/festival/page.do?fesCity=전라남'" type="button" class="btn btn-light">전라남도</button>
+    <button onclick="location.href='/festival/page.do?fesCity=제주'" type="button" class="btn btn-light">제주도</button>
+  </div>
+        
+</div>
+<br><br>
 
 		<div class="row  justify-content-center">
 			<c:forEach items="${list}" var="fes">
@@ -153,6 +150,24 @@ h1 { text-align: center; }
 					  </ul>
 				</div>
 				<!-- 페이지 처리 End -->
+				<!-- 검색조건 start -->
+					<form id = "SearchForm" action = "../festival/page.do" method="get" >
+						<select name='type'>
+							<option value="" <c:out value="${pageMaker.cri.type==null?'selected':''}"/>>검색</option>
+							<option value="T" <c:out value="${pageMaker.cri.type eq T?'selected':''}"/> >제목</option>
+							<option value="P" <c:out value="${pageMaker.cri.type eq P?'selected':''}"/>>지역</option>
+							
+						</select>
+						
+					<input type="text" name="keyword"  >	
+					<input type ="hidden" name="pageNum"value='${pageMaker.cri.pageNum}'/>	
+					<input type ="hidden" name="amount"value='${pageMaker.cri.amount}'/>	
+					
+					<button type="button" class="btn btn-outline-info">Search</button>	
+						
+					</form>
+				
+				<!-- 검색 조건 end -->
 				
 				<form id="actionForm" action="../festival/page.do" method="get">
 					<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
@@ -219,7 +234,7 @@ h1 { text-align: center; }
  </script>
 
 
-	<jsp:include page="../includes/footer.jsp"></jsp:include> 
+
 
 </body>
 

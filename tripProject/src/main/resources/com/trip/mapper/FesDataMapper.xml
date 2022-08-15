@@ -10,6 +10,36 @@
 		select * from festivaldata where num>0
 	</select>
 	
+<!-- 지역 누르면 sort -->	
+		<select id="getAddressList" resultType="com.trip.domain.FesDataDTO">
+		select * from festivaldata where 
+		address like '%'|| #{fesCity} ||'%'
+	</select>
+	<select id="getAddressListggd" resultType="com.trip.domain.FesDataDTO">
+		select * from festivaldata where 
+		address like '%'|| #{fesCity} ||'%' or address like '%'|| '인천' ||'%'
+	</select>
+	<select id="getAddressListcb" resultType="com.trip.domain.FesDataDTO">
+		select * from festivaldata where 
+		address like '%'|| #{fesCity} ||'%' or address like '%'|| '세종' ||'%'
+	</select>
+	<select id="getAddressListcn" resultType="com.trip.domain.FesDataDTO">
+		select * from festivaldata where 
+		address like '%'|| #{fesCity} ||'%' or address like '%'|| '대전' ||'%'
+	</select>
+	<select id="getAddressListgb" resultType="com.trip.domain.FesDataDTO">
+		select * from festivaldata where 
+		address like '%'|| #{fesCity} ||'%' or address like '%'|| '대구' ||'%'
+	</select>
+	<select id="getAddressListgn" resultType="com.trip.domain.FesDataDTO">
+		select * from festivaldata where 
+		address like '%'|| #{fesCity} ||'%' or address like '%'|| '울산' ||'%' or address like '%'|| '부산' ||'%'
+	</select>
+	<select id="getAddressListjn" resultType="com.trip.domain.FesDataDTO">
+		select * from festivaldata where 
+		address like '%'|| #{city} ||'%' or address like '%'|| '광주' ||'%'
+	</select>
+	
 	<insert id="insert">
 		insert into festivaldata(num, title, address, firstimg, startdate, enddate, mapx, mapy, mlevel)
 		values(fesdata_num.nextval,

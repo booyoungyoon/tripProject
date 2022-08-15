@@ -156,7 +156,7 @@ font-size: 11pt;
 				</div>
 				<div class="form-group">
 					<label>내용</label>
-					 <textarea name="destinationContent" rows="5" class="form-control" readonly="readonly">${destination.destinationContent}</textarea>	
+					 <textarea name="destinationContent" rows="10" class="form-control" readonly="readonly" style="resize: none;">${destination.destinationContent}</textarea>	
 				</div>
 				
 
@@ -184,6 +184,6 @@ font-size: 11pt;
 	});
 </script>
 
-<jsp:include page="../includes/footer.jsp"></jsp:include>    
+<%-- <jsp:include page="../includes/footer.jsp"></jsp:include> --%>
 </body>
 </html>

@@ -22,133 +22,134 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
-           @font-face {
-    font-family: 'yg-jalnan';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-      
-   * {font-family: 'yg-jalnan', cursive }
-
-        .gd-container {
-  max-width: 1100px;
-  position: relative;
-  margin: 0 auto;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
- ul > li > a {color: #212121;}
- #slider {width: 1000px; height: 1000px; margin: 0 auto;}
- 
- 
-:root {
-  --black: #1a1a1a;
-  --white: #fff;
-  --gray: #ccc;
-  --darkgreen: #18846C;
-  --lightbrown: antiquewhite;
-  --minRangeValue: 280px;
+@font-face {
+	font-family: 'yg-jalnan';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
 }
 
 * {
-  margin: 0;
-  padding: 0;  
-  outline: none;
-  border: none;
+	font-family: 'yg-jalnan', cursive
+}
+
+.gd-container {
+	max-width: 1100px;
+	position: relative;
+	margin: 0 auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+ul>li>a {
+	color: #212121;
+}
+
+#slider {
+	width: 1000px;
+	height: 1000px;
+	margin: 0 auto;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border: none;
 }
 
 button {
-  cursor: pointer;
-  background: none;
+	cursor: pointer;
+	background: none;
 }
 
 img {
-  display: block;
-  width: 290px;
-  height: 193px;
+	display: block;
+	width: 250px;
+	height: 150px;
 }
 
-ol,
-ul {
-  list-style: none;
-  margin:0;
-  padding:0;
+ol, ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 
 a {
-  color: inherit;
+	color: inherit;
 }
 
 body {
-  margin: 50px 0;
-  color: var(--black);
-  font: 1rem/1.3 sans-serif;
-}
-
-.gallery {
-  padding: 0 2rem;
-}
-
-.container {
-  max-width: 1030px;
-  margin: 0 auto;
-}
-
-.d-none {
-  display: none;
-}
-.image-list {
-  margin: 3rem 0;
-}
-
-.image-list li {
-  color: var(--darkblack);
-}
-
-.grid-view {
-  display: grid;
-  grid-gap: 80px;
-  grid-template-columns: repeat(auto-fit, minmax(var(--minRangeValue), 1fr));
+	margin: 50px 0;
+	color: var(- -black);
+	font: 1rem/1.3 sans-serif;
 }
 
 li div p {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 290px;
-  height: 20px;
-  color: black;
-  font-size: 13pt;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 290px;
+	height: 20px;
+	color: black;
+	font-size: 13pt;
 }
-#child{
-color:grey;
-font-size: 11pt;
+
+#child {
+	color: grey;
+	font-size: 11pt;
 }
-.box_rightType{width:950px; height:50px; border:1px solid #e6e6e6; background-color:#f7f7f7; line-height: 50px;border-radius: 2em;}
+
+.box_rightType {
+	width: 950px;
+	height: 50px;
+	border: 1px solid #e6e6e6;
+	background-color: #f7f7f7;
+	line-height: 50px;
+	border-radius: 2em;
+}
 
 .box_rightType ul li {
-    margin: 0 20px 10px 10px;
-    padding: 0 0 0 0;
-    border : 0;
-    float: left;
-    font-size: 13pt;
+	margin: 0 20px 10px 10px;
+	padding: 0 0 0 0;
+	border: 0;
+	float: left;
+	font-size: 13pt;
 }
-.box_rightType ul li button{outline: 0;}
+
+.box_rightType ul li button {
+	outline: 0;
+}
 
 #writebtn {
-  background-color: #e7e7e7;
-  border: none;
-  padding: 13px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  float: right;
-  outline: 0;
+	background-color: #e7e7e7;
+	border: none;
+	padding: 13px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	float: right;
+	outline: 0;
+}
+
+#desListTable {
+	
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+	table-layout: fixed;
+}
+
+#desListTable td {
+	vertical-align: middle;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 </style>
   
@@ -179,25 +180,26 @@ font-size: 11pt;
 		</div>
 		<br>
 			<table
-				class="table table-striped table-bordered table-hover" style="table-layout:fixed">
+				class="table table-striped table-bordered table-hover" id="desListTable">
 					
 				<c:forEach items="${list}" var="destination">
 					<tr>
 		
-					<th rowspan="3" width="300px";><a class='move' href=<c:out value="${destination.destinationNum}"/>>
+					<th rowspan="3" width="267px" height="160px"><a class='move' href=<c:out value="${destination.destinationNum}"/>>
 						<img src="${destination.destinationFirstImg}"  width="500"></a></th>
 						
 						
 		
-					<td>
+					<td style="font-size: 16pt; height: 50px;">
 					<a class='move' href=<c:out value="${destination.destinationNum}"/>>
 						<c:out value="${destination.destinationTitle}"/></td>
 					</tr>
-						<td style="text-overflow:ellipsis; overflow:hidden">
+						<td style="font-size: 12pt;">
 						<a class='move' href=<c:out value="${destination.destinationNum}"/>>
 						<c:out value="${destination.destinationContent}"/></td>
 					<tr>
-						<td><a class='move' href=<c:out value="${destination.destinationNum}"/>>
+						<td>
+						<a class='move' href=<c:out value="${destination.destinationNum}"/>>
 						<c:out value="${destination.destinationAddress}"/></td>
 					</tr>
 					
@@ -258,13 +260,13 @@ font-size: 11pt;
 					
 				</form>
 				
-			<c:choose>
+<%-- 			<c:choose>
 				<c:when test="${user.admin==0}">
 			<div>
 			<button id="writebtn" type="button" style="float: left;">글등록</button>
 			</div>
 				</c:when>
-			</c:choose>
+			</c:choose> --%>
 	</div>
 	<script>
 		$("#writebtn").on("click", function() {

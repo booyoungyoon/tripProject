@@ -67,19 +67,22 @@ CREATE TABLE board_comment (
 );
 
 create table destination (
-    destinationNum number(10) not null primary key,
-    destinationTitle varchar2(150),
+    destinationNum number not null primary key,
+    destinationTitle varchar2(150) not null,
     destinationAddress varchar2(200),
-    destinationFirstimg varchar2(500),
-    destinationSecondimg varchar2(500),
-    destinationMapx varchar2(50),
-    destinationMapy varchar2(50),
+    destinationFirstImg varchar2(4000),
+    destinationSecondImg varchar2(4000),
+    destinationMapX varchar2(50),
+    destinationMapY varchar2(50),
     destinationContent varchar2(4000),
-    destinationCity varchar2(10),
-    --pk
+    --FK 
     usernum number not null,
-    CONSTRAINT fkUserToDestination foreign key(usernum) references users(usernum)
-); 
+    CONSTRAINT fk_user_to_destination foreign key(usernum) references users(usernum)
+);
+--역순으로 리스트 조회를 위한 인덱스 생성
+create index indexNum on destination(destinationNum desc);
+
+
 
 CREATE TABLE course (
    coursenum number NOT NULL primary key,

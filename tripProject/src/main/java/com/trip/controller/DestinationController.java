@@ -1,7 +1,9 @@
 package com.trip.controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.google.gson.JsonObject;
@@ -37,19 +40,44 @@ public class DestinationController {
 	private DesDataMapper mapper;
 	
 	@GetMapping("list.do")
-	public String list(UserVO vo, Criteria cri, Model model) {
-		int total = mapper.getTotalCount(cri);
-		model.addAttribute("list", mapper.getListWithPagging(cri));
+	public String list(UserVO vo, Criteria cri, Model model, String destinationAddress) {
+		int total = mapper.getTotal(cri);
+		log.info("여행지 : " + destinationAddress);
+		List<DesDataDTO> list = mapper.getListWithPagging(cri);	//肄붿뒪 由ъ뒪�듃瑜� list�뿉 �떞�뒗�떎.
+		
+		if (destinationAddress != null) {
+			switch (destinationAddress) {
+			case "경기":
+				list = mapper.getAddressListggd(destinationAddress);
+				break;
+			case "충청북":
+				list = mapper.getAddressListcb(destinationAddress);
+				break;
+			case "충청남":
+				list = mapper.getAddressListcn(destinationAddress);
+				break;
+			case "경상북":
+				list = mapper.getAddressListgb(destinationAddress);
+				break;
+			case "경상남":
+				list = mapper.getAddressListgn(destinationAddress);
+				break;
+			case "전라남":
+				list = mapper.getAddressListgn(destinationAddress);
+				break;
+			default:
+				list = mapper.getAddressList(destinationAddress);
+			}
+		}
+		model.addAttribute("list", list);
 		model.addAttribute("pageMaker",new PageDTO(cri, total));
 		log.info("total : " + total + ", " + "Admin : " + vo.getAdmin());
-		return "destination/destination3";
-		
+		return "destination/destination";
 	}
-	
+
 	@GetMapping("/register.do")
 	public String register() {
-		return "destination/destinationInsert2";
-	
+		return "destination/destinationInsert";
 	}
 	
 	@PostMapping("/register.do")
@@ -89,7 +117,7 @@ public class DestinationController {
 	
 	@GetMapping("/test.do")
 	public void test() {
-		log.info("test�� �ű�");
+		log.info("test로 옮김");
 		
 	}
 	
@@ -111,13 +139,9 @@ public class DestinationController {
 	   @ResponseBody
 	   public String uploadsummernoteimagefile(@RequestParam("file")MultipartFile multipartFile,HttpServletRequest requset) {
 	      JsonObject jsonobject = new JsonObject();
-	      log.info("ù��°");
 	      String contextroot= new HttpServletRequestWrapper(requset).getRealPath("/");
-	      log.info("�ѹ�°");
 	      String fileroot = contextroot+"resources/upload/";
-	      log.info("�¹�°");
 	      String originalfilename = multipartFile.getOriginalFilename();
-	      log.info("�ݹ�°");
 	      String extension = originalfilename.substring(originalfilename.lastIndexOf("."));
 	      String savedfilename = UUID.randomUUID()+extension;
 	      File targetfile =new File(fileroot+savedfilename);

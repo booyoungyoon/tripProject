@@ -85,7 +85,7 @@ public class FesDataMapperTests {
 				
 				
 				
-				System.out.println("ë²ˆí˜¸ : " + (i+1));
+				System.out.println("¹øÈ£ : " + (i+1));
 				FesDataDTO dto = new FesDataDTO();
 				dto.setTitle(title);
 				dto.setAddress(address);

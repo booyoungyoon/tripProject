@@ -67,47 +67,37 @@ CREATE TABLE board_comment (
 );
 
 create table destination (
-    destination_num number not null primary key,
-    destination_title varchar2(50) not null,
-    destination_date date default sysdate,
-    destination_image varchar2(4000),
-    destination_content varchar2(4000) not null,
-    --fk 
+    destinationNum number(10) not null primary key,
+    destinationTitle varchar2(150),
+    destinationAddress varchar2(200),
+    destinationFirstimg varchar2(500),
+    destinationSecondimg varchar2(500),
+    destinationMapx varchar2(50),
+    destinationMapy varchar2(50),
+    destinationContent varchar2(4000),
+    destinationCity varchar2(10),
+    --pk
     usernum number not null,
-    CONSTRAINT fk_user_to_destination foreign key(usernum) references users(usernum)
-);
-
--- 여행지데이터 (api)
-create table destinatinodata (
-    num number(10) not null primary key,
-    title varchar2(150),
-    address varchar2(200),
-    firstimg varchar2(500),
-    secondimg varchar2(500),
-    mapx varchar2(50),
-    mapy varchar2(50)
-);
-
-create table des_comment (
-    des_comm_num number not null,
-    des_comm_date date default sysdate,
-    des_comm_reply varchar2(1000),
-    --fk 
-    destination_num number not null,
-    CONSTRAINT fk_destination_to_des_comment foreign key(destination_num) references destination(destination_num)
-);
-    
+    CONSTRAINT fkUserToDestination foreign key(usernum) references users(usernum)
+); 
 
 CREATE TABLE course (
-   course_num number NOT NULL primary key,
-   course_title varchar2(50) NOT NULL,
-   course_content varchar2(4000) NOT NULL,
-   course_image varchar2(4000) NULL,
-   course_like number NOT NULL,
-   course_city varchar2(10) not null,
-   --fk 
-   destination_num number not null,
-    CONSTRAINT fk_destination_to_course foreign key(destination_num) references destination(destination_num)
+   coursenum number NOT NULL primary key,
+   coursetitle varchar2(150) NOT NULL,
+   coursecontent varchar2(4000) NOT NULL,
+   courseimage varchar2(4000) NULL,
+   courselike number NOT NULL,
+   coursecity varchar2(50) not null
+);
+
+-- 코스 안에 여행지 목록
+create table des_course(
+    pathnum number not null,
+    destinationnum number not null,
+    --pk 외래키
+    CONSTRAINT fk_destination_to foreign key(destinationnum) 	references destination(destinationNum),
+    coursenum number not null,
+    CONSTRAINT fk_course_to foreign key(coursenum) references course(coursenum)
 );
 
 -- 

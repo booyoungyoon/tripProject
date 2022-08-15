@@ -68,7 +68,7 @@ public class DesDataMapperTest {
 				String mapY = elmapY.get(i).text();
 				
 				
-				System.out.println("ï¿½ï¿½È£ : " + (i+1));
+				System.out.println("¹øÈ£ : " + (i+1));
 				
 				DesDataDTO dto = new DesDataDTO();
 				dto.setDestinationTitle(title);

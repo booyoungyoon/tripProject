@@ -49,7 +49,8 @@
 #courseTitle h1 {text-align: center;}
 #courseTitle p {text-align: center;}
 
-#desListView {background-color: #D5D5D5; height: 650px; margin: 30px 0 30px 0;}
+#desListView {background-color: #D5D5D5; height: 650px; margin: 30px 0 30px 0;
+overflow: auto; overflow-y: hidden; white-space: nowrap}
 
 .btn_good .ico {
     background: url(https://cdn.visitkorea.or.kr/resources/images/sub/ico_mpost01_on.png);
@@ -61,8 +62,10 @@
 
 .desBoard { width: 250px; height: 450px; background-color: white;
 	display: inline-block; margin: 75px 0 0 60px; border: 1px solid black;
-	position: relative;}
-.card-body {position: absolute;}	
+	position: relative; white-space: normal;}
+.card-body {position: absolute;}
+
+.nonDiv	{ height: 100px; background-color: white; }
 </style>
      
 </head>
@@ -115,6 +118,10 @@
 					</div>
 				</div>
 			</c:forEach>
+		</div>
+		
+		<!-- 아래 여백 -->
+		<div class="nonDiv">
 		</div>
 		
 	

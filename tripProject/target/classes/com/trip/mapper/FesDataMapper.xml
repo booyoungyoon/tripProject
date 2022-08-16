@@ -18,6 +18,9 @@
 			<if test="address != null">
 				address like '%'|| #{address} ||'%'
 			</if>
+			<if test="city != null">
+				or
+			</if>
 			<foreach collection="cityArr" item="city" separator="or">
 				<if test="city != null">
 					address like '%'|| #{city} ||'%'

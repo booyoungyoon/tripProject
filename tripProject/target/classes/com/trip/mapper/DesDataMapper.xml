@@ -29,7 +29,7 @@
 	
 	
 	
-		<sql id="getAddressListsql">
+	<sql id="getAddressListsql">
 		<trim prefix="or (" suffix=")">
 			<foreach collection="cityArr" item="city" separator="or">
 				<if test="city != null">

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.trip.domain.CityVO;
 import com.trip.domain.Criteria;
 import com.trip.domain.DesDataDTO;
 import com.trip.domain.FesDataDTO;
@@ -26,38 +27,53 @@ public class FestivalController {
 
 	@GetMapping("page.do")
 	public String list(Criteria cri, Model model, String fesCity) {
-		int total = mapper.getTotalCount(cri);
-		log.info("여행지 : " + fesCity);
+		log.info("지역 : " + fesCity);
 		List<FesDataDTO> list = mapper.getListWithPagging(cri);
-
+		CityVO city = new CityVO();
+		city.setAddress(fesCity);
+		log.info(city.getAddress());
+		city.setPageNum(cri.getPageNum());
+		city.setAmount(cri.getAmount());
+		
 		if (fesCity != null) {
 		switch (fesCity) {
 		case "경기":
-			list = mapper.getAddressListggd(fesCity);
+			city.setCity("인천");
+			log.info(city.getAddress());
+			list = mapper.getAddressList(city);
+			log.info(list.get(0));
 			break;
 		case "충청북":
-			list = mapper.getAddressListcb(fesCity);
+			city.setCity("세종");
+			list = mapper.getAddressList(city);
 			break;
 		case "충청남":
-			list = mapper.getAddressListcn(fesCity);
+			city.setCity("대전");
+			list = mapper.getAddressList(city);
 			break;
 		case "경상북":
-			list = mapper.getAddressListgb(fesCity);
+			city.setCity("대구");
+			list = mapper.getAddressList(city);
 			break;
 		case "경상남":
-			list = mapper.getAddressListgn(fesCity);
+			city.setCity("울산 부산");
+			list = mapper.getAddressList(city);
 			break;
 		case "전라남":
-			list = mapper.getAddressListgn(fesCity);
+			city.setCity("광주");
+			list = mapper.getAddressList(city);
 			break;
 		default:
-			list = mapper.getAddressList(fesCity);
+			list = mapper.getAddressList(city);
 		}
 	}
+		
+		int total = mapper.getTotalCount(city);
+		
+		log.info("total :" + total);
+		
 		model.addAttribute("list", list);
-		model.addAttribute("pageMaker", new PageDTO(cri, total));
-		
-		
+		model.addAttribute("pageMaker", new PageDTO(cri, total, city));
 		
 		return "festival/festival";
 	}

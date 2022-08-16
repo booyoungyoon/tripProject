@@ -86,8 +86,8 @@ h1 { text-align: center; }
     <button onclick="location.href='/festival/page.do?fesCity=서울'" type="button" class="btn btn-light fw-bolder">서울시</button>
     <button onclick="location.href='/festival/page.do?fesCity=경기'" type="button" class="btn btn-light">경기도</button>
     <button onclick="location.href='/festival/page.do?fesCity=강원'" type="button" class="btn btn-light">강원도</button>
-    <button onclick="location.href='/festival/page.do?fesCity=충청남'" type="button" class="btn btn-light">충청북도</button>
-    <button onclick="location.href='/festival/page.do?fesCity=충청북'" type="button" class="btn btn-light">충청남도</button>
+    <button onclick="location.href='/festival/page.do?fesCity=충청북'" type="button" class="btn btn-light">충청북도</button>
+    <button onclick="location.href='/festival/page.do?fesCity=충청남'" type="button" class="btn btn-light">충청남도</button>
     <button onclick="location.href='/festival/page.do?fesCity=경상북'" type="button" class="btn btn-light">경상북도</button>
     <button onclick="location.href='/festival/page.do?fesCity=경상남'" type="button" class="btn btn-light">경상남도</button>
     <button onclick="location.href='/festival/page.do?fesCity=전라북'" type="button" class="btn btn-light">전라북도</button>
@@ -170,10 +170,9 @@ h1 { text-align: center; }
 				<!-- 검색 조건 end -->
 				
 				<form id="actionForm" action="../festival/page.do" method="get">
-					<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
-					<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
-					  <input type="hidden" name="type" value='<c:out value="${cri.type}"/>'>
-               <input type="hidden" name="keyword"   value='<c:out value="${cri.keyword}"/>'>
+				<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
+				<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
+                <input type="hidden" name="fesCity"   value="${pageMaker.city.address}">
 				</form>
 	
 		<script>

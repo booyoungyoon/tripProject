@@ -44,11 +44,10 @@ public class DestinationController {
 	public String list(UserVO vo, Criteria cri, Model model, String destinationAddress) {
 		int total = mapper.getTotal(cri);
 		log.info("여행지 : " + destinationAddress);
-		List<DesDataDTO> list = mapper.getListWithPagging(cri);	//肄붿뒪 由ъ뒪�듃瑜� list�뿉 �떞�뒗�떎.
+		List<DesDataDTO> list = mapper.getListWithPagging(cri);	
 		
 		CityVO city = new CityVO();
 		city.setAddress(destinationAddress);
-		city.setCri(cri);
 		city.setPageNum(cri.getPageNum());
 		city.setAmount(cri.getAmount());
 		

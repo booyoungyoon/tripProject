@@ -14,14 +14,8 @@ public interface DesDataMapper {
 	public Long delete(Long num);
 	public int update(DesDataDTO dto);
 	public List<DesDataDTO> getAddressList(CityVO city);
-	public List<DesDataDTO> getAddressListggd(String destinationAddress);
-	public List<DesDataDTO> getAddressListcb(String destinationAddress);
-	public List<DesDataDTO> getAddressListcn(String destinationAddress);
-	public List<DesDataDTO> getAddressListgb(String destinationAddress);
-	public List<DesDataDTO> getAddressListgn(String destinationAddress);
-	public List<DesDataDTO> getAddressListjn(String destinationAddress);
 	
-	public int getTotal(Criteria cri);
+	public int getTotalCount(CityVO city);
 	public List<DesDataDTO> getListWithPagging(Criteria cri);
 	public DesDataDTO selectOne(int num);
 }

@@ -20,8 +20,22 @@
 			</foreach>
 		</trim>
 	</sql>
-
-
+	
+	<sql id="cityTotalsql">
+		<trim prefix="(" suffix=") and">
+			<if test="address != null">
+				destinationAddress like '%'|| #{address} ||'%'
+			</if>
+			<if test="city != null">
+				or
+			</if>
+			<foreach collection="cityArr" item="city" separator="or">
+				<if test="city != null">
+					destinationAddress like '%'|| #{city} ||'%'
+				</if>
+			</foreach>
+		</trim>
+	</sql>
 
 	<select id="getList" resultType="com.trip.domain.DesDataDTO">
 		select * from destination order by destinationNum desc
@@ -98,10 +112,11 @@
 		]]>	
 	</select>
 
-	<select id="getTotal" resultType="int">
-		select count(*) from destination where
-		destinationNum > 0
-	</select>
+   <select id="getTotalCount" resultType="int">
+    select count(*) from destination where
+    	<include refid="cityTotalsql"></include>
+   	destinationNum>0
+   </select>
 	
 		<insert id="register">
 

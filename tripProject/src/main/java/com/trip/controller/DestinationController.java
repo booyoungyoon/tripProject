@@ -42,12 +42,11 @@ public class DestinationController {
 	
 	@GetMapping("list.do")
 	public String list(UserVO vo, Criteria cri, Model model, String destinationAddress) {
-		int total = mapper.getTotal(cri);
 		log.info("여행지 : " + destinationAddress);
 		List<DesDataDTO> list = mapper.getListWithPagging(cri);	
-		
 		CityVO city = new CityVO();
 		city.setAddress(destinationAddress);
+		log.info("address : " + city.getAddress());
 		city.setPageNum(cri.getPageNum());
 		city.setAmount(cri.getAmount());
 		
@@ -81,6 +80,8 @@ public class DestinationController {
 				list = mapper.getAddressList(city);
 			}
 		}
+		int total = mapper.getTotalCount(city);
+		log.info("total :" + total);
 		model.addAttribute("list", list);
 		model.addAttribute("pageMaker",new PageDTO(cri, total, city));
 		log.info("total : " + total + ", " + "Admin : " + vo.getAdmin());

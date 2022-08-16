@@ -2,6 +2,7 @@ package com.trip.mapper;
 
 import java.util.List;
 
+import com.trip.domain.CityVO;
 import com.trip.domain.Criteria;
 import com.trip.domain.DesDataDTO;
 
@@ -12,7 +13,7 @@ public interface DesDataMapper {
 	public DesDataDTO read(Long num);
 	public Long delete(Long num);
 	public int update(DesDataDTO dto);
-	public List<DesDataDTO> getAddressList(String destinationAddress);
+	public List<DesDataDTO> getAddressList(CityVO city);
 	public List<DesDataDTO> getAddressListggd(String destinationAddress);
 	public List<DesDataDTO> getAddressListcb(String destinationAddress);
 	public List<DesDataDTO> getAddressListcn(String destinationAddress);

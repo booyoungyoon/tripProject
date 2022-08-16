@@ -220,6 +220,7 @@ public class UserController {
 			}
 			
 			log.info("카카오 아이디(번호) : " + kakaoProfile.getId());
+			log.info("이메일 : " + kakaoProfile.getKakao_account().getEmail());
 			
 			UserVO user = new UserVO();
 			
@@ -229,10 +230,12 @@ public class UserController {
 			user.setUserPass("kakaopass");
 			user.setNickName(kakaoProfile.getProperties().getNickname());
 			
-			if(kakaoProfile.getKakao_account().getGender().equals("male")) {
-				user.setGender("남성");
+			if(kakaoProfile.getKakao_account().getGender() == null) {
+				user.setGender("비공개");
 			} else if(kakaoProfile.getKakao_account().getGender().equals("female")) {
 				user.setGender("여성");
+			} else if(kakaoProfile.getKakao_account().getGender().equals("male")) {
+				user.setGender("남성");
 			}
 			
 			

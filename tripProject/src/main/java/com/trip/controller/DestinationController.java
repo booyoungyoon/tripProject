@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.google.gson.JsonObject;
+import com.trip.domain.CityVO;
 import com.trip.domain.Criteria;
 import com.trip.domain.DesDataDTO;
 import com.trip.domain.PageDTO;
@@ -45,32 +46,44 @@ public class DestinationController {
 		log.info("여행지 : " + destinationAddress);
 		List<DesDataDTO> list = mapper.getListWithPagging(cri);	//肄붿뒪 由ъ뒪�듃瑜� list�뿉 �떞�뒗�떎.
 		
+		CityVO city = new CityVO();
+		city.setAddress(destinationAddress);
+		city.setCri(cri);
+		city.setPageNum(cri.getPageNum());
+		city.setAmount(cri.getAmount());
+		
 		if (destinationAddress != null) {
 			switch (destinationAddress) {
 			case "경기":
-				list = mapper.getAddressListggd(destinationAddress);
+				city.setCity("인천");
+				list = mapper.getAddressList(city);
 				break;
 			case "충청북":
-				list = mapper.getAddressListcb(destinationAddress);
+				city.setCity("세종");
+				list = mapper.getAddressList(city);
 				break;
 			case "충청남":
-				list = mapper.getAddressListcn(destinationAddress);
+				city.setCity("대전");
+				list = mapper.getAddressList(city);
 				break;
 			case "경상북":
-				list = mapper.getAddressListgb(destinationAddress);
+				city.setCity("대구");
+				list = mapper.getAddressList(city);
 				break;
 			case "경상남":
-				list = mapper.getAddressListgn(destinationAddress);
+				city.setCity("울산 부산");
+				list = mapper.getAddressList(city);
 				break;
 			case "전라남":
-				list = mapper.getAddressListgn(destinationAddress);
+				city.setCity("광주");
+				list = mapper.getAddressList(city);
 				break;
 			default:
-				list = mapper.getAddressList(destinationAddress);
+				list = mapper.getAddressList(city);
 			}
 		}
 		model.addAttribute("list", list);
-		model.addAttribute("pageMaker",new PageDTO(cri, total));
+		model.addAttribute("pageMaker",new PageDTO(cri, total, city));
 		log.info("total : " + total + ", " + "Admin : " + vo.getAdmin());
 		return "destination/destination";
 	}

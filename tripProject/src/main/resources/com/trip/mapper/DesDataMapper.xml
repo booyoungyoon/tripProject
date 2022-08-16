@@ -21,38 +21,46 @@
 		</trim>
 	</sql>
 
+
+
 	<select id="getList" resultType="com.trip.domain.DesDataDTO">
 		select * from destination order by destinationNum desc
 	</select>
 	
-	<select id="getAddressList" resultType="com.trip.domain.DesDataDTO">
-		select * from destination where 
-		destinationAddress like '%'|| #{city} ||'%'
+	
+	
+		<sql id="getAddressListsql">
+		<trim prefix="or (" suffix=")">
+			<foreach collection="cityArr" item="city" separator="or">
+				<if test="city != null">
+					destinationAddress like '%'|| #{city} ||'%'
+				</if>
+			</foreach>
+		</trim>
+	</sql>
+	
+	
+	
+ 	<select id="getAddressList" resultType="com.trip.domain.DesDataDTO">
+ 		<![CDATA[
+			select destinationNum, destinationTitle, destinationFirstImg, destinationAddress, destinationSecondImg, destinationContent
+		from(
+			select /*+ INDEX(destination indexNum)*/
+			rownum rn, destinationNum, destinationTitle, destinationFirstImg, destinationAddress, destinationSecondImg, destinationContent
+			from destination
+		where 
+		(destinationAddress like '%'|| #{address} ||'%'
+		]]>
+		<include refid="getAddressListsql"></include>
+		<![CDATA[
+		) and ROWNUM <= #{pageNum}*#{amount})
+		where
+		rn > (#{pageNum}-1)*#{amount}
+		
+		]]>	
 	</select>
-	<select id="getAddressListggd" resultType="com.trip.domain.DesDataDTO">
-		select * from destination where 
-		destinationAddress like '%'|| #{city} ||'%' or destinationAddress like '%'|| '인천' ||'%'
-	</select>
-	<select id="getAddressListcb" resultType="com.trip.domain.DesDataDTO">
-		select * from destination where 
-		destinationAddress like '%'|| #{city} ||'%' or destinationAddress like '%'|| '세종' ||'%'
-	</select>
-	<select id="getAddressListcn" resultType="com.trip.domain.DesDataDTO">
-		select * from destination where 
-		destinationAddress like '%'|| #{city} ||'%' or destinationAddress like '%'|| '대전' ||'%'
-	</select>
-	<select id="getAddressListgb" resultType="com.trip.domain.DesDataDTO">
-		select * from destination where 
-		destinationAddress like '%'|| #{city} ||'%' or destinationAddress like '%'|| '대구' ||'%'
-	</select>
-	<select id="getAddressListgn" resultType="com.trip.domain.DesDataDTO">
-		select * from destination where 
-		destinationAddress like '%'|| #{city} ||'%' or destinationAddress like '%'|| '울산' ||'%' or destinationAddress like '%'|| '부산' ||'%'
-	</select>
-	<select id="getAddressListjn" resultType="com.trip.domain.DesDataDTO">
-		select * from destination where 
-		destinationAddress like '%'|| #{city} ||'%' or destinationAddress like '%'|| '광주' ||'%'
-	</select>
+
+
 
 	<insert id="insert">
 		insert into destination(destinationNum, destinationTitle, destinationAddress, destinationFirstimg,

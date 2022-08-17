@@ -178,6 +178,7 @@ html, body {
          </form>
       </div>
       <ul class="navbar_menu">
+         <li><a href="/destination/list.do">호텔/음식점</a></li>
          <li><a href="/destination/list.do">여행지 추천</a></li>
          <li><a href="/course/list.do">코스 추천</a></li>
          <li><a href="/festival/page.do">축제</a></li>

@@ -52,7 +52,7 @@ html, body {
    position: absolute;
    margin: auto;
    top: 0;
-   left: 1500px;
+   left:1270px;
    right: 0px;
    bottom: 0;
    width: 200px;

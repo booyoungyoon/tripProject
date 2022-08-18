@@ -9,6 +9,7 @@
 }
 
 .navbar_logo {
+	 display: flex;
     font-size: 40px;
     font-weight: bold;
     color: #309AFD ;

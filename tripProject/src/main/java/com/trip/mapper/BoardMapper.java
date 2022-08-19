@@ -6,5 +6,7 @@ import com.trip.domain.BoardVO;
 
 public interface BoardMapper {
 	public List<BoardVO> getList();
+	public BoardVO get(int boardNum);
+	public int delete(int boardNum);
 
 }

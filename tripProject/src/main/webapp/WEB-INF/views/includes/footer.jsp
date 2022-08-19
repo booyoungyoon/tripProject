@@ -18,7 +18,7 @@
 				<i class="fas fa-home me-3"></i> New York, NY 10012, US
 			</p>
 			<p class="card-text">
-				<i class="fas fa-envelope me-3"></i>gooddaytip@example.com
+				<i class="fas fa-envelope me-3"></i>gooddaytrip@example.com
 			</p>
 			<p class="card-text">
 				<i class="fas fa-phone me-3"></i> + 82 234 567 88

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.trip.domain.CityVO;
 import com.trip.domain.Criteria;
-import com.trip.domain.DesDataDTO;
 import com.trip.domain.FesDataDTO;
 import com.trip.domain.PageDTO;
 import com.trip.mapper.FesDataMapper;

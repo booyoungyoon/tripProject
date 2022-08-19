@@ -29,7 +29,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
-
+<link rel="stylesheet" href="/resources/css/style.css">
 <style>
 @font-face {
 	font-family: 'yg-jalnan';
@@ -277,166 +277,54 @@ height: 300px;
 	<br>
 	<br>
 <div class="text-center">
-			<h2>축제</h2>
-			
+			<h2>#축제 #문화 #추천 </h2>
+<span class="btn btn-outline-info"><a href="/festival/page.do">자세한게 궁금해? 여기 click!!</a></span>
 		</div>
-	<div class="container my-5">
-  
-
-
-  <!--Carousel Wrapper-->
-  <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-
-    <!--Controls-->
-    <div class="controls-top" style= "font-size: 30px;" >
-      <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa-solid fa-circle-chevron-left"></i></a>
-      <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa-solid fa-circle-chevron-right"></i></a>
+		<div class="body2" style="height: 600px;">
+	<div class="slide-track">
+<div class="slider-container">
+        <span class="slider-span" id="slider-span1"></span>
+        <span class="slider-span" id="slider-span2"></span>
+        <span class="slider-span" id="slider-span3"></span>
+        <span class="slider-span" id="slider-span4"></span>
+        <span class="slider-span" id="slider-span5"></span>
+        <span class="slider-span" id="slider-span6"></span>
+        <span class="slider-span" id="slider-span7"></span>
+    
+    <div class="image-slider">
+        <div class="sliders-div" id="slider-1">
+            <img src="${data[0].firstimg }" alt="" class="img" id="img1">
+            <a href="#slider-span1" class="button" id="button-1"></a>
+        </div>
+        <div class="sliders-div" id="slider-2">
+            <img src="${data[178].firstimg }" alt="" class="img" id="img2">
+            <a href="#slider-span2" class="button" id="button-2"></a>
+        </div>
+        <div class="sliders-div" id="slider-3">
+            <img src="${data[289].firstimg }" alt="" class="img" id="img3">
+            <a href="#slider-span3" class="button" id="button-3"></a>
+        </div>
+        <div class="sliders-div" id="slider-4">
+            <img src="${data[8].firstimg }" alt="" class="img" id="img4">
+            <a href="#slider-span4" class="button" id="button-4"></a>
+        </div>
+        <div class="sliders-div" id="slider-5">
+            <img src="${data[135].firstimg }"alt="" class="img" id="img5">
+            <a href="#slider-span5" class="button" id="button-5"></a>
+        </div>
+        <div class="sliders-div" id="slider-6">
+            <img src="${data[136].firstimg }" alt="" class="img" id="img6">
+            <a href="#slider-span6" class="button" id="button-6"></a>
+        </div>
+        <div class="sliders-div" id="slider-7">
+            <img src="${data[140].firstimg }" alt="" class="img" id="img7">
+            <a href="#slider-span7" class="button" id="button-7"></a>
+        </div>
     </div>
-    <!--/.Controls-->
-
-    <!--Indicators-->
-    <ol class="carousel-indicators">
-      <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-      <li data-target="#multi-item-example" data-slide-to="1"></li>
-      <li data-target="#multi-item-example" data-slide-to="2"></li>
-    </ol>
-    <!--/.Indicators-->
-
-    <!--Slides-->
-    <div class="carousel-inner" role="listbox">
-   <c:forEach items="${list}" var="fes">
-      <!--First slide-->
-      <div class="carousel-item active">
-
-        <div class="row">
-          <div class="col-md-4">
-           <div class="card go mb-2">
-              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
-                   alt="Card image cap">
-              <div class="card-body">
-             
-                <a class="btn btn-primary">Button</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 clearfix d-none d-md-block">
-            <div class="card go mb-2">
-              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg"
-                   alt="Card image cap">
-              <div class="card-body">
-              
-                <a class="btn btn-primary">Button</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 clearfix d-none d-md-block">
-           <div class="card go mb-2">
-              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg"
-                   alt="Card image cap">
-              <div class="card-body">
-                
-                <a class="btn btn-primary">Button</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <!--/.First slide-->
-
-      <!--Second slide-->
-      <div class="carousel-item">
-
-        <div class="row">
-          <div class="col-md-4">
-           <div class="card go mb-2">
-              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
-                   alt="Card image cap">
-              <div class="card-body">
-            
-                <a class="btn btn-primary">Button</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 clearfix d-none d-md-block">
-            <div class="card go mb-2">
-              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(47).jpg"
-                   alt="Card image cap">
-              <div class="card-body">
-               
-                <a class="btn btn-primary">Button</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 clearfix d-none d-md-block">
-            <div class="card go mb-2">
-              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(48).jpg"
-                   alt="Card image cap">
-              <div class="card-body">
-         
-                <a class="btn btn-primary">Button</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <!--/.Second slide-->
-
-      <!--Third slide-->
-      <div class="carousel-item">
-
-        <div class="row">
-          <div class="col-md-4">
-           <div class="card go mb-2">
-              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(53).jpg"
-                   alt="Card image cap">
-              <div class="card-body">
-                
-                <a class="btn btn-primary">Button</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 clearfix d-none d-md-block">
-            <div class="card go mb-2">
-              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(45).jpg"
-                   alt="Card image cap">
-              <div class="card-body">
-                
-                <a class="btn btn-primary">Button</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4 clearfix d-none d-md-block">
-            <div class="card go mb-2">
-              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(51).jpg"
-                   alt="Card image cap">
-              <div class="card-body">
-               
-                <a class="btn btn-primary">Button</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <!--/.Third slide-->
-</c:forEach>
-    </div>
-    <!--/.Slides-->
-
-  </div>
-  <!--/.Carousel Wrapper-->
-
-
 </div>
-	<br><br>
+</div>
+</div>
+	
 	<jsp:include page="includes/footer.jsp"></jsp:include>
 
 </body>

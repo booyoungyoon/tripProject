@@ -210,10 +210,10 @@ li div p {
 							<c:out value="${pageMaker.cri.type eq 'T' ? 'selected' : '' }"/>
 							>제목</option>
 							<option value="C" <c:out value="${pageMaker.cri.type eq 'C' ? 'selected' : '' }"/>>내용</option>
-							<option value="A" <c:out value="${pageMaker.cri.type eq 'W' ? 'selected' : '' }"/>>지역</option>
+							<option value="A" <c:out value="${pageMaker.cri.type eq 'A' ? 'selected' : '' }"/>>지역</option>
 							<option value="TC" <c:out value="${pageMaker.cri.type eq 'TC' ? 'selected' : '' }"/>>제목+내용</option>
-							<option value="TA" <c:out value="${pageMaker.cri.type eq 'TW' ? 'selected' : '' }"/>>제목+지역</option>
-							<option value="TCA"  <c:out value="${pageMaker.cri.type eq 'TCW' ? 'selected' : '' }"/> >제목+내용+지역</option>
+							<option value="TA" <c:out value="${pageMaker.cri.type eq 'TA' ? 'selected' : '' }"/>>제목+지역</option>
+							<option value="TCA"  <c:out value="${pageMaker.cri.type eq 'TCA' ? 'selected' : '' }"/> >제목+내용+지역</option>
 						</select>
 						
 						<input type="text" name="keyword" />

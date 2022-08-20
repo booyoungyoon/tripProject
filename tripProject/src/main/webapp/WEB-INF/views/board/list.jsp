@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,24 +68,49 @@ max-width: 1000px;
 						</tr>
 					</thead>
 					<tbody>
+						<c:forEach items="${list}" var="board">
 						<tr>
-							<!-- 테스트 코드 -->
-							<td>1</td>
-							<td>안녕하세요</td>
-							<td>황인주</td>
-							<td>2022-08-04</td>
+							<td>${board.board_num}</td>
+							<td><a href="/board/get.do?bno=<c:out value="${board.board_num}"/>">${board.board_title}</a></td>
+							<td>${board.user.nickName }</td>
+							<td><fmt:formatDate pattern="yyyy-MM-dd"
+									value="${board.board_date}" /></td>
 						</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 
 			</div>
 		</div>
 		<!--게시판 메인페이지 영역 끝-->
-			<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-		<button class="btn btn-primary me-md-2" type="button">글쓰기</button>
-	</div>
+		<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+			<button data-oper='register' class="btn btn-primary me-md-2" type="button">글쓰기</button>
+		</div>
+		
+		<form id="operForm" action="/board/register.do" method="get"></form>
 	</div>
 
 	<jsp:include page="../includes/footer.jsp"></jsp:include>
+	
+	
+<script>
+	var operForm = $("#operForm");
+	
+	$("button[data-oper='modify']").on("click", function(e){
+		operForm.attr("action", "/board/modify.do").submit();
+	});
+	
+	$("button[data-oper='remove']").on("click", function(e){
+		operForm.attr("action", "/board/remove.do");
+		operForm.submit();
+	});
+	
+	$("button[data-oper='register']").on("click", function(e){
+		operForm.attr("action", "/board/register.do");
+		operForm.submit();
+	});
+	
+</script>
+	
 </body>
 </html>

@@ -171,18 +171,22 @@ html, body {
             좋은날</a>
       </div>
       <div class="head_container">
-         <form action="home.jsp">
-            <input type="text" name="search" placeholder="Search...">
+         <form action="/destination/list.do">
+         	<input type="hidden" name="type" value="TCA" <c:out value="${pageMaker.cri.type eq 'TCA' ? 'selected' : '' }"/>>
+            <input type="text" name="keyword" placeholder="Search...">
+			<input type="hidden" name="pageNum" value="1">
+			<input type="hidden" name="amount" value="10">
                <div class="search">
                </div>
          </form>
+         
       </div>
       <ul class="navbar_menu">
          <li><a href="/destination/list.do">호텔/음식점</a></li>
          <li><a href="/destination/list.do">여행지 추천</a></li>
          <li><a href="/course/list.do">코스 추천</a></li>
          <li><a href="/festival/page.do">축제</a></li>
-         <li><a href="/board/page.do">자유게시판</a></li>
+         <li><a href="/board/list.do">자유게시판</a></li>
          <c:choose>
 			<c:when test="${user == null}">
        			<li><a href="/users/login.do">로그인</a></li>

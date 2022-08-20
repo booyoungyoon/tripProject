@@ -116,9 +116,6 @@ START with 1 INCREMENT by 1 MINVALUE 1;
 create sequence board_seq
 START with 1 INCREMENT by 1 MINVALUE 1;
 -- 
-create sequence board_comment_seq
-START with 1 INCREMENT by 1 MINVALUE 1;
--- 
 create sequence destination_seq
 START with 1 INCREMENT by 1 MINVALUE 1;
 -- 

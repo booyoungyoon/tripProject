@@ -95,25 +95,25 @@ height: 300px;
 		<div class="carousel-inner">
 			<div class="carousel-item active">
 				<img class="carousel-img d-block w-100"
-					src="/resources/img/jejudo.jpg" alt="First slide">
+					src="${des[564].destinationFirstImg}" alt="First slide">
 				<div class="carousel-caption d-none d-md-block">
 					<p class="subtitle">
-					<h1>올 여름, 해수욕장 어디로 가지?</h1>
+					<h1>바다 앞 기암절벽과 정자가 어우러진 아름다운 절경</h1>
 					</p>
 				</div>
 			</div>
 			<div class="carousel-item">
 				<img class="carousel-img d-block w-100"
-					src="/resources/img/BlueHouse.jpg" alt="Second slide">
+					src="${des[745].destinationFirstImg}" alt="Second slide">
 				<div class="carousel-caption d-none d-md-block">
 					<p class="subtitle">
-					<h1>74년 만에 공개된 비밀 정원, 청와대 이야기</h1>
+					<h1>밤에 보면 매력이 두 배 #천지연폭포</h1>
 					</p>
 				</div>
 			</div>
 			<div class="carousel-item">
 				<img class="carousel-img d-block w-100"
-					src="/resources/img/Woljeonggyo.jpg" alt="Third slide">
+					src="${des[775].destinationFirstImg}" alt="Third slide">
 				<div class="carousel-caption d-none d-md-block">
 					<p class="subtitle">
 					<h1>신라 천년의 밤을 만나다! 경주 동궁과 월지, 월정교</h1>
@@ -149,21 +149,22 @@ height: 300px;
 	<div class="container">
 		<div class="text-center">
 			<h2>함께 떠나는 힐링 테마여행</h2>
-			<p>설명?</p>
+			<p>#유네스코 세계문화유산</p>
 		</div>
+		<br>
 		<div class="row g-1">
 			<div class="col-4">
-				<a href="images/img_1.jpg" class="fh5co-card-item image-popup">
+				<a href="http://localhost:8081/destination/get.do?pageNum=1&amount=10&type=&keyword=&destinationAddress=%EC%B6%A9%EC%B2%AD%EB%82%A8&num=708" class="fh5co-card-item image-popup">
 					<figure>
 						<div class="overlay">
 							<i class="ti-plus"></i>
 						</div>
-						<img src="/resources/img/seosan.jpg" alt="Image"
+						<img src="${des[92].destinationFirstImg}" alt="Image"
 							class="img-responsive">
 					</figure>
 					<div class="fh5co-text">
 						<h2>충청도</h2>
-						<p>역사와 자연이 조화로운 서산 여행</p>
+						<p>${des[92].destinationTitle}</p>
 						<p>
 							<span class="btn btn-primary"> 보러가기</span>
 						</p>
@@ -171,18 +172,18 @@ height: 300px;
 				</a>
 			</div>
 			<div class="col-4">
-				<a href="/resources/images/img_2.jpg"
+				<a href="http://localhost:8081/destination/get.do?pageNum=1&amount=10&type=T&keyword=%EC%84%B8%EA%B3%84%EB%AC%B8%ED%99%94&destinationAddress=&num=674" 
 					class="fh5co-card-item image-popup">
 					<figure>
 						<div class="overlay">
 							<i class="ti-plus"></i>
 						</div>
-						<img src="/resources/img/yeongwol.jpg" alt="Image"
+						<img src="${des[126].destinationFirstImg}" alt="Image"
 							class="img-responsive">
 					</figure>
 					<div class="fh5co-text">
-						<h2>강원도</h2>
-						<p>영월로 떠나는 어느 여름날의 강원도 힐링여행</p>
+						<h2>서울</h2>
+						<p>${des[126].destinationTitle}</p>
 						<p>
 							<span class="btn btn-primary">보러가기</span>
 						</p>
@@ -190,18 +191,18 @@ height: 300px;
 				</a>
 			</div>
 			<div class="col-4">
-				<a href="/resources/images/img_3.jpg"
+				<a href="http://localhost:8081/destination/get.do?pageNum=2&amount=10&type=T&keyword=%EC%84%B8%EA%B3%84%EB%AC%B8%ED%99%94&destinationAddress=&num=178"
 					class="fh5co-card-item image-popup">
 					<figure>
 						<div class="overlay">
 							<i class="ti-plus"></i>
 						</div>
-						<img src="/resources/img/pet.jpg" " alt="Image"
+						<img src="${des[662].destinationFirstImg}" " alt="Image"
 							class="img-responsive">
 					</figure>
 					<div class="fh5co-text">
 						<h2>경상도</h2>
-						<p>반려견과의 특별한 하루를, 의성펫월드</p>
+						<p>${des[662].destinationTitle}</p>
 						<p>
 							<span class="btn btn-primary">보러가기</span>
 						</p>
@@ -211,18 +212,18 @@ height: 300px;
 
 
 			<div class="col-4">
-				<a href="/resources/images/img_4.jpg"
+				<a href="http://localhost:8081/destination/get.do?pageNum=1&amount=10&type=T&keyword=%ED%99%94%EC%84%B1&destinationAddress=&num=135"
 					class="fh5co-card-item image-popup">
 					<figure>
 						<div class="overlay">
 							<i class="ti-plus"></i>
 						</div>
-						<img src="/resources/img/suwon.jpeg" alt="Image"
+						<img src="${des[665].destinationFirstImg}" alt="Image"
 							class="img-responsive">
 					</figure>
 					<div class="fh5co-text">
 						<h2>경기도</h2>
-						<p>하루만에 즐기는 수원 당일치기 여행코스</p>
+						<p>${des[665].destinationTitle}</p>
 						<p>
 							<span class="btn btn-primary">보러가기</span>
 						</p>
@@ -231,18 +232,18 @@ height: 300px;
 			</div>
 
 			<div class="col-4">
-				<a href="/resources/images/img_5.jpg"
+				<a href="http://localhost:8081/destination/get.do?pageNum=1&amount=10&type=&keyword=&destinationAddress=%EC%A0%84%EB%9D%BC%EB%82%A8&num=758"
 					class="fh5co-card-item image-popup">
 					<figure>
 						<div class="overlay">
 							<i class="ti-plus"></i>
 						</div>
-						<img src="/resources/img/yeosu.jpg" alt="Image"
+						<img src="${des[42].destinationFirstImg}" alt="Image"
 							class="img-responsive">
 					</figure>
 					<div class="fh5co-text">
 						<h2>전라도</h2>
-						<p>잠들지 않는 낭만의 도시, 여수를 만끽하다</p>
+						<p>${des[42].destinationTitle}</p>
 						<p>
 							<span class="btn btn-primary">보러가기</span>
 						</p>
@@ -251,18 +252,18 @@ height: 300px;
 			</div>
 
 			<div class="col-sm-4">
-				<a href="/resources/images/img_6.jpg"
+				<a href="http://localhost:8081/destination/get.do?pageNum=1&amount=10&type=T&keyword=%EC%84%B8%EA%B3%84%EB%AC%B8%ED%99%94&destinationAddress=&num=318"
 					class="fh5co-card-item image-popup">
 					<figure>
 						<div class="overlay">
 							<i class="ti-plus"></i>
 						</div>
-						<img src="/resources/img/jeju.jpeg" alt="Image"
+						<img src="${des[482].destinationFirstImg}" alt="Image"
 							class="img-responsive">
 					</figure>
 					<div class="fh5co-text">
-						<h2>제주도</h2>
-						<p>섬 안에 섬을 여행하는 방법, 가파도 여행 코스</p>
+						<h2>인천</h2>
+						<p>${des[482].destinationTitle}</p>
 						<p>
 							<span class="btn btn-primary">보러가기</span>
 						</p>

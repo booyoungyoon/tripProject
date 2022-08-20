@@ -20,4 +20,6 @@ public interface DesDataMapper {
 	
 	public List<DesDataDTO> getListWithPagging(Criteria cri);
 	public DesDataDTO selectOne(int num);
+	public List<DesDataDTO> getList();
+	
 }

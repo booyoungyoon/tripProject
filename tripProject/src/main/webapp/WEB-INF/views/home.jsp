@@ -197,12 +197,12 @@ height: 300px;
 						<div class="overlay">
 							<i class="ti-plus"></i>
 						</div>
-						<img src="${des[662].destinationFirstImg}" " alt="Image"
+						<img src="${des[622].destinationFirstImg}" " alt="Image"
 							class="img-responsive">
 					</figure>
 					<div class="fh5co-text">
 						<h2>경상도</h2>
-						<p>${des[662].destinationTitle}</p>
+						<p>${des[622].destinationTitle}</p>
 						<p>
 							<span class="btn btn-primary">보러가기</span>
 						</p>

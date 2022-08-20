@@ -75,7 +75,7 @@
 				<tr>
 					<td>내용</td>
 					<td>
-					<textarea rows="10" cols="70"  name="content"  readonly="readonly">${board.board_content}</textarea>
+					${board.board_content}
 					</td>
 				</tr>
 				<tr>

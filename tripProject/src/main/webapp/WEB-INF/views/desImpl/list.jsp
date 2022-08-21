@@ -60,6 +60,9 @@ ul>li>a {
 h1 { text-align: center; }
 
 #menu button { font-size : 1.2em; }
+
+#selectType { height: 60px; }
+#selectType button { margin: 2px 100px 0 100px; font-size: 2em}
 </style>
 
 </head>
@@ -82,16 +85,21 @@ h1 { text-align: center; }
 		<!-- 여기에 내용 넣으세요 -->
 <div id="menu" class="card text-center" style="border-radius: 30px;">
   <div class="card-header" style="border-radius: 30px;" >
-    <button onclick="location.href='/desImpl/list.do?desCity=서울'" type="button" class="btn btn-light fw-bolder">서울시</button>
-    <button onclick="location.href='/desImpl/list.do?desCity=경기'" type="button" class="btn btn-light">경기도</button>
-    <button onclick="location.href='/desImpl/list.do?desCity=강원'" type="button" class="btn btn-light">강원도</button>
-    <button onclick="location.href='/desImpl/list.do?desCity=충청북'" type="button" class="btn btn-light">충청북도</button>
-    <button onclick="location.href='/desImpl/list.do?desCity=충청남'" type="button" class="btn btn-light">충청남도</button>
-    <button onclick="location.href='/desImpl/list.do?desCity=경상북'" type="button" class="btn btn-light">경상북도</button>
-    <button onclick="location.href='/desImpl/list.do?desCity=경상남'" type="button" class="btn btn-light">경상남도</button>
-    <button onclick="location.href='/desImpl/list.do?desCity=전라북'" type="button" class="btn btn-light">전라북도</button>
-    <button onclick="location.href='/desImpl/list.do?desCity=전라남'" type="button" class="btn btn-light">전라남도</button>
-    <button onclick="location.href='/desImpl/list.do?desCity=제주'" type="button" class="btn btn-light">제주도</button>
+    <button onclick="location.href='/desImpl/list.do?address=서울'" type="button" class="btn btn-light fw-bolder">서울시</button>
+    <button onclick="location.href='/desImpl/list.do?address=경기'" type="button" class="btn btn-light">경기도</button>
+    <button onclick="location.href='/desImpl/list.do?address=강원'" type="button" class="btn btn-light">강원도</button>
+    <button onclick="location.href='/desImpl/list.do?address=충청북'" type="button" class="btn btn-light">충청북도</button>
+    <button onclick="location.href='/desImpl/list.do?address=충청남'" type="button" class="btn btn-light">충청남도</button>
+    <button onclick="location.href='/desImpl/list.do?address=경상북'" type="button" class="btn btn-light">경상북도</button>
+    <button onclick="location.href='/desImpl/list.do?address=경상남'" type="button" class="btn btn-light">경상남도</button>
+    <button onclick="location.href='/desImpl/list.do?address=전라북'" type="button" class="btn btn-light">전라북도</button>
+    <button onclick="location.href='/desImpl/list.do?address=전라남'" type="button" class="btn btn-light">전라남도</button>
+    <button onclick="location.href='/desImpl/list.do?address=제주'" type="button" class="btn btn-light">제주도</button>
+  </div>
+  
+  <div id="selectType" style="border-radius: 30px;">
+  	<button onclick="location.href='/desImpl/list.do?type=1'" type="button" class="btn btn-light">호텔</button>
+    <button onclick="location.href='/desImpl/list.do?type=2'" type="button" class="btn btn-light">음식점</button>
   </div>
         
 </div>
@@ -161,6 +169,7 @@ h1 { text-align: center; }
 					<input type="text" name="desCity"  >	
 					<input type ="hidden" name="pageNum"value='${pageMaker.cri.pageNum}'/>	
 					<input type ="hidden" name="amount"value='${pageMaker.cri.amount}'/>
+					<input type ="hidden" name="type"value='${board.type}'/>
 					
 					<button type="button" class="btn btn-outline-info">Search</button>	
 						
@@ -171,7 +180,7 @@ h1 { text-align: center; }
 				<form id="actionForm" action="/desImpl/list.do" method="get">
 				<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
 				<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
-                <input type="hidden" name="desCity"   value="${pageMaker.city.address}">
+                <input type="hidden" name="city"   value="${pageMaker.city.address}">
 				</form>
 	
 	</div>

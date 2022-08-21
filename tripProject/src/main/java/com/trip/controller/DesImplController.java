@@ -28,19 +28,22 @@ public class DesImplController {
 	private DestinationImplMapper mapper;
 	
 	@GetMapping("list.do")
-	public String list(Criteria cri, Model model, String desCity) {
-		log.info("지역 : " + desCity);
+	public String list(Criteria cri, Model model, CityVO city) {
+		log.info("지역 : " + city.getAddress());
+		log.info("type : " + city.getType());
 		List<DestinationImplData> list = new ArrayList<>();
 		
-		CityVO city = new CityVO();
-		city.setAddress(desCity);
-		log.info(city.getAddress());
+		if(city.getAddress() == null) {
+			city.setAddress("도");
+			city.setCity("시");
+		}
 		city.setPageNum(cri.getPageNum());
 		city.setAmount(cri.getAmount());
 		
-		list = searchCityList(list, desCity, city);
+		list = searchCityList(list, city.getAddress(), city);
 		
-		if(desCity == null) {
+		if(city.getAddress() == null && city.getType() == 0) {
+			log.info("---------- 전체 list 조회-------------");
 			list = mapper.getList(cri);
 		}
 		
@@ -92,6 +95,7 @@ public class DesImplController {
 				list = mapper.getAddressList(city);
 				break;
 			default:
+				log.info("------ default --------");
 				list = mapper.getAddressList(city);
 			}
 		}

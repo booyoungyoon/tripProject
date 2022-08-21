@@ -5,19 +5,31 @@
 <mapper namespace="com.trip.mapper.DestinationImplMapper">
 
 	<sql id="getAddressListsql">
+		<if test="type != 0">
+			type = #{type} and 
+		</if>
+		<if test="address != null">
+			(address like '%'|| #{address} ||'%' 
+		</if>
 		<trim prefix="or (" suffix=")">
 			<foreach collection="cityArr" item="city" separator="or">
 				<if test="city != null">
-					address like '%'|| #{city} ||'%'
+					address like '%'|| #{city} ||'%' 
 				</if>
 			</foreach>
 		</trim>
 	</sql>
 	
 	<sql id="cityTotalsql">
-		<trim prefix="(" suffix=") and">
+		<trim prefix="(" suffix=")) and">
+			<if test="type != 0">
+				type = #{type}
+			</if>
+			<if test="type == 0">
+				type = 1 or type = 2
+			</if>
 			<if test="address != null">
-				address like '%'|| #{address} ||'%'
+				and ( address like '%'|| #{address} ||'%'
 			</if>
 			<if test="city != null">
 				or
@@ -48,7 +60,6 @@
 			rownum rn, num, title, address, firstimg, tel
 			from destination_impl
 		where 
-		(address like '%'|| #{address} ||'%'
 		]]>
 		<include refid="getAddressListsql"></include>
 		<![CDATA[

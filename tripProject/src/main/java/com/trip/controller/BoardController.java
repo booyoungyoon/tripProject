@@ -12,6 +12,7 @@ import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,6 +22,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.google.gson.JsonObject;
 import com.trip.domain.BoardVO;
+import com.trip.domain.Criteria;
 import com.trip.mapper.BoardMapper;
 import com.trip.service.BoardService;
 import com.trip.service.UserService;
@@ -82,11 +84,23 @@ public class BoardController {
    }
 
    @GetMapping("modify.do")
-   public String modify() {
+   public String modify(Model model, int num) {
       log.info("------- modifyPage ----------");
-
+      
+      model.addAttribute("board", mapper.get(num));
       return "board/modify";
    }
+   
+	@PostMapping("modify.do")
+	public String modify(BoardVO vo, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
+		log.info("modify : " + vo);
+		if( boardService.modify(vo) == 1) {
+			rttr.addFlashAttribute("result", "success");
+		}
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
+		return "redirect:/board/list.do";
+	}
 
    @GetMapping("remove.do")
    public String remove(int num) {

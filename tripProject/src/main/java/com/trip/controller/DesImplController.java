@@ -7,10 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.trip.domain.CityVO;
 import com.trip.domain.Criteria;
 import com.trip.domain.DestinationImplData;
+import com.trip.domain.FesDataDTO;
 import com.trip.domain.PageDTO;
 import com.trip.mapper.DestinationImplMapper;
 
@@ -81,5 +83,12 @@ public class DesImplController {
 		
 		return "/desImpl/list";
 	}
+	
+	@GetMapping("get.do")
+	   public String read(@RequestParam("num") int num, Model model) {
+			DestinationImplData data = mapper.get(num);
+			model.addAttribute("data", data);
+	      return "/desImpl/get";
+	   }
 
 }

@@ -173,7 +173,7 @@ html, body {
       <div class="head_container">
          <form action="/destination/list.do">
          	<input type="hidden" name="type" value="TCA" <c:out value="${pageMaker.cri.type eq 'TCA' ? 'selected' : '' }"/>>
-            <input type="text" name="keyword" placeholder="Search...">
+            <input type="text" name="keyword" value="${pageMaker.cri.keyword}">
 			<input type="hidden" name="pageNum" value="1">
 			<input type="hidden" name="amount" value="10">
                <div class="search">

@@ -159,7 +159,7 @@ h1 { text-align: center; }
 							
 						</select>
 						
-					<input type="text" name="fesCity"  >	
+					<input type="text" name="fesCity">	
 					<input type ="hidden" name="pageNum"value='${pageMaker.cri.pageNum}'/>	
 					<input type ="hidden" name="amount"value='${pageMaker.cri.amount}'/>	
 					

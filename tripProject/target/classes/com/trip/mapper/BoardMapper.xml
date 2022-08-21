@@ -71,7 +71,7 @@
       <![CDATA[
          select board_num, board_title, board_content, board_date, hits, board_image, board_like, userNum
       from(
-         select /*+ index_desc(tbl_board pk_board) */
+         select /*+ index_desc(board pk_board) */
          rownum rn, board_num, board_title, board_content, board_date, hits, board_image, board_like, userNum
          from board
       where

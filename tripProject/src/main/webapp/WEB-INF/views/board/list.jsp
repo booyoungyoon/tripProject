@@ -72,7 +72,7 @@ max-width: 1000px;
 						<tr>
 							<td>${board.board_num}</td>
 							<td><a href="/board/get.do?bno=<c:out value="${board.board_num}"/>">${board.board_title}</a></td>
-							<td>${board.user.nickName }</td>
+							<td>${board.user.nickName}</td>
 							<td><fmt:formatDate pattern="yyyy-MM-dd"
 									value="${board.board_date}" /></td>
 						</tr>
@@ -80,13 +80,41 @@ max-width: 1000px;
 					</tbody>
 				</table>
 
+				<!-- 페이지 처리 Start -->
+				<div class="pull-right" align="center">
+					<ul class="pagination">
+
+						<c:if test="${pageMaker.prev }">
+							<li class="paginate_button previous"><a
+								href="${pageMaker.startPage-1}"><</a></li>
+						</c:if>
+
+						<c:forEach var="num" begin="${pageMaker.startPage }"
+							end="${pageMaker.endPage }">
+							<li class="paginate_button  ${pageMaker.cri.pageNum == num ? "active" : "" }">
+								<a href="${num }">${num }</a>
+							</li>
+						</c:forEach>
+
+						<c:if test="${pageMaker.next }">
+							<li class="paginate_button next"><a
+								href="${pageMaker.endPage+1}">></a></li>
+						</c:if>
+					</ul>
+				</div>
+				<!-- 페이지 처리 End -->
+				
+				<form id="actionForm" action="/board/list.do" method="get">
+					<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
+					<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
+				</form>
+
 			</div>
 		</div>
 		<!--게시판 메인페이지 영역 끝-->
 		<div class="d-grid gap-2 d-md-flex justify-content-md-end">
 			<button data-oper='register' class="btn btn-primary me-md-2" type="button">글쓰기</button>
 		</div>
-		
 		<form id="operForm" action="/board/register.do" method="get"></form>
 	</div>
 
@@ -94,22 +122,30 @@ max-width: 1000px;
 	
 	
 <script>
+
+	/* 글쓰기화면으로 이동 */
 	var operForm = $("#operForm");
-	
-	$("button[data-oper='modify']").on("click", function(e){
-		operForm.attr("action", "/board/modify.do").submit();
-	});
-	
-	$("button[data-oper='remove']").on("click", function(e){
-		operForm.attr("action", "/board/remove.do");
-		operForm.submit();
-	});
-	
-	$("button[data-oper='register']").on("click", function(e){
+	$("button[data-oper='register']").on("click", function(e) {
 		operForm.attr("action", "/board/register.do");
 		operForm.submit();
 	});
-	
+
+	/* 페이지 화면 이동 */
+	var actionForm = $("#actionForm");
+	$(".paginate_button a").on("click", function(e) {
+		e.preventDefault();
+		console.log('click');
+		actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+		actionForm.submit();
+	});
+
+	$(".move").on("click", function(e){
+		e.preventDefault();
+		console.log('test-------------');
+		actionForm.append("<input type = 'hidden' name = 'bno' value= '"+$(this).attr("href")+"'>");
+		actionForm.attr("action", "/board/get");
+		actionForm.submit(); 
+	})
 </script>
 	
 </body>

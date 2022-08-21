@@ -48,7 +48,7 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-	$('#summernote').summernote('pasteHTML', '${board.board_content}');
+	/* $('#summernote').summernote('pasteHTML', '${board.board_content}'); */
     $('#summernote').summernote({
        height : 300,
        lang : 'ko-KR',

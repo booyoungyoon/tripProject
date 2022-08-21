@@ -216,7 +216,7 @@ li div p {
 							<option value="TCA"  <c:out value="${pageMaker.cri.type eq 'TCA' ? 'selected' : '' }"/> >제목+내용+지역</option>
 						</select>
 						
-						<input type="text" name="keyword" />
+						<input type="text" name="keyword" value="${pageMaker.cri.keyword}"/>
 						<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
 						<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
 						<button class="btn btn-primary">Search</button>

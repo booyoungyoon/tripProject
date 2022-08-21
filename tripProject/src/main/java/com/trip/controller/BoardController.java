@@ -23,6 +23,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.google.gson.JsonObject;
 import com.trip.domain.BoardVO;
 import com.trip.domain.Criteria;
+import com.trip.domain.PageDTO;
 import com.trip.mapper.BoardMapper;
 import com.trip.service.BoardService;
 import com.trip.service.UserService;
@@ -40,20 +41,21 @@ public class BoardController {
    private BoardService boardService;
 
    @RequestMapping("list.do")
-   public String list(Model model) {
-      log.info("--------- getBoardList -----------");
-      List<BoardVO> list = mapper.getList();
-
-      log.info(list);
-
-      for (BoardVO board : list) {
-         log.info(board.getUsernum());
-         board.setUser(userService.get(board.getUsernum()));
-      }
-
-      model.addAttribute("list", list);
-      return "board/list";
-   }
+   public void list(Criteria cri, Model model) {
+		log.info("list---------------------");
+		int total = boardService.getTotal(cri);
+		log.info("total count : " + total);
+		List<BoardVO> list = boardService.getList(cri);
+		
+		for(BoardVO board : list) {
+			log.info(board.getUsernum());
+			board.setUser(userService.get(board.getUsernum()));
+		}
+		
+		model.addAttribute("list",list);
+		log.info("test------------------------------" + boardService.getList(cri));
+		model.addAttribute("pageMaker",new PageDTO(cri, total));
+	}
 
    @GetMapping("get.do")
    public String get(Model model, int bno) {

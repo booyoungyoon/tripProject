@@ -206,6 +206,12 @@ h1 { text-align: center; }
        searchForm.submit();
     });
  
+    
+    window.onpageshow = function(e) {
+        if (e.persisted || (window.performance && window.performance.navigation.type == 2)) { //뒤로가기 감지
+           location.reload(); //현재 페이지 새로고침
+        }
+     }
  </script>
 
 

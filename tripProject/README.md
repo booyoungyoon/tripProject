@@ -56,6 +56,7 @@ CREATE TABLE board (
    usernum number not null,
    CONSTRAINT fk_user_to_board foreign key(usernum) references users(usernum)
 );
+create index pk_board on board(board_num asc);
 
 create table destination (
     destinationNum number not null primary key,
@@ -116,6 +117,7 @@ create table board_reply(
     CONSTRAINT fk_user_to_reply 
     foreign key(usernum) references users(usernum)
 );
+create index BOARD_REPLY_PK on board_reply(rno asc);
 
 -- 
 create sequence users_seq

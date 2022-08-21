@@ -113,7 +113,11 @@ max-width: 1000px;
 		</div>
 		<!--게시판 메인페이지 영역 끝-->
 		<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-			<button data-oper='register' class="btn btn-primary me-md-2" type="button">글쓰기</button>
+		<c:choose>
+			<c:when test="${user != null}">
+				<button data-oper='register' class="btn btn-primary me-md-2" type="button">글쓰기</button>
+			</c:when>
+		</c:choose>
 		</div>
 		<form id="operForm" action="/board/register.do" method="get"></form>
 	</div>

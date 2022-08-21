@@ -28,7 +28,7 @@ public class HotelDataMapperTest {
 	public void testInsert() throws IOException {
         try {
 			Document doc = Jsoup.connect("http://api.visitkorea.or.kr/openapi/service/rest/KorService/areaBasedList"
-					+ "?serviceKey=sWi23NfHCswD2JLkVzlAjWdx84T9hH%2B4%2BgYdeHg5rakMR397CZtjr1hoq8Mo56LMzSCjxrlMzLEkI0Bi%2FwFQ0Q%3D%3D&pageNo=1&numOfRows=2617&MobileApp=AppTest&MobileOS=ETC&arrange=B&cat1=&contentTypeId=32&listYN=Y").get();
+					+ "?serviceKey=sWi23NfHCswD2JLkVzlAjWdx84T9hH%2B4%2BgYdeHg5rakMR397CZtjr1hoq8Mo56LMzSCjxrlMzLEkI0Bi%2FwFQ0Q%3D%3D&pageNo=1&numOfRows=2610&MobileApp=AppTest&MobileOS=ETC&arrange=B&cat1=&contentTypeId=32&listYN=Y").get();
 			Elements all = doc.select("item");
 			
 //			Elements row = doc.select("item");
@@ -47,7 +47,7 @@ public class HotelDataMapperTest {
 			Elements elmLevel = all.select("mlevel");
 			Elements eltel = all.select("tel");
 			
-			for(int i=0; i<2617; i++) {
+			for(int i=0; i<2610; i++) {
 				
 				String htmlTmp = all.get(i).html();
 				if (!(htmlTmp.contains("firstimage"))) {
@@ -65,7 +65,7 @@ public class HotelDataMapperTest {
 				String tel = eltel.get(i).text();
 				
 				
-				log.info("ë²ˆí˜¸ : " + (i+1));
+				log.info("¹øÈ£ : " + (i+1));
 				
 				DestinationImplData dto = new DestinationImplData();
 				dto.setTitle(title);

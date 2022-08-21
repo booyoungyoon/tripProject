@@ -57,15 +57,6 @@ CREATE TABLE board (
    CONSTRAINT fk_user_to_board foreign key(usernum) references users(usernum)
 );
 
-CREATE TABLE board_comment (
-   board_comm_num number NOT NULL primary key,
-   board_comm_date date default sysdate,
-   board_comm_reply varchar2(1000) NOT NULL,
-   --fk
-   board_num number not null,
-   CONSTRAINT fk_board_to_comment foreign key(board_num) references board(board_num)
-);
-
 create table destination (
     destinationNum number not null primary key,
     destinationTitle varchar2(150) not null,
@@ -116,6 +107,17 @@ create table des_course(
 );
 
 -- 
+create table board_reply(
+    rno number(10, 0) primary key,
+    bno number(10, 0) not null,
+    reply varchar2(1000) not null,
+    replyDate date default sysdate,
+    usernum number not null,
+    CONSTRAINT fk_user_to_reply 
+    foreign key(usernum) references users(usernum)
+);
+
+-- 
 create sequence users_seq
 START with 1 INCREMENT by 1 MINVALUE 1;
 -- 
@@ -132,9 +134,6 @@ create sequence destination_seq
 START with 1 INCREMENT by 1 MINVALUE 1;
 -- 
 create SEQUENCE desdata_seq 
-START with 1 INCREMENT by 1 MINVALUE 1;
---
-create sequence des_comment_seq
 START with 1 INCREMENT by 1 MINVALUE 1;
 -- 
 create sequence course_seq

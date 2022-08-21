@@ -24,6 +24,7 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 @RequestMapping("/desImpl/*")
 public class DesImplController {
+	
 	private DestinationImplMapper mapper;
 	
 	@GetMapping("list.do")
@@ -37,38 +38,8 @@ public class DesImplController {
 		city.setPageNum(cri.getPageNum());
 		city.setAmount(cri.getAmount());
 		
-		if (desCity != null) {
-		switch (desCity) {
-		case "경기":
-			city.setCity("인천");
-			log.info(city.getAddress());
-			list = mapper.getAddressList(city);
-			log.info(list.get(0));
-			break;
-		case "충청북":
-			city.setCity("세종");
-			list = mapper.getAddressList(city);
-			break;
-		case "충청남":
-			city.setCity("대전");
-			list = mapper.getAddressList(city);
-			break;
-		case "경상북":
-			city.setCity("대구");
-			list = mapper.getAddressList(city);
-			break;
-		case "경상남":
-			city.setCity("울산 부산");
-			list = mapper.getAddressList(city);
-			break;
-		case "전라남":
-			city.setCity("광주");
-			list = mapper.getAddressList(city);
-			break;
-		default:
-			list = mapper.getAddressList(city);
-		}
-	}
+		list = searchCityList(list, desCity, city);
+		
 		if(desCity == null) {
 			list = mapper.getList(cri);
 		}
@@ -90,5 +61,42 @@ public class DesImplController {
 			model.addAttribute("data", data);
 	      return "/desImpl/get";
 	   }
+	
+	public List<DestinationImplData> searchCityList(List<DestinationImplData> list, String desCity, CityVO city) {
+		if (desCity != null) {
+			switch (desCity) {
+			case "경기":
+				city.setCity("인천");
+				log.info(city.getAddress());
+				list = mapper.getAddressList(city);
+				log.info(list.get(0));
+				break;
+			case "충청북":
+				city.setCity("세종");
+				list = mapper.getAddressList(city);
+				break;
+			case "충청남":
+				city.setCity("대전");
+				list = mapper.getAddressList(city);
+				break;
+			case "경상북":
+				city.setCity("대구");
+				list = mapper.getAddressList(city);
+				break;
+			case "경상남":
+				city.setCity("울산 부산");
+				list = mapper.getAddressList(city);
+				break;
+			case "전라남":
+				city.setCity("광주");
+				list = mapper.getAddressList(city);
+				break;
+			default:
+				list = mapper.getAddressList(city);
+			}
+		}
+		
+		return list;
+	}
 
 }

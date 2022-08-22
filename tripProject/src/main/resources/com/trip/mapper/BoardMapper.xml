@@ -68,7 +68,7 @@
    
    	<!-- 내 게시글 목록 -->
 	<select id="getWrittenList" resultType="com.trip.domain.BoardVO">
-		select * from board where usernum=#{userNum}
+		select * from board where usernum=#{userNum} order by board_num desc
 	</select>
    
    <select id="getListWithPagging"

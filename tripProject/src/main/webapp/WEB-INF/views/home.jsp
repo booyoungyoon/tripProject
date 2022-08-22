@@ -94,8 +94,8 @@ height: 300px;
 		</ol>
 		<div class="carousel-inner">
 			<div class="carousel-item active">
-				<img class="carousel-img d-block w-100"
-					src="${des[564].destinationFirstImg}" alt="First slide">
+				<a href="http://localhost:8081/destination/get.do?pageNum=1&amount=10&type=TCA&keyword=%ED%95%98%EC%A1%B0%EB%8C%80&destinationAddress=&num=236"><img class="carousel-img d-block w-100"
+					src="${des[564].destinationFirstImg}" alt="First slide" ></a>
 				<div class="carousel-caption d-none d-md-block">
 					<p class="subtitle">
 					<h1>바다 앞 기암절벽과 정자가 어우러진 아름다운 절경</h1>
@@ -103,8 +103,8 @@ height: 300px;
 				</div>
 			</div>
 			<div class="carousel-item">
-				<img class="carousel-img d-block w-100"
-					src="${des[745].destinationFirstImg}" alt="Second slide">
+				<a href="http://localhost:8081/destination/get.do?pageNum=1&amount=10&type=TCA&keyword=%EC%B2%9C%EC%A7%80%EC%97%B0&destinationAddress=&num=55"><img class="carousel-img d-block w-100"
+					src="${des[745].destinationFirstImg}" alt="Second slide"></a>
 				<div class="carousel-caption d-none d-md-block">
 					<p class="subtitle">
 					<h1>밤에 보면 매력이 두 배 #천지연폭포</h1>
@@ -112,8 +112,8 @@ height: 300px;
 				</div>
 			</div>
 			<div class="carousel-item">
-				<img class="carousel-img d-block w-100"
-					src="${des[775].destinationFirstImg}" alt="Third slide">
+				<a href="http://localhost:8081/destination/get.do?pageNum=9&amount=10&type=&keyword=&destinationAddress=%EA%B2%BD%EC%83%81%EB%B6%81&num=25"><img class="carousel-img d-block w-100"
+					src="${des[775].destinationFirstImg}" alt="Third slide"></a>
 				<div class="carousel-caption d-none d-md-block">
 					<p class="subtitle">
 					<h1>신라 천년의 밤을 만나다! 경주 동궁과 월지, 월정교</h1>

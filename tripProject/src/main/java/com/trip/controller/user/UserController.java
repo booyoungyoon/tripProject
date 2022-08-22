@@ -23,6 +23,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.trip.api.KakaoProfile;
 import com.trip.api.OAuthToken;
 import com.trip.domain.UserVO;
+import com.trip.service.BoardService;
 import com.trip.service.UserService;
 
 import lombok.AllArgsConstructor;
@@ -34,6 +35,7 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/users/*")
 public class UserController {
 	private UserService service;
+	private BoardService boardService;
 	
 	@GetMapping("login.do")
 	public String loginView() {
@@ -129,6 +131,13 @@ public class UserController {
 	public String mypage(Model model) {
 		log.info("-------- mypage -----------");
 		return "users/mypage";
+	}
+	
+	@RequestMapping("writtenList.do")
+	public String writtenList(Model model, int usernum) {
+		log.info("-------- writtenList -----------");
+		model.addAttribute("list", boardService.getWrittenList(usernum));
+		return "users/writtenList";
 	}
 	
 	@GetMapping("withdraw.do")

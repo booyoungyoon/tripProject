@@ -197,7 +197,7 @@ html, body {
 					<button type="button" class="btn btn-secondary" data-toggle="dropdown">마이페이지</button>
 					<ul class="dropdown-menu" role="menu">
 						<li><a href="/users/mypage.do">내 정보 보기</a></li>
-						<li><a href="#">내 글 보기</a></li>
+						<li><a href="/users/writtenList.do?usernum=<c:out value="${user.userNum}"/>">내 글 보기</a></li>
 						<li><a href="/logout.do">로그아웃</a></li>
 					</ul>
 				</div>
@@ -208,7 +208,7 @@ html, body {
 					<button type="button" class="btn btn-secondary" data-toggle="dropdown">마이페이지</button>
 					<ul class="dropdown-menu" role="menu">
 						<li><a href="/users/list.do">회원 목록 조회</a></li>
-						<li><a href="#">내 글 보기</a></li>
+						<li><a href="/users/writtenList.do?usernum=<c:out value="${user.userNum}"/>">내 글 보기</a></li>
 						<li><a href="/logout.do">로그아웃</a></li>
 					</ul>
 				</div>

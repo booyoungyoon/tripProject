@@ -44,5 +44,10 @@ public class BoardServiceImpl implements BoardService {
    public int getTotal(Criteria cri) {
       return mapper.getTotalCount(cri);
    }
+   
+	@Override
+	public List<BoardVO> getWrittenList(int usernum) {
+		return mapper.getWrittenList(usernum);
+	}
 
 }

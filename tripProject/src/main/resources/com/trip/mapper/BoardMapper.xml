@@ -66,6 +66,11 @@
       delete from board where board_num = #{boardNum}
    </delete>
    
+   	<!-- 내 게시글 목록 -->
+	<select id="getWrittenList" resultType="com.trip.domain.BoardVO">
+		select * from board where usernum=#{userNum}
+	</select>
+   
    <select id="getListWithPagging"
       resultType="com.trip.domain.BoardVO">
       <![CDATA[

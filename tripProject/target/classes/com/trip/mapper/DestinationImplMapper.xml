@@ -5,31 +5,27 @@
 <mapper namespace="com.trip.mapper.DestinationImplMapper">
 
 	<sql id="getAddressListsql">
-		<if test="type != 0">
-			type = #{type} and 
-		</if>
-		<if test="address != null">
-			(address like '%'|| #{address} ||'%' 
-		</if>
 		<trim prefix="or (" suffix=")">
 			<foreach collection="cityArr" item="city" separator="or">
 				<if test="city != null">
-					address like '%'|| #{city} ||'%' 
+					address like '%'|| #{city} ||'%'
 				</if>
 			</foreach>
 		</trim>
 	</sql>
 	
-	<sql id="cityTotalsql">
-		<trim prefix="(" suffix=")) and">
+	<sql id="getTypeSql">
+		<trim prefix="(" suffix=") and">
 			<if test="type != 0">
 				type = #{type}
 			</if>
-			<if test="type == 0">
-				type = 1 or type = 2
-			</if>
+		</trim>
+	</sql>
+	
+	<sql id="cityTotalsql">
+		<trim prefix="(" suffix=") and">
 			<if test="address != null">
-				and ( address like '%'|| #{address} ||'%'
+				address like '%'|| #{address} ||'%'
 			</if>
 			<if test="city != null">
 				or
@@ -59,18 +55,22 @@
 			select /*+ INDEX(destination_impl indexNum)*/
 			rownum rn, num, title, address, firstimg, tel
 			from destination_impl
-		where 
+		where
+		]]>
+		<include refid="getTypeSql"></include>
+		<![CDATA[ 
+		(address like '%'|| #{address} ||'%'
 		]]>
 		<include refid="getAddressListsql"></include>
 		<![CDATA[
-		) and ROWNUM <= #{pageNum}*#{amount})
+		) and ROWNUM <= #{pageNum}* #{amount})
 		where
 		rn > (#{pageNum}-1)*#{amount}
 		
 		]]>	
 	</select>
 	
-	<!-- 지역 누르면 sort -->	
+	<!-- 전체 리스트 조회 -->	
 	<select id="getList" resultType="com.trip.domain.DestinationImplData">
  		<![CDATA[
 		select num, title, address, firstimg, tel
@@ -89,6 +89,7 @@
 	<!-- 전체 count -->
 	<select id="getTotalCount" resultType="int">
     select count(*) from destination_impl where
+    	<include refid="getTypeSql"></include>
     	<include refid="cityTotalsql"></include>
    	num>0
    </select>

@@ -35,11 +35,9 @@
 	font-weight: normal;
 	font-style: normal;
 }
-
 * {
 	font-family: 'yg-jalnan', cursive
 }
-
 .gd-container {
 	max-width: 1100px;
 	position: relative;
@@ -47,20 +45,16 @@
 	padding-left: 15px;
 	padding-right: 15px;
 }
-
 ul>li>a {
 	color: #212121;
 }
-
 #slider {
 	width: 1000px;
 	height: 2000px;
 	margin: 0 auto;
 }
 h1 { text-align: center; }
-
 #menu button { font-size : 1.2em; }
-
 #selectType { height: 60px; }
 #selectType button { margin: 2px 100px 0 100px; font-size: 2em}
 </style>
@@ -85,23 +79,23 @@ h1 { text-align: center; }
 		<!-- 여기에 내용 넣으세요 -->
 <div id="menu" class="card text-center" style="border-radius: 30px;">
   <div class="card-header" style="border-radius: 30px;" >
-    <button onclick="location.href='/desImpl/list.do?address=서울'" type="button" class="btn btn-light fw-bolder">서울시</button>
-    <button onclick="location.href='/desImpl/list.do?address=경기'" type="button" class="btn btn-light">경기도</button>
-    <button onclick="location.href='/desImpl/list.do?address=강원'" type="button" class="btn btn-light">강원도</button>
-    <button onclick="location.href='/desImpl/list.do?address=충청북'" type="button" class="btn btn-light">충청북도</button>
-    <button onclick="location.href='/desImpl/list.do?address=충청남'" type="button" class="btn btn-light">충청남도</button>
-    <button onclick="location.href='/desImpl/list.do?address=경상북'" type="button" class="btn btn-light">경상북도</button>
-    <button onclick="location.href='/desImpl/list.do?address=경상남'" type="button" class="btn btn-light">경상남도</button>
-    <button onclick="location.href='/desImpl/list.do?address=전라북'" type="button" class="btn btn-light">전라북도</button>
-    <button onclick="location.href='/desImpl/list.do?address=전라남'" type="button" class="btn btn-light">전라남도</button>
-    <button onclick="location.href='/desImpl/list.do?address=제주'" type="button" class="btn btn-light">제주도</button>
+  	<a href="서울"><button type="button" class="btn btn-light fw-bolder">서울시</button></a>
+  	<a href="경기"><button type="button" class="btn btn-light fw-bolder">경기도</button></a>
+  	<a href="강원"><button type="button" class="btn btn-light fw-bolder">강원도</button></a>
+  	<a href="충청북"><button type="button" class="btn btn-light fw-bolder">충청북도</button></a>
+  	<a href="충청남"><button type="button" class="btn btn-light fw-bolder">충청남도</button></a>
+  	<a href="경상북"><button type="button" class="btn btn-light fw-bolder">경상북도</button></a>
+  	<a href="경상남"><button type="button" class="btn btn-light fw-bolder">경상남도</button></a>
+  	<a href="전라북"><button type="button" class="btn btn-light fw-bolder">전라북도</button></a>
+  	<a href="전라남"><button type="button" class="btn btn-light fw-bolder">전라남도</button></a>
+  	<a href="제주"><button type="button" class="btn btn-light fw-bolder">제주도</button></a>
   </div>
   
   <div id="selectType" style="border-radius: 30px;">
-  	<button onclick="location.href='/desImpl/list.do?type=1'" type="button" class="btn btn-light">호텔</button>
-    <button onclick="location.href='/desImpl/list.do?type=2'" type="button" class="btn btn-light">음식점</button>
+	  <a href="1"><button type="button" class="btn btn-light">호텔</button></a>
+	  <a href="2"><button type="button" class="btn btn-light">음식점</button></a>
   </div>
-        
+
 </div>
 <br><br>
 
@@ -137,20 +131,20 @@ h1 { text-align: center; }
 				</div>
 			</c:forEach>
 		</div>
-		
+
 <!-- 페이지 처리 Start -->
 				<div class="pull-right">
 					  <ul class="pagination">
-					  
+
 					    <c:if test="${pageMaker.prev }">
 						    <li class="paginate_button previous"><a  href="${pageMaker.startPage-1}"><</a></li>
 					    </c:if>
-				
+
 					  	<c:forEach  var="num"  begin="${pageMaker.startPage }"  end="${pageMaker.endPage }">
 						    <li class="paginate_button  ${pageMaker.cri.pageNum == num ? "active" : "" }">
 						    <a  href="${num }">${num }</a></li>
 					  	</c:forEach>
-					    
+
 					    <c:if test="${pageMaker.next }">
 						    <li class="paginate_button next"><a  href="${pageMaker.endPage+1}">></a></li>
 					    </c:if>
@@ -159,30 +153,28 @@ h1 { text-align: center; }
 				<!-- 페이지 처리 End -->
 				<!-- 검색조건 start -->
 					<form id = "SearchForm" action = "/desImpl/list.do" method="get" >
-						<select name='type'>
+						<select>
 							<option value="" <c:out value="${pageMaker.cri.type==null?'selected':''}"/>>검색</option>
-							<option value="T" <c:out value="${pageMaker.cri.type eq T?'selected':''}"/> >제목</option>
 							<option>지역</option>
-							
 						</select>
-						
+
 					<input type="text" name="desCity"  >	
 					<input type ="hidden" name="pageNum"value='${pageMaker.cri.pageNum}'/>	
 					<input type ="hidden" name="amount"value='${pageMaker.cri.amount}'/>
-					<input type ="hidden" name="type"value='${board.type}'/>
-					
-					<button type="button" class="btn btn-outline-info">Search</button>	
-						
+
+					<input type="submit" class="btn btn-outline-info" value="Search">
+
 					</form>
-				
+
 				<!-- 검색 조건 end -->
-				
+
 				<form id="actionForm" action="/desImpl/list.do" method="get">
 				<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
 				<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
-                <input type="hidden" name="city"   value="${pageMaker.city.address}">
+                <input type="hidden" name="desCity" value="${pageMaker.city.address}">
+                <input type="hidden" name="type" value="${pageMaker.city.type}">
 				</form>
-	
+
 	</div>
 
 
@@ -190,6 +182,22 @@ h1 { text-align: center; }
  
  
 	var actionForm = $("#actionForm");
+	
+	
+	$(".card-header a").on("click", function(e){
+		 e.preventDefault();
+		console.log('click');
+		actionForm.find("input[name='desCity']").val($(this).attr("href"));
+		actionForm.submit(); 
+	});
+	
+	$("#selectType a").on("click", function(e){
+		 e.preventDefault();
+		console.log('click');
+		actionForm.find("input[name='type']").val($(this).attr("href"));
+		actionForm.submit(); 
+	});
+	
 	$(".paginate_button a").on("click", function(e){
 		 e.preventDefault();
 		console.log('click');
@@ -205,7 +213,6 @@ h1 { text-align: center; }
           alert("검색종류를 선택하세요.")
           return false;
        }
-
        if(!searchForm.find("[name='keyword']").val()){
           alert("키워드를 선택하세요.")
           return false;
@@ -215,12 +222,6 @@ h1 { text-align: center; }
        searchForm.submit();
     });
  
-    
-    window.onpageshow = function(e) {
-        if (e.persisted || (window.performance && window.performance.navigation.type == 2)) { //뒤로가기 감지
-           location.reload(); //현재 페이지 새로고침
-        }
-     }
  </script>
 
 
@@ -239,5 +240,3 @@ h1 { text-align: center; }
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </html>
-
-

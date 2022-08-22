@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.trip.domain.CityVO;
 import com.trip.domain.Criteria;
 import com.trip.domain.DestinationImplData;
-import com.trip.domain.FesDataDTO;
 import com.trip.domain.PageDTO;
 import com.trip.mapper.DestinationImplMapper;
 
@@ -28,21 +27,17 @@ public class DesImplController {
 	private DestinationImplMapper mapper;
 	
 	@GetMapping("list.do")
-	public String list(Criteria cri, Model model, CityVO city) {
-		log.info("지역 : " + city.getAddress());
-		log.info("type : " + city.getType());
+	public String list(Criteria cri, Model model, String desCity, CityVO city) {
+		log.info("지역 : " + desCity);
+		log.info("타입 : " + city.getType());
 		List<DestinationImplData> list = new ArrayList<>();
+
+		city.setAddress(desCity);
+		log.info(city.getAddress());
+		
+		list = searchCityList(list, desCity, city);
 		
 		if(city.getAddress() == null) {
-			city.setAddress("도");
-			city.setCity("시");
-		}
-		city.setPageNum(cri.getPageNum());
-		city.setAmount(cri.getAmount());
-		
-		list = searchCityList(list, city.getAddress(), city);
-		
-		if(city.getAddress() == null && city.getType() == 0) {
 			log.info("---------- 전체 list 조회-------------");
 			list = mapper.getList(cri);
 		}
@@ -69,29 +64,29 @@ public class DesImplController {
 		if (desCity != null) {
 			switch (desCity) {
 			case "경기":
-				city.setCity("인천");
+				city.setCity("인천광역시");
 				log.info(city.getAddress());
 				list = mapper.getAddressList(city);
 				log.info(list.get(0));
 				break;
 			case "충청북":
-				city.setCity("세종");
+				city.setCity("세종특별자치시");
 				list = mapper.getAddressList(city);
 				break;
 			case "충청남":
-				city.setCity("대전");
+				city.setCity("대전광역시");
 				list = mapper.getAddressList(city);
 				break;
 			case "경상북":
-				city.setCity("대구");
+				city.setCity("대구광역시");
 				list = mapper.getAddressList(city);
 				break;
 			case "경상남":
-				city.setCity("울산 부산");
+				city.setCity("울산광역시 부산광역시");
 				list = mapper.getAddressList(city);
 				break;
 			case "전라남":
-				city.setCity("광주");
+				city.setCity("광주광역시");
 				list = mapper.getAddressList(city);
 				break;
 			default:

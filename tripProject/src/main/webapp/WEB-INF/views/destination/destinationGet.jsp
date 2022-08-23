@@ -132,7 +132,7 @@ font-size: 11pt;
 </head>
 <body>
 <jsp:include page="../includes/header.jsp"></jsp:include>
-<a style="display:scroll;position:fixed;bottom:20px;z-index: 999;right:60px;font-size: 40px;" href="#" title="âtop">
+<a style="display:scroll;position:fixed;bottom:20px;z-index: 999;right:60px;font-size: 50px;" href="#" title="âtop">
 	<i class="fa-solid fa-circle-arrow-up"></i></a>
 <div class="card">
    

@@ -33,12 +33,12 @@
   padding-right: 15px;
 }
  ul > li > a {color: #212121;}
- #slider {width: 1000px; height: 1000px; margin: 0 auto;}
-	table {width:800px; margin:10px auto 0;}
-	section {width: 1000px; height: 1200px; background-color: #D5D5D5; margin:0 auto; margin-bottom: 25px;}
+ #slider {width: 1000px; height: 2000px; margin: 0 auto;}
+	table {width:900px; margin:10px auto 0; max-height: 900px; }
+	section {width: 1000px; max-height: 1700px; background-color: #fff; margin:0 auto; margin-bottom: 25px; }
 	section > h1 {text-align: center; line-height: 100px;}
 	table, th, td  { border:1px solid #666; }
-	th, td { height: 50px; text-align: center; }
+	th, td { height: 50px; text-align: center;}
 	
 	#buttons {margin-left : 450px; margin-top: 25px;}
 	
@@ -51,7 +51,7 @@
 </head>
 <body>
 <jsp:include page="../includes/header.jsp"></jsp:include>
-<a style="display:scroll;position:fixed;bottom:20px;z-index: 999;right:60px;font-size: 40px;" href="#" title="âtop">
+<a style="display:scroll;position:fixed;bottom:20px;z-index: 999;right:60px;font-size: 50px;" href="#" title="âtop">
 	<i class="fa-solid fa-circle-arrow-up"></i></a>
 	
 	<!-- header card -->
@@ -74,7 +74,7 @@
 				</tr>
 				<tr>
 					<td>내용</td>
-					<td>
+					<td style="overflow: auto;">
 					${board.board_content}
 					</td>
 				</tr>

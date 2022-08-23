@@ -5,6 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+footer{
+background-color: #eee;}
+</style>
 <body>
 <footer>
 	<div class="card text-center">

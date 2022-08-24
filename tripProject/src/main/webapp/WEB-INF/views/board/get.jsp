@@ -181,15 +181,6 @@ $(document).ready(function(){
 	
     var replyUL = $(".chat");
    
-   /*  <li class="left clearfix" data-rno='12'>
-        <div>
-           <div class="header">
-              <strong class="primary-font">user00</strong>
-              <small class="pull-right text-muted">2018-01-01 12:12</small>
-           </div>
-           <p>댓글 테스트</p>
-        </div> 
-        </li>*/
     showList(1);
   
    var modal = $("#myModal");    //$(".myModal");
@@ -201,14 +192,17 @@ $(document).ready(function(){
    var modalRegisterBtn = $("#modalRegisterBtn");
    
    modalRemoveBtn.on("click", function(){
-      let rno = modal.data("rno");
-     
-      replyService.remove(rno, function(result){
-         alert("result : " + result);
-         modal.modal("hide");
-         showList(pageNum);
-      });
-   }); //삭제하기
+	      let rno = modal.data("rno");
+	      let result = confirm("댓글을 삭제하시겠습니까?");
+	      
+	      if(result){
+		      replyService.remove(rno, function(result){
+		         alert("result : " + result);
+		         modal.modal("hide");
+		         showList(pageNum);
+		      });
+	      }
+	   }); //삭제하기
    
    modalModBtn.on("click", function(e){
       var reply = {
@@ -375,15 +369,19 @@ $(document).ready(function(){
            showList(pageNum);
       });    //end replyPageFooter
       
-	var operForm = $("#operForm");
-	console.log(num);
-	$("button[data-oper='modify']").on("click", function(e) {
-		operForm.attr("action", "/board/modify.do?" + num).submit();
-	});
-	$("button[data-oper='remove']").on("click", function(e) {
-		operForm.attr("action", "/board/remove.do?" + num);
-		operForm.submit();
-	});
+     var operForm = $("#operForm");
+ 	console.log(num);
+ 	$("button[data-oper='modify']").on("click", function(e) {
+ 		operForm.attr("action", "/board/modify.do?" + num).submit();
+ 	});
+ 	$("button[data-oper='remove']").on("click", function(e) {
+ 		let result = confirm("글을 삭제하시겠습니까?");
+ 		
+ 		if(result){
+ 			operForm.attr("action", "/board/remove.do?" + num);
+ 			operForm.submit();
+ 		}
+ 	});
 });
 </script>	
 </body>
